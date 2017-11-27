@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="css/styles.css">
+<head>
+  <meta charset="utf-8">
+  <title>OOP List</title>
+</head>
+<body>
+<script src="js/Object.js"></script>
+<script src="js/Item.js"></script>
+<script src="js/ShoppingCart.js"></script>
+<script type="text/javascript">
+
+///////////////////////////////////////////////////////////////////////
+//OBJECTS
+///////////////////////////////////////////////////////////////////////
+//Object creation
+
+document.write("<div class='title'>OBJECTS" + "<br/>" + "Object creation" + "</div><br/>");
+
+var customer = {
+  name: "Tom Smith",
+
+  //Creating a function inside and object is done like this (different then in a constuctor function)
+  speak: function() {
+    return 'My name is ' + this.name;
+  },
+
+  //Object inside an Object
+
+  address: {
+    street: '123 Main St',
+    city: 'Carlsbad',
+    state: 'CA'
+  }
+};
+
+//Object properties
+document.write("<div class='title'>Object properties" + "</div><br/>");
+var ninja = new thing("Ninja", "cat", "tabby", "white", "medium");
+document.write("<br/>" + customer.speak() + "<br />");
+document.write(customer.name + " lives at " + customer.address.street + "<br /><br />");
+
+document.write(ninja.whatsMyName() + "<br />");
+document.write(ninja.name + " is the color " + ninja.color + "<br /><br />");
+
+//Object add properties
+document.write("<div class='title'>Object add properties" + "</div><br/>")
+
+customer.address.country = "US";
+document.write("In " + customer.address.country + "<br /><br />");
+
+//Constructor function (A contructor provides the function that classes provide in other Object Oriented Languages)
+
+function Person(name, street) {
+
+  this.name = name;
+  this.street = street;
+
+  //When creating a function inside a constructor function (different then in an Object)
+  //1st you name the function
+  //2nd list the functions/methods
+
+  this.info = function() {
+    return "My name is " + this.name + " and I live on " + this.street;
+  }
+
+}
+
+//Refer to the Person object by calling the constructor function
+//Creating a new Person object called "Bob Smith"
+document.write("<div class='title'>Refer to the Person object by calling the constructor function<br/>" + 
+  "Creating a new Person object called 'Bob Smith'</div><br/>");
+
+var bobSmith = new Person("Bob Smith", "234 main st");
+
+document.write(bobSmith.info() + "<br /><br />");
+
+//Check to see if an object is a specific Object type
+document.write("<div class='title'>Check to see if an object is a specific Object type</div><br/>");
+
+document.write("Bob is a Person " + (bobSmith instanceof Person) + "<br /><br />")
+
+//Pass an Object to a Function to change its values
+
+function changeName(person) {
+  person.name = "Sue Smith";
+}
+
+//Call a function passing it an object
+//Objects are passed by reference
+document.write("<div class='title'>Call a function passing it an object <br/>Objects are passed by reference</div><br/>");
+
+changeName(bobSmith);
+document.write("Bob became " + bobSmith.name + "<br /><br />");
+
+//Object are equal only if they reference the exact same Object
+//It doesn't mean they are equal if they just contain the same data
+
+var person1 = new Person("Paul", "123 Main");
+var person2 = new Person("Paul", "123 Main");
+
+//They are precisely the same Object but they are not equal
+// == value
+// === value and type
+document.write("<div class='title'>They are precisely the same Object but they are not equal " + "</div><br />");
+
+document.write("Is person1 === person2: " + (person1 === person2) + "<br /><br />"); //false
+
+///////////////////////////////////////////////////////////////////////
+//PROTOTYPES
+///////////////////////////////////////////////////////////////////////
+//Every function is going to have a Prototype property that is going to contain an Object
+//You can add properties and methods/function to the prototype object
+document.write("<div class='title'>PROTOTYPES<br/>");
+document.write("Every function is going to have a Prototype property that is going to contain an Object<br/>");
+document.write("You can add properties and methods/function to the prototype object</div><br/>");
+
+function getSum(num1, num2) {
+  return num1 + num2;
+}
+
+//will display quantity of arguments/parameters
+document.write("Num of arguments " + getSum.length + "<br/><br/>");
+
+//Object constructor function
+function Mammal(name) {
+  this.name = name;
+  this.getInfo = function() {
+    return "The mammals name is " + this.name;
+  }
+}
+
+//adding properties to the prototype object
+Mammal.prototype.sound = "Grrrr";
+
+//adding methods to the prototype object
+Mammal.prototype.makeSound = function() {
+  return this.name + " says " + this.sound;
+}
+
+var grover = new Mammal("Grover");
+document.write(grover.makeSound() + "<br /><br />");
+
+var x = 0;
+for (var prop in grover) {
+  x++
+  document.write("property #" + x + " - " + prop + " = " + grover[prop] + "<br />");
+}
+
+document.write("<br/>Is name Property of grover : " + grover.hasOwnProperty("name") + "<br />");
+document.write("grover.name : " + grover.name + "<br /><br />");
+//
+var cart = new ShoppingCartClass();
+var purchase = new NewItemClass();
+purchase.createContainer();
+//
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+</script>
+
+</body>
+</html>
+

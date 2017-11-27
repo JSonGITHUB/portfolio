@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="css/styles.css">
+<head>
+  <meta charset="utf-8">
+  <title>OOP List</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var customer = {
+  name: "Tom Smith",
+  speak: function() {
+    return 'My name is ' + this.name;
+  },
+
+  address: {
+    street: '123 Main St',
+    city: 'Carlsbad',
+    state: 'CA'
+  }
+};
+
+document.write(customer.speak() + "<br/>");
+document.write(customer.name + " lives at " + customer.address.street + "<br />");
+
+customer.address.country = "US";
+document.write("In " + customer.address.country + "<br />");
+
+function Person(name, street) {
+
+  this.name = name;
+  this.street = street;
+
+  this.info = function() {
+    return "My name is " + this.name + " and I live on " + this.street;
+  }
+}
+
+var bobSmith = new Person("Bob Smith", "234 main st");
+
+document.write(bobSmith.info() + "<br />");
+document.write("Bob is a Person " + (bobSmith instanceof Person) + "<br />")
+
+function changeName(person) {
+  person.name = "Sue Smith";
+}
+
+changeName(bobSmith);
+document.write("Bob became " + bobSmith.name + "<br />");
+
+
+</script>
+
+
+
+</body>
+</html>
+

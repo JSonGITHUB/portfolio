@@ -9,7 +9,37 @@
 <script>
 var app = angular.module("myShoppingList", []); 
 app.controller("myCtrl", function($scope) {
-    $scope.products = ["Chicken", "Eggs", "Milk", "Juice", "Cheese", "Meatballs", "Pamesean", "Garlic Bread"];
+    $scope.products = [
+    "Chicken",
+    "Meatballs", 
+    "Eggs", 
+    "Milk", 
+    "Juice", 
+    "Cheese",
+    "Pamesean",
+    "Mozzarella", 
+    "Pizza"
+    "Garlic Bread",
+    "Frozen fruit", 
+    "Green Beans",
+    "Toilet Paper"
+    "Water",
+    "Pasta", 
+    "Olive oil",
+    "Beans",
+    "Tortillas",
+    "Sauce", 
+    "Shrimp",
+    "Fish", 
+    "Almonds", 
+    "Tomatoes", 
+    "Limes",
+    "Bananas", 
+    "Salad",  
+    "Cucumber",
+    "Avocado"
+    ];
+
     $scope.addItem = function () {
         $scope.errortext = "";
         if (!$scope.addMe) {return;}
