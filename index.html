@@ -9,9 +9,7 @@
 <script>
 var app = angular.module("myShoppingList", []); 
 app.controller("myCtrl", function($scope) {
-    $scope.products = [
-    "Chicken",
-    "Meatballs", 
+    $scope.products = [ 
     "Eggs", 
     "Milk", 
     "Juice", 
@@ -20,15 +18,26 @@ app.controller("myCtrl", function($scope) {
     "Mozzarella", 
     "Pizza",
     "Garlic Bread",
+    "Peas",
+    "Spinach",
+    "Broccoli",
+    "Brussel Sprouts",
     "Frozen fruit", 
     "Green Beans",
     "Toilet Paper",
     "Water",
     "Pasta", 
     "Olive oil",
+    "Olives",
     "Beans",
     "Tortillas",
-    "Sauce", 
+    "BBQ Sauce",
+    "Ketchup",
+    "Ranch",
+    "Sweet Asian Citrus Dressing"
+    "Sauce",
+    "Meatballs",
+    "Chicken", 
     "Shrimp",
     "Fish", 
     "Almonds", 
@@ -37,7 +46,9 @@ app.controller("myCtrl", function($scope) {
     "Bananas", 
     "Salad",  
     "Cucumber",
-    "Avocado"
+    "Avocado",
+    "Zucchini",
+    "Onion"
     ];
 
     $scope.addItem = function () {
