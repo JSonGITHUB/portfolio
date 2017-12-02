@@ -9,71 +9,86 @@
 <script>
 var app = angular.module("myShoppingList", []); 
 app.controller("myCtrl", function($scope) {
-    $scope.products = [ 
-    "Eggs",
-    "Milk", 
-    "Juice", 
-    "Cheese",
-    "Pamesean",
-    "Mozzarella", 
-    "Pizza",
-    "Garlic Bread",
-    "Hashbrowns",
-    "Peas",
-    "Spinach",
-    "Broccoli",
-    "Brussel Sprouts",
-    "Frozen fruit", 
-    "Green Beans",
-    "Cat Food",
-    "Litter",
-    "Toothpaste",
-    "Deoderant",
-    "Soap",
-    "Toilet Paper",
-    "Water",
-    "Pasta", 
-    "Olive oil",
-    "Olives",
-    "Beans",
-    "White Rice",
-    "Brown Rice",
-    "Oatmeal",
-    "Tortillas",
-    "BBQ Sauce",
-    "Ketchup",
-    "Ranch",
-    "Sweet Asian Citrus Dressing",
-    "Sauce",
-    "Meatballs",
-    "Chicken", 
-    "Shrimp",
-    "Fish", 
-    "Mussili",
-    "Almonds", 
-    "Tomatoes", 
-    "Limes",
-    "Bananas", 
-    "Salad",  
-    "Cucumber",
-    "Avocado",
-    "Zucchini",
-    "Onion"
-    ];
 
-    $scope.addItem = function () {
-        $scope.errortext = "";
-        if (!$scope.addMe) {return;}
-        if ($scope.products.indexOf($scope.addMe) == -1) {
-            $scope.products.push($scope.addMe);
-        } else {
-            $scope.errortext = "The item is already in your shopping list.";
-        }
-    }
-    $scope.removeItem = function (x) {
-        $scope.errortext = "";    
-        $scope.products.splice(x, 1);
-    }
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.products !== "undefined") {
+      $scope.products = localStorage.products;
+    } else {
+      $scope.products = [ 
+        "Eggs",
+        "Milk", 
+        "Juice", 
+        "Cheese",
+        "Pamesean",
+        "Mozzarella", 
+        "Pizza",
+        "Garlic Bread",
+        "Hashbrowns",
+        "Peas",
+        "Spinach",
+        "Broccoli",
+        "Brussel Sprouts",
+        "Frozen fruit", 
+        "Green Beans",
+        "Cat Food",
+        "Litter",
+        "Toothpaste",
+        "Deoderant",
+        "Soap",
+        "Toilet Paper",
+        "Water",
+        "Pasta", 
+        "Olive oil",
+        "Olives",
+        "Beans",
+        "White Rice",
+        "Brown Rice",
+        "Oatmeal",
+        "Tortillas",
+        "BBQ Sauce",
+        "Ketchup",
+        "Ranch",
+        "Sweet Asian Citrus Dressing",
+        "Sauce",
+        "Meatballs",
+        "Chicken", 
+        "Shrimp",
+        "Fish", 
+        "Mussili",
+        "Almonds", 
+        "Tomatoes", 
+        "Limes",
+        "Bananas", 
+        "Salad",  
+        "Cucumber",
+        "Avocado",
+        "Zucchini",
+        "Onion"
+      ];
+      localStorage.products = $scope.products;
+    } 
+  }    
+
+  $scope.addItem = function () {
+      $scope.errortext = "";
+      if (!$scope.addMe) {return;}
+      if ($scope.products.indexOf($scope.addMe) == -1) {
+          $scope.products.push($scope.addMe);
+        
+        if (typeof(Storage) !== "undefined") {
+          if (localStorage.products !== "undefined") {
+            localStorage.products.push($scope.addMe);
+          } 
+        } 
+
+      } else {
+          $scope.errortext = "The item is already in your shopping list.";
+      }
+  }
+  $scope.removeItem = function (x) {
+      $scope.errortext = "";    
+      $scope.products.splice(x, 1);
+  }
 });
 </script>
 
