@@ -80,10 +80,10 @@ app.controller("myCtrl", function($scope) {
   $scope.addItem = function () {
       $scope.errortext = "";
       if (!$scope.addMe) {return;}
-//      if ($scope.products.indexOf($scope.addMe) == -1) {
-        if (localStorage.products.indexOf($scope.addMe) == -1) {
-          //$scope.products.push($scope.addMe);
-          localStorage.products.push($scope.addMe);
+      if ($scope.products.indexOf($scope.addMe) == -1) {
+//        if (localStorage.products.indexOf($scope.addMe) == -1) {
+          $scope.products.push($scope.addMe);
+//          localStorage.products.push($scope.addMe);
         
        // if (typeof(Storage) !== undefined) {
           //  localStorage.products.push($scope.addMe);
@@ -95,7 +95,7 @@ app.controller("myCtrl", function($scope) {
   }
   $scope.removeItem = function (x) {
       $scope.errortext = "";    
-//      $scope.products.splice(x, 1);
+      $scope.products.splice(x, 1);
   }
 });
 </script>
