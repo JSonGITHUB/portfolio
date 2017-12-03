@@ -8,13 +8,20 @@
 
 <script>
 var app = angular.module("myShoppingList", []); 
+
+if (localStorage.products) {
+} else {
+
+}
+
 app.controller("myCtrl", function($scope) {
 
-  if (typeof(Storage) !== "undefined") {
-    if (localStorage.products !== "undefined") {
-      $scope.products = localStorage.products;
-    } else {
+//  if (typeof(Storage) !== undefined) {
+    //if (localStorage.products) {
+//      $scope.products = localStorage.products;
+   // } else {
       $scope.products = [ 
+//      localStorage.products = [
         "Eggs",
         "Milk", 
         "Juice", 
@@ -66,22 +73,21 @@ app.controller("myCtrl", function($scope) {
         "Zucchini",
         "Onion"
       ];
-      localStorage.products = $scope.products;
-      
-    } 
-  }    
+//      $scope.products = localStorage.products;
+   // } 
+  //}    
 
   $scope.addItem = function () {
       $scope.errortext = "";
       if (!$scope.addMe) {return;}
-      if ($scope.products.indexOf($scope.addMe) == -1) {
-          $scope.products.push($scope.addMe);
+//      if ($scope.products.indexOf($scope.addMe) == -1) {
+        if (localStorage.products.indexOf($scope.addMe) == -1) {
+          //$scope.products.push($scope.addMe);
+          localStorage.products.push($scope.addMe);
         
-        if (typeof(Storage) !== "undefined") {
-          if (localStorage.products !== "undefined") {
-            localStorage.products.push($scope.addMe);
-          } 
-        } 
+       // if (typeof(Storage) !== undefined) {
+          //  localStorage.products.push($scope.addMe);
+        //} 
 
       } else {
           $scope.errortext = "The item is already in your shopping list.";
@@ -89,7 +95,7 @@ app.controller("myCtrl", function($scope) {
   }
   $scope.removeItem = function (x) {
       $scope.errortext = "";    
-      $scope.products.splice(x, 1);
+//      $scope.products.splice(x, 1);
   }
 });
 </script>
