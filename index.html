@@ -1,125 +1,109 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<link rel="stylesheet" href="css/w3.css">
 <head>
+  <title>My Vue ToDo</title>
+  <script src="https://unpkg.com/vue"></script>
+  <style>
+    body {
+      background-color:#222222;
+      color:#FFFFFF;
+    }
+    .item {
+      padding:20px;
+      font-size: 25px;
+      font-family: Arial, sans-serif;
+      border:2px solid #222222;
+      color:#FFFFFF;
+      background-color:#000000;
+      width: calc(100% - 44px);
+      margin-top:-1px;
+      left:0px;
+    } 
+    .input {
+      background-color: #333333;
+      left:0px;
+      top:0px;
+      position: fixed;
+      width:100%;
+    } 
+    .menu {
+      margin-top: 80px;
+    }
+    input {
+      font-size: 20px;
+      width:calc(100% - 50px);
+      margin: 20px;
+    }
+  </style>
 </head>
 <body>
-
-<script>
-var app = angular.module("myShoppingList", []); 
-
-if (localStorage.products) {
-} else {
-
-}
-
-app.controller("myCtrl", function($scope) {
-
-//  if (typeof(Storage) !== undefined) {
-    //if (localStorage.products) {
-//      $scope.products = localStorage.products;
-   // } else {
-      $scope.products = [ 
-//      localStorage.products = [
-        "Eggs",
-        "Milk", 
-        "Juice", 
-        "Cheese",
-        "Pamesean",
-        "Mozzarella",
-        "Butter",
-        "Pizza",
-        "Garlic Bread",
-        "Hashbrowns",
-        "Peas",
-        "Spinach",
-        "Broccoli",
-        "Brussel Sprouts",
-        "Frozen fruit", 
-        "Green Beans",
-        "Cat Food",
-        "Litter",
-        "Toothpaste",
-        "Deoderant",
-        "Soap",
-        "Toilet Paper",
-        "Water",
-        "Pasta", 
-        "Olive oil",
-        "Olives",
-        "Beans",
-        "White Rice",
-        "Brown Rice",
-        "Oatmeal",
-        "Tortillas",
-        "BBQ Sauce",
-        "Ketchup",
-        "Ranch",
-        "Sweet Asian Citrus Dressing",
-        "Sauce",
-        "Meatballs",
-        "Chicken", 
-        "Shrimp",
-        "Fish", 
-        "Mussili",
-        "Almonds", 
-        "Tomatoes", 
-        "Limes",
-        "Bananas", 
-        "Salad",  
-        "Cucumber",
-        "Avocado",
-        "Zucchini",
-        "Onion"
-      ];
-//      $scope.products = localStorage.products;
-   // } 
-  //}    
-
-  $scope.addItem = function () {
-      $scope.errortext = "";
-      if (!$scope.addMe) {return;}
-      if ($scope.products.indexOf($scope.addMe) == -1) {
-//        if (localStorage.products.indexOf($scope.addMe) == -1) {
-          $scope.products.push($scope.addMe);
-//          localStorage.products.push($scope.addMe);
-        
-       // if (typeof(Storage) !== undefined) {
-          //  localStorage.products.push($scope.addMe);
-        //} 
-
-      } else {
-          $scope.errortext = "The item is already in your shopping list.";
-      }
-  }
-  $scope.removeItem = function (x) {
-      $scope.errortext = "";    
-      $scope.products.splice(x, 1);
-  }
-});
-</script>
-
-<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-2 w3-margin" style="width:calc(100%-20px);">
-  <header class="w3-container w3-light-grey w3-padding-16">
-    <h1>My Shopping List</h1>
-  </header>
-  <ul class="w3-ul">
-    <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">X</span></li>
-  </ul>
-  <div class="w3-container w3-light-grey w3-padding-16">
-    <div class="w3-row w3-margin-top">
-      <div class="w3-col s10">
-        <input placeholder="Add shopping items here" ng-model="addMe" class="w3-input w3-border w3-padding">
-      </div>
-      <div class="w3-col s2">
-        <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
-      </div>
-    </div>
-    <p class="w3-text-red">{{errortext}}</p>
+  <div id="app">
+    <div class="input"><input v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items"></div>
+            <!--
+            Vue prefers to explicitly name new variables, rather
+            than implicitly creating new scopes.
+            -->
+            <div class="menu">
+              <div class="item" v-for="(todo, index) in todos" v-on:click="removeTodo(index)">
+                {{ todo.title }}
+                <!--
+                In general, Vue tries its best to act in very
+                unsurprising ways. One example of this is that
+                event callbacks in Vue behave exactly like they do
+                outside of Vue. In Knockout however, it's
+                surprisingly cumbersome to just pass an argument
+                to a method.
+                -->
+            </div>
+          </div>
   </div>
-</div>
 
+  <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        todos: [],
+
+        newTodoText: '',
+      },
+      // Instead of adding everything directly to the
+      // instance, Vue has specific options to help
+      // organize your components. Any methods are
+      // registered under the "methods" options, computed
+      // properties are registered under "computed", etc.
+      created: function () {
+        if (!localStorage.getItem("vueTodos")) {
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos))
+         } else {
+          var retrievedData = localStorage.getItem("vueTodos");
+          this.todos = JSON.parse(retrievedData);
+         }
+      },
+
+      methods: {
+        addTodo: function () {
+          // In Knockout, reactive data acts mostly like
+          // plain JavaScript objects, except getting
+          // and setting are done through a function call.
+          // In Vue, there's no special syntax for getters
+          // and setters.
+          if (this.newTodoText) {
+            this.todos.push({ title: this.newTodoText })
+            var retrievedData = localStorage.getItem("vueTodos");
+            retrievedData = JSON.parse(retrievedData);
+            retrievedData.push({ title: this.newTodoText })
+            localStorage.setItem("vueTodos", JSON.stringify(retrievedData))
+            this.newTodoText = ''
+          }
+        },
+        removeTodo: function (index) {
+          this.todos.splice(index, 1)
+//          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+        }
+      }
+    })
+    
+  </script>
 </body>
 </html>
-
