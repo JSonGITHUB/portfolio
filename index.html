@@ -78,6 +78,10 @@
       right:20px;
       position:absolute;
     }
+    .optionFont {
+      font-size: 30px;
+    }
+
   </style>
 </head>
 <body>
@@ -86,29 +90,17 @@
       <input v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
       <image class="settings" src="assets/menu.png" v-on:click="toggleSettings()"/>
     </div>
-    <!--
-    Vue prefers to explicitly name new variables, rather
-    than implicitly creating new scopes.
-    -->
     <div class="menu">
       <div class="item" v-for="(todo, index) in todos">
         <span class="itemRemove" v-on:click="removeTodo(index)">{{ todo.title }}</span>
-        <!--
-        In general, Vue tries its best to act in very
-        unsurprising ways. One example of this is that
-        event callbacks in Vue behave exactly like they do
-        outside of Vue. In Knockout however, it's
-        surprisingly cumbersome to just pass an argument
-        to a method.
-        -->
-        <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
-          <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" selected v-if="aisles[selectedId] == todo.aisle">
-              {{ aisles[selectedId] }}
-          </option>
-          <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" v-if="aisles[selectIndex] !== todo.aisle">
-            {{ aisles[selectIndex] }}
-          </option>
-        </select>
+          <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
+            <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
+                {{ aisles[selectedId] }}
+            </option>
+            <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" class="optionFont" v-if="aisles[selectIndex] !== todo.aisle">
+              {{ aisles[selectIndex] }}
+            </option>
+          </select>
       </div>
     </div>
     <div id="settingsMenu">
@@ -137,11 +129,6 @@
         newTodoText: '',
         newAisle: '',
       },
-      // Instead of adding everything directly to the
-      // instance, Vue has specific options to help
-      // organize your components. Any methods are
-      // registered under the "methods" options, computed
-      // properties are registered under "computed", etc.
       created: function () {
         this.todos = [];
         if (!localStorage.getItem("vueTodos")) {
@@ -154,20 +141,13 @@
         }
         this.toggleSettings();
       },
-
       methods: {
         addTodo: function () {
-          // In Knockout, reactive data acts mostly like
-          // plain JavaScript objects, except getting
-          // and setting are done through a function call.
-          // In Vue, there's no special syntax for getters
-          // and setters.
           if (this.newTodoText) {
             this.newAisle = prompt("Enter aisle number:", "");
             if(this.aisles.indexOf(this.newAisle) < 0){
               this.aisles.push(this.newAisle);
             }
-//            this.sortArray(this.aisles);
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
             this.newItem = {title: this.newTodoText, aisle: this.newAisle};
             this.todos.push(this.newItem);
@@ -182,7 +162,6 @@
         removeTodo: function (index) {
           localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
           this.todos.splice(index, 1)
-//          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
         },
         toggleSettings: function () {
           if (document.getElementById("settingsMenu").style.visibility == "hidden") {
@@ -202,7 +181,6 @@
               }
             }
             this.todos[index].aisle = selectedAisle;
-//            this.sortArray(this.aisles);
             this.updateAisles();
           }
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
