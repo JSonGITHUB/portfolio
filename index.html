@@ -8,6 +8,31 @@
       background-color:#222222;
       color:#FFFFFF;
     }
+    .settings {
+      right:11px;
+      top:18px;
+      position: absolute;
+    }
+    .settings:hover {
+      opacity: .7;
+      cursor:pointer;
+    }
+    .settingsButton {
+      float:left;
+      font-size: 20px;
+    }
+    #settingsMenu {
+      background-color: #00FF00;
+      left:0px;
+      top:69px;
+      position: fixed;
+      width:100%;
+      height: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
     .item {
       padding:20px;
       font-size: 25px;
@@ -16,46 +41,81 @@
       color:#FFFFFF;
       background-color:#000000;
       width: calc(100% - 44px);
+      height: 23px;
       margin-top:-1px;
       left:0px;
     } 
+    .item:hover {
+      opacity: .7;
+      cursor:pointer;
+    }
+    .itemRemove {
+      position: absolute;
+      width: calc(100% - 200px);
+      color:#FFFFFF;
+    } 
+    .itemRemove:hover {
+      opacity: .7;
+      cursor:pointer;
+    }
     .input {
       background-color: #333333;
       left:0px;
       top:0px;
       position: fixed;
       width:100%;
+      z-index: 100;
     } 
     .menu {
       margin-top: 80px;
     }
     input {
       font-size: 20px;
-      width:calc(100% - 50px);
+      width:calc(100% - 100px);
       margin: 20px;
+    }
+    select {
+      right:20px;
+      position:absolute;
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <div class="input"><input v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items"></div>
-            <!--
-            Vue prefers to explicitly name new variables, rather
-            than implicitly creating new scopes.
-            -->
-            <div class="menu">
-              <div class="item" v-for="(todo, index) in todos" v-on:click="removeTodo(index)">
-                {{ todo.title }}
-                <!--
-                In general, Vue tries its best to act in very
-                unsurprising ways. One example of this is that
-                event callbacks in Vue behave exactly like they do
-                outside of Vue. In Knockout however, it's
-                surprisingly cumbersome to just pass an argument
-                to a method.
-                -->
-            </div>
-          </div>
+    <div class="input">
+      <input v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
+      <image class="settings" src="assets/menu.png" v-on:click="toggleSettings()"/>
+    </div>
+    <!--
+    Vue prefers to explicitly name new variables, rather
+    than implicitly creating new scopes.
+    -->
+    <div class="menu">
+      <div class="item" v-for="(todo, index) in todos">
+        <span class="itemRemove" v-on:click="removeTodo(index)">{{ todo.title }}</span>
+        <!--
+        In general, Vue tries its best to act in very
+        unsurprising ways. One example of this is that
+        event callbacks in Vue behave exactly like they do
+        outside of Vue. In Knockout however, it's
+        surprisingly cumbersome to just pass an argument
+        to a method.
+        -->
+        <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
+          <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" selected v-if="aisles[selectedId] == todo.aisle">
+              {{ aisles[selectedId] }}
+          </option>
+          <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" v-if="aisles[selectIndex] !== todo.aisle">
+            {{ aisles[selectIndex] }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div id="settingsMenu">
+      <button class="settingsButton" v-for="(setting, index) in settings" v-on:click="getSetting(index)">
+          {{ settings[index] }}
+      </button>
+    </div>
   </div>
 
   <script>
@@ -64,8 +124,18 @@
       el: '#app',
       data: {
         todos: [],
-
+        todoSort: [],
+        aisles: ["Add Aisle/Index", "Delete Item"],
+        retrievedData: "",
+        settings: [
+          "Save", 
+          "Restore", 
+          "Clear", 
+          "Revert"
+        ],
+        newItem: {title: '', aisle: ''},
         newTodoText: '',
+        newAisle: '',
       },
       // Instead of adding everything directly to the
       // instance, Vue has specific options to help
@@ -73,12 +143,16 @@
       // registered under the "methods" options, computed
       // properties are registered under "computed", etc.
       created: function () {
+        this.todos = [];
         if (!localStorage.getItem("vueTodos")) {
-          localStorage.setItem("vueTodos", JSON.stringify(this.todos))
-         } else {
-          var retrievedData = localStorage.getItem("vueTodos");
-          this.todos = JSON.parse(retrievedData);
-         }
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+        } else {
+          this.retrievedData = localStorage.getItem("vueTodos");
+          this.todos = JSON.parse(this.retrievedData);
+          this.updateAisles();
+          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
+        }
+        this.toggleSettings();
       },
 
       methods: {
@@ -89,17 +163,91 @@
           // In Vue, there's no special syntax for getters
           // and setters.
           if (this.newTodoText) {
-            this.todos.push({ title: this.newTodoText })
-            var retrievedData = localStorage.getItem("vueTodos");
-            retrievedData = JSON.parse(retrievedData);
-            retrievedData.push({ title: this.newTodoText })
-            localStorage.setItem("vueTodos", JSON.stringify(retrievedData))
+            this.newAisle = prompt("Enter aisle number:", "");
+            if(this.aisles.indexOf(this.newAisle) < 0){
+              this.aisles.push(this.newAisle);
+            }
+//            this.sortArray(this.aisles);
+            localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle};
+            this.todos.push(this.newItem);
+            this.retrievedData = localStorage.getItem("vueTodos");
+            this.retrievedData = JSON.parse(this.retrievedData);
+            this.retrievedData.push(this.newItem);
+            this.updateAisles();
+            localStorage.setItem("vueTodos", JSON.stringify(this.retrievedData))
             this.newTodoText = ''
           }
         },
         removeTodo: function (index) {
+          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
           this.todos.splice(index, 1)
 //          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+        },
+        toggleSettings: function () {
+          if (document.getElementById("settingsMenu").style.visibility == "hidden") {
+            document.getElementById("settingsMenu").style.visibility = "visible";
+          } else {
+            document.getElementById("settingsMenu").style.visibility = "hidden";
+          }
+        },
+        reIndex: function (index, selectedAisle) {
+          if (selectedAisle == "Delete Item") {
+            this.todos.splice(index, 1); 
+          } else {
+            if (selectedAisle == "Add Aisle/Index") {
+              selectedAisle = prompt("Enter aisle number:", "");
+              if(this.aisles.indexOf(selectedAisle) < 0){
+                this.aisles.push(selectedAisle);
+              }
+            }
+            this.todos[index].aisle = selectedAisle;
+//            this.sortArray(this.aisles);
+            this.updateAisles();
+          }
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+        },
+        getSetting: function(index) {
+          if (this.settings[index] == "Clear") {
+            this.clear();
+          } else if (this.settings[index] == "Revert") {
+            this.revert();
+          }
+        },
+        clear: function () {
+          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
+          this.todos = [];
+          this.aisles = [];
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.toggleSettings();
+        },
+        sortArray: function (array) {
+          array.sort(function(a, b){return a - b});
+        },
+        updateAisles: function () {
+          for (x in this.todos) {
+            if(this.aisles.indexOf(this.todos[x].aisle) < 0){
+              this.aisles.push(this.todos[x].aisle);
+            }
+          }
+          this.sortArray(this.aisles);
+          this.todoSort = [];
+          for (a in this.aisles) {
+            for (t in this.todos) {
+              if (this.todos[t].aisle == this.aisles[a]) {
+                this.todoSort.push(this.todos[t]);
+              }
+            }
+          }
+          this.todos = this.todoSort;
+        },
+        revert: function () {
+          this.retrievedData = localStorage.getItem("vueTodosRevert");
+          this.todos = JSON.parse(this.retrievedData);
+          this.aisles = ["Add Aisle/Index", "Delete Item"];
+          this.updateAisles();
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.toggleSettings();
         }
       }
     })
