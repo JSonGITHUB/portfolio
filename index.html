@@ -200,7 +200,29 @@
           this.toggleSettings();
         },
         sortArray: function (array) {
-          array.sort(function(a, b){return a - b});
+          let alphabetic = [];
+          let numeric = [];
+          let n=0;
+          for (n in array){
+            if (Number(array[n].substring(0,1)) > 0) {
+              numeric.push(array[n]);
+            } else {
+              alphabetic.push(array[n]);
+            }
+          }
+
+          alphabetic.sort();
+          numeric.sort(function(a, b){return a - b});
+          array = [];
+          n=0;
+          for (n in alphabetic) {
+            array.push(alphabetic[n])
+          }
+          n=0;
+          for (n in numeric) {
+            array.push(numeric[n])
+          }
+            this.aisles = array;
         },
         updateAisles: function () {
           for (x in this.todos) {
