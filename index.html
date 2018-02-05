@@ -2,10 +2,6 @@
 <html>
 <head>
   <title>My Vue ToDo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=.25, user-scalable=yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=11">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes"> 
   <script src="https://unpkg.com/vue"></script>
   <style>
     body {
@@ -45,7 +41,7 @@
       color:#FFFFFF;
       background-color:#000000;
       width: calc(100% - 44px);
-      height: 23px;
+      height: auto;
       margin-top:-1px;
       left:0px;
     } 
@@ -54,7 +50,7 @@
       cursor:pointer;
     }
     .itemRemove {
-      position: absolute;
+      position: relative;
       width: calc(100% - 200px);
       color:#FFFFFF;
     } 
@@ -96,15 +92,17 @@
     </div>
     <div class="menu">
       <div class="item" v-for="(todo, index) in todos">
-        <span class="itemRemove" v-on:click="removeTodo(index)">{{ todo.title }}</span>
-          <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
-            <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
-                {{ aisles[selectedId] }}
-            </option>
-            <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" class="optionFont" v-if="aisles[selectIndex] !== todo.aisle">
-              {{ aisles[selectIndex] }}
-            </option>
-          </select>
+        <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
+          {{ todo.title }}
+        </span>
+        <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
+          <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
+              {{ aisles[selectedId] }}
+          </option>
+          <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" class="optionFont" v-if="aisles[selectIndex] !== todo.aisle">
+            {{ aisles[selectIndex] }}
+          </option>
+        </select>
       </div>
     </div>
     <div id="settingsMenu">
@@ -119,11 +117,14 @@
     var app = new Vue({
       el: '#app',
       data: {
+        fontSize: 25,
         todos: [],
         todoSort: [],
-        aisles: ["Add Aisle/Index", "Delete Item"],
+        itemMenuDefault: ["Add Index", "Edit", "Delete"],
+        aisles: [],
         retrievedData: "",
         settings: [
+          "Font Size",
           "Save", 
           "Restore", 
           "Clear", 
@@ -143,6 +144,11 @@
           this.updateAisles();
           localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
         }
+        if (!localStorage.getItem("fontSize")) {
+          localStorage.setItem("fontSize", this.fontSize);
+        } else {
+          this.fontSize = localStorage.getItem("fontSize");
+        }
         this.toggleSettings();
       },
       methods: {
@@ -159,7 +165,7 @@
             this.retrievedData = JSON.parse(this.retrievedData);
             this.retrievedData.push(this.newItem);
             this.updateAisles();
-            localStorage.setItem("vueTodos", JSON.stringify(this.retrievedData))
+            localStorage.setItem("vueTodos", JSON.stringify(this.retrievedData));
             this.newTodoText = ''
           }
         },
@@ -175,10 +181,19 @@
           }
         },
         reIndex: function (index, selectedAisle) {
-          if (selectedAisle == "Delete Item") {
+//          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
+          if (selectedAisle == "Delete") {
             this.todos.splice(index, 1); 
+          } else if (selectedAisle == "Edit") {
+            this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
+            selectedAisle = prompt("Enter aisle number:", this.todos[index].aisle);
+            if(this.aisles.indexOf(selectedAisle) < 0){
+              this.aisles.push(selectedAisle);
+            }
+            this.todos[index].aisle = selectedAisle;
+            this.updateAisles();
           } else {
-            if (selectedAisle == "Add Aisle/Index") {
+            if (selectedAisle == "Add Index") {
               selectedAisle = prompt("Enter aisle number:", "");
               if(this.aisles.indexOf(selectedAisle) < 0){
                 this.aisles.push(selectedAisle);
@@ -192,6 +207,10 @@
         getSetting: function(index) {
           if (this.settings[index] == "Clear") {
             this.clear();
+          } else if (this.settings[index] == "Font Size") {
+            this.fontSize = prompt("Enter font size", this.fontSize);
+            localStorage.setItem("fontSize", this.fontSize);
+            this.toggleSettings();
           } else if (this.settings[index] == "Revert") {
             this.revert();
           }
@@ -219,8 +238,14 @@
           numeric.sort(function(a, b){return a - b});
           array = [];
           n=0;
+          for (n in this.itemMenuDefault) {
+            array.push(this.itemMenuDefault[n])
+          }
+          n=0;
           for (n in alphabetic) {
-            array.push(alphabetic[n])
+            if(array.indexOf(alphabetic[n]) < 0){
+              array.push(alphabetic[n])
+            }
           }
           n=0;
           for (n in numeric) {
@@ -248,7 +273,9 @@
         revert: function () {
           this.retrievedData = localStorage.getItem("vueTodosRevert");
           this.todos = JSON.parse(this.retrievedData);
-          this.aisles = ["Add Aisle/Index", "Delete Item"];
+          for (n in this.itemMenuDefault) {
+            this.aisles.push(this.itemMenuDefault[n])
+          }
           this.updateAisles();
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
           this.toggleSettings();
