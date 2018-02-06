@@ -64,6 +64,7 @@
       position:absolute;
       width: auto;
       color:#00FF00;
+      font-size: 15px;
     } 
     .itemRemove:hover {
       opacity: .7;
@@ -107,7 +108,7 @@
         <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
         </span>
-        <span class="price" v-bind:style="{ fontSize: '20px' }">
+        <span class="price">
             ${{ todo.price }}
         </span>
         <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
