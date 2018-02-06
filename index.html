@@ -200,7 +200,7 @@
           if (selectedAisle == "Delete") {
             this.todos.splice(index, 1); 
           } else if (selectedAisle == "Price") {
-            this.todos[index].price = prompt("Enter price:", this.todos[index].price);
+            this.todos[index].price = prompt("Enter price:", "");
            // this.updateAisles();
           } else if (selectedAisle == "Edit") {
             this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
