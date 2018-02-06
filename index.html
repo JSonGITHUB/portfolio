@@ -59,12 +59,17 @@
       color:#FFFFFF;
     }
     .price {
-      right:120px;
-      position:absolute;
+      margin-right:20px;
+      float: right;
       width: auto;
       color:#00FF00;
       font-size: 15px;
     } 
+    .total {
+      color:#00FF00;
+      font-weight: bolder;
+      text-align: right;
+    }
     .itemRemove:hover {
       opacity: .7;
       cursor:pointer;
@@ -80,14 +85,20 @@
     .menu {
       margin-top: 80px;
     }
-    input {
+    .inputItem {
       font-size: 20px;
       width:calc(100% - 100px);
       margin: 20px;
     }
     select {
-      right:20px;
-      position:absolute;
+      float: right;
+    }
+    .totalItems {
+      float: left;
+    }
+    .tax {
+      float: right;
+      margin-right: 20px;
     }
     .optionFont {
       font-size: 30px;
@@ -98,16 +109,21 @@
 <body>
   <div id="app">
     <div class="input">
-      <input v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
+      <input class="inputItem" v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
       <image class="settings" src="assets/menu.png" v-on:click="toggleSettings()"/>
     </div>
     <div class="menu">
       <div class="item" v-for="(todo, index) in todos">
+        <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
+          <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
+              {{ quantities[selectedQuantity] }}
+          </option>
+          <option v-for="(quantity, selectQuantity) in quantities" :value="quantities[selectQuantity]" class="optionFont" v-if="quantities[selectQuantity] !== todo.quantity">
+              {{ quantities[selectQuantity] }}
+          </option>
+        </select>
         <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
-        </span>
-        <span class="price">
-            ${{ todo.price }}
         </span>
         <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
           <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
@@ -117,6 +133,14 @@
             {{ aisles[selectIndex] }}
           </option>
         </select>
+        <span class="price">
+            ${{ todo.price }}
+        </span>
+        <input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
+        <!--label for="tax">{{ todo.tax }}</label-->
+      </div>
+      <div class="item total">
+          <span class="totalItems">Items: {{ todos.length }} total: {{ totalItems }}</span>Tax: $ {{ taxTotal }} - Total: $ {{ total }}
       </div>
     </div>
     <div id="settingsMenu">
@@ -132,10 +156,12 @@
       el: '#app',
       data: {
         fontSize: 25,
+        tax: 7.75,
         todos: [],
         todoSort: [],
         itemMenuDefault: ["Add Index", "Edit", "Price", "Delete"],
         aisles: [],
+        quantities: [0,1,2,3,4,5,6,7,8,9,10],
         retrievedData: "",
         settings: [
           "Font Size",
@@ -144,9 +170,12 @@
           "Clear", 
           "Revert"
         ],
-        newItem: {title: '', aisle: ''},
+        newItem: {title: '', aisle: '', price: '', quantity: '', tax: false},
         newTodoText: '',
         newAisle: '',
+        total: 0,
+        taxTotal: 0,
+        totalItems: 0,
       },
       created: function () {
         this.todos = [];
@@ -156,6 +185,8 @@
           this.retrievedData = localStorage.getItem("vueTodos");
           this.todos = JSON.parse(this.retrievedData);
           this.updateAisles();
+          this.updatePrice();
+          this.updateQuantity();
           localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
         }
         if (!localStorage.getItem("fontSize")) {
@@ -164,6 +195,7 @@
           this.fontSize = localStorage.getItem("fontSize");
         }
         this.toggleSettings();
+        this.getTotal();
       },
       methods: {
         addTodo: function () {
@@ -173,19 +205,21 @@
               this.aisles.push(this.newAisle);
             }
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: 0.00};
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(0.00).toFixed(2), quantity: 1, tax: false};
             this.todos.push(this.newItem);
             this.retrievedData = localStorage.getItem("vueTodos");
             this.retrievedData = JSON.parse(this.retrievedData);
             this.retrievedData.push(this.newItem);
             this.updateAisles();
             localStorage.setItem("vueTodos", JSON.stringify(this.retrievedData));
-            this.newTodoText = ''
+            this.newTodoText = '';
+            this.getTotal();
           }
         },
         removeTodo: function (index) {
 //          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-          this.todos.splice(index, 1)
+          this.todos.splice(index, 1);
+          this.getTotal();
         },
         toggleSettings: function () {
           if (document.getElementById("settingsMenu").style.visibility == "hidden") {
@@ -199,7 +233,7 @@
           if (selectedAisle == "Delete") {
             this.todos.splice(index, 1); 
           } else if (selectedAisle == "Price") {
-            this.todos[index].price = prompt("Enter price:", "");
+            this.todos[index].price = Number(prompt("Enter price:", "")).toFixed(2);
            // this.updateAisles();
           } else if (selectedAisle == "Edit") {
             this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
@@ -220,6 +254,7 @@
             this.updateAisles();
           }
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.getTotal()
         },
         getSetting: function(index) {
           if (this.settings[index] == "Clear") {
@@ -241,6 +276,7 @@
           this.todos = [];
           this.aisles = [];
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.getTotal();
         },
         sortArray: function (array) {
           let alphabetic = [];
@@ -290,6 +326,28 @@
           }
           this.todos = this.todoSort;
         },
+        updatePrice: function () {
+          for (x in this.todos) {
+            if (this.todos[x].price == undefined) {
+              this.todos[x].price = Number(0).toFixed(2);
+            }
+          }
+          this.getTotal();
+        },
+        updateQuantity: function () {
+          for (x in this.todos) {
+            if (this.todos[x].quantity == undefined) {
+              this.todos[x].quantity = this.quantities[1];
+            }
+          }
+        },
+        updateTax: function () {
+          for (x in this.todos) {
+            if (this.todos[x].tax == undefined) {
+              this.todos[x].tax = false;
+            }
+          }
+        },
         revert: function () {
           this.retrievedData = localStorage.getItem("vueTodosRevert");
           this.todos = JSON.parse(this.retrievedData);
@@ -298,17 +356,43 @@
           }
           this.updateAisles();
           //localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.getTotal();
         },
         save: function () {
-          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          localStorage.setItem("vueTodosSaved", JSON.stringify(this.todos));
         },
         restore: function () {
-          this.retrievedData = localStorage.getItem("vueTodosRevert");
+          this.retrievedData = localStorage.getItem("vueTodosSaved");
           this.todos = JSON.parse(this.retrievedData);
           for (n in this.itemMenuDefault) {
             this.aisles.push(this.itemMenuDefault[n])
           }
           this.updateAisles();
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.getTotal();
+        },
+        getTotal: function () {
+          this.total = Number(0);
+          let subtotal = 0;
+          let tax = this.tax;
+          this.taxTotal = 0;
+          this.totalItems = 0;
+          for (n in this.todos) {
+            if (this.todos[n].price != undefined) {
+              this.totalItems = Number(this.totalItems) + Number(this.todos[n].quantity);
+              subtotal = parseFloat(Number(this.todos[n].price)) * Number(this.todos[n].quantity);
+              if (this.todos[n].tax) {
+                tax = subtotal * (Number(this.tax) * .01);
+                this.taxTotal = this.taxTotal + tax;
+                subtotal = subtotal + tax;
+              }
+              this.total = parseFloat(Number(this.total)) + subtotal;
+            }
+          }
+          this.total = Math.round( this.total * 100 ) / 100;
+          this.total = this.total.toFixed(2);
+          //this.total = Math.round( this.total * 100 ) / 100;
+          this.taxTotal = this.taxTotal.toFixed(2);
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
         }
       }
