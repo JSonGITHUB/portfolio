@@ -228,7 +228,6 @@
           } else if (this.settings[index] == "Font Size") {
             this.fontSize = prompt("Enter font size", this.fontSize);
             localStorage.setItem("fontSize", this.fontSize);
-            this.toggleSettings();
           } else if (this.settings[index] == "Revert") {
             this.revert();
           } else if (this.settings[index] == "Save") {
@@ -243,7 +242,6 @@
           this.todos = [];
           this.aisles = [];
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
-          this.toggleSettings();
         },
         sortArray: function (array) {
           let alphabetic = [];
