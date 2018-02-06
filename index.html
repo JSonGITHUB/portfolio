@@ -57,6 +57,12 @@
       position: relative;
       width: calc(100% - 200px);
       color:#FFFFFF;
+    }
+    .price {
+      right:150px;
+      position:absolute;
+      width: auto;
+      color:#00FF00;
     } 
     .itemRemove:hover {
       opacity: .7;
@@ -79,6 +85,7 @@
       margin: 20px;
     }
     select {
+      margin-top:10px;
       right:20px;
       position:absolute;
     }
@@ -98,6 +105,9 @@
       <div class="item" v-for="(todo, index) in todos">
         <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
+        </span>
+        <span class="price" v-bind:style="{ fontSize: fontSize-5 + 'px' }">
+            ${{ todo.price }}
         </span>
         <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
           <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
@@ -124,7 +134,7 @@
         fontSize: 25,
         todos: [],
         todoSort: [],
-        itemMenuDefault: ["Add Index", "Edit", "Delete"],
+        itemMenuDefault: ["Add Index", "Edit", "Price", "Delete"],
         aisles: [],
         retrievedData: "",
         settings: [
@@ -163,7 +173,7 @@
               this.aisles.push(this.newAisle);
             }
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-            this.newItem = {title: this.newTodoText, aisle: this.newAisle};
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: 0.00};
             this.todos.push(this.newItem);
             this.retrievedData = localStorage.getItem("vueTodos");
             this.retrievedData = JSON.parse(this.retrievedData);
@@ -174,7 +184,7 @@
           }
         },
         removeTodo: function (index) {
-          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
+//          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
           this.todos.splice(index, 1)
         },
         toggleSettings: function () {
@@ -188,6 +198,9 @@
 //          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
           if (selectedAisle == "Delete") {
             this.todos.splice(index, 1); 
+          } else if (selectedAisle == "Price") {
+            this.todos[index].price = prompt("Enter price:", this.todos[index].price);
+           // this.updateAisles();
           } else if (selectedAisle == "Edit") {
             this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
             selectedAisle = prompt("Enter aisle number:", this.todos[index].aisle);
@@ -217,7 +230,12 @@
             this.toggleSettings();
           } else if (this.settings[index] == "Revert") {
             this.revert();
+          } else if (this.settings[index] == "Save") {
+            this.save();
+          } else if (this.settings[index] == "Restore") {
+            this.restore();
           }
+          this.toggleSettings();
         },
         clear: function () {
           localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
@@ -275,6 +293,19 @@
           this.todos = this.todoSort;
         },
         revert: function () {
+          this.retrievedData = localStorage.getItem("vueTodosRevert");
+          this.todos = JSON.parse(this.retrievedData);
+          for (n in this.itemMenuDefault) {
+            this.aisles.push(this.itemMenuDefault[n])
+          }
+          this.updateAisles();
+          //localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          this.toggleSettings();
+        },
+        save: function () {
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+        },
+        restore: function () {
           this.retrievedData = localStorage.getItem("vueTodosRevert");
           this.todos = JSON.parse(this.retrievedData);
           for (n in this.itemMenuDefault) {
