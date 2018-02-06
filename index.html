@@ -53,10 +53,19 @@
       opacity: .7;
       cursor:pointer;
     }
-    .itemRemove {
+    .itemSelectors {
+      width:auto;
       position: relative;
-      width: calc(100% - 200px);
+      right: 0px;
+    }
+    .itemRemove {
+      left:0px;
+      width: auto;
       color:#FFFFFF;
+    }
+    .itemRemove:hover {
+      opacity: .7;
+      cursor:pointer;
     }
     .price {
       margin-right:20px;
@@ -69,10 +78,6 @@
       color:#00FF00;
       font-weight: bolder;
       text-align: right;
-    }
-    .itemRemove:hover {
-      opacity: .7;
-      cursor:pointer;
     }
     .input {
       background-color: #333333;
@@ -114,30 +119,32 @@
     </div>
     <div class="menu">
       <div class="item" v-for="(todo, index) in todos">
-        <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
-          <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
-              {{ quantities[selectedQuantity] }}
-          </option>
-          <option v-for="(quantity, selectQuantity) in quantities" :value="quantities[selectQuantity]" class="optionFont" v-if="quantities[selectQuantity] !== todo.quantity">
-              {{ quantities[selectQuantity] }}
-          </option>
-        </select>
+        <div class="itemSelectors">
+          <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
+            <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
+                {{ quantities[selectedQuantity] }}
+            </option>
+            <option v-for="(quantity, selectQuantity) in quantities" :value="quantities[selectQuantity]" class="optionFont" v-if="quantities[selectQuantity] !== todo.quantity">
+                {{ quantities[selectQuantity] }}
+            </option>
+          </select>
+          <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
+            <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
+                {{ aisles[selectedId] }}
+            </option>
+            <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" class="optionFont" v-if="aisles[selectIndex] !== todo.aisle">
+              {{ aisles[selectIndex] }}
+            </option>
+          </select>
+          <span class="price">
+              ${{ todo.price }}
+          </span>
+          <input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
+          <!--label for="tax">{{ todo.tax }}</label-->
+        </div>
         <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
         </span>
-        <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
-          <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
-              {{ aisles[selectedId] }}
-          </option>
-          <option v-for="(aisle, selectIndex) in aisles" :value="aisles[selectIndex]" class="optionFont" v-if="aisles[selectIndex] !== todo.aisle">
-            {{ aisles[selectIndex] }}
-          </option>
-        </select>
-        <span class="price">
-            ${{ todo.price }}
-        </span>
-        <input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
-        <!--label for="tax">{{ todo.tax }}</label-->
       </div>
       <div class="item total">
           <span class="totalItems">Items: {{ todos.length }} total: {{ totalItems }}</span>Tax: $ {{ taxTotal }} - Total: $ {{ total }}
