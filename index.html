@@ -59,7 +59,8 @@
       color:#FFFFFF;
     }
     .price {
-      right:150px;
+      margin-top: 10px;
+      right:120px;
       position:absolute;
       width: auto;
       color:#00FF00;
@@ -106,7 +107,7 @@
         <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
         </span>
-        <span class="price" v-bind:style="{ fontSize: fontSize-5 + 'px' }">
+        <span class="price" v-bind:style="{ fontSize: '20px' }">
             ${{ todo.price }}
         </span>
         <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
