@@ -88,16 +88,6 @@
       text-align: right;
       color:#00FF00;
       font-size: 15px;
-    } 
-    .total {
-      font-size: 18px;
-      color:#000000;
-      font-weight: bolder;
-      text-align: right;
-      padding: 10px;
-      width: calc(100% - 20px);
-      position: relative;
-      background-color: #333333;
     }
     .input {
       background-color: #333333;
@@ -123,8 +113,23 @@
     select {
       float: right;
     }
+    .total {
+      color:#000000;
+      font-weight: bolder;
+      padding: 10px;
+      width: calc(100% - 20px);
+      background-color: #333333;
+      height: auto;
+    }
     .totalItems {
-      float: left;
+      left:20px;
+      text-align: right;
+      position: absolute;
+    }
+    .totalDollars {
+      right: 0px;
+      text-align: right;
+      position: relative;
     }
     .tax {
       float:right;
@@ -173,9 +178,8 @@
         <br>
       </div>
       <div class="item total"  v-bind:style="{ fontSize: fontSize + 'px' }">
-          <span class="totalItems">Items: {{ todos.length }}<br>total: {{ totalItems }}</span>
-          Tax: $ {{ taxTotal }}<br>
-          Total: $ {{ total }}
+          <div class="totalItems">Items: {{ todos.length }}<br>total: {{ totalItems }}</div>
+          <div class="totalDollars">Tax: $ {{ taxTotal }}<br>Total: $ {{ total }}</div>
       </div>
     </div>
     <div id="settingsMenu">
