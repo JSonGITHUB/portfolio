@@ -37,7 +37,7 @@
       padding-top: 12px;
       padding-bottom: 12px;
     }
-    .item {
+    .itemOld {
       padding:20px;
       font-size: 25px;
       font-family: Arial, sans-serif;
@@ -49,17 +49,29 @@
       margin-top:-1px;
       left:0px;
     } 
+    .item {
+      font-size: 25px;
+      font-family: Arial, sans-serif;
+      color:#FFFFFF;
+      background-color:#000000;
+      width: 100%;
+      height: auto;
+      left:0px;
+    } 
     .item:hover {
       opacity: .7;
       cursor:pointer;
     }
     .itemSelectors {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      background-color:#111111;
+      left:0px;
+      padding: 5px;
+      width: calc(100% - 10px);
       position:relative;
       float: left;
     }
     .itemRemove {
+      padding: 10px;
       left:0px;
       position:relative;
       color:#FFFFFF;
@@ -78,9 +90,13 @@
     } 
     .total {
       font-size: 18px;
-      color:#00FF00;
+      color:#000000;
       font-weight: bolder;
       text-align: right;
+      padding: 10px;
+      width: calc(100% - 20px);
+      position: relative;
+      background-color: #333333;
     }
     .input {
       background-color: #333333;
@@ -89,9 +105,14 @@
       position: fixed;
       width:100%;
       z-index: 100;
-    } 
+    }
+    #indexSelector {
+      margin-right:25px;
+    }
     .menu {
-      margin-top: 80px;
+      width: 100%;
+      left:0px;
+      margin-top: 70px;
     }
     .inputItem {
       font-size: 20px;
@@ -245,6 +266,7 @@
             this.todos.splice(index, 1); 
           } else if (selectedAisle == "Price") {
             this.todos[index].price = Number(prompt("Enter price:", "")).toFixed(2);
+            selectedAisle = prompt("Enter aisle number:", this.todos[index].aisle);
            // this.updateAisles();
           } else if (selectedAisle == "Edit") {
             this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
