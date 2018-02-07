@@ -54,6 +54,8 @@
       cursor:pointer;
     }
     .itemSelectors {
+      margin-top: 10px;
+      margin-bottom: 10px;
       position:relative;
       float: left;
     }
@@ -119,10 +121,9 @@
     </div>
     <div class="menu">
       <div class="item" v-for="(todo, index) in todos">
-        <span class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
+        <div class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="removeTodo(index)">
           {{ todo.title }}
-        </span>
-        <br>
+        </div>
         <div class="itemSelectors">
           <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
             <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
@@ -145,7 +146,8 @@
           </span>
           <input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
           <!--label for="tax">{{ todo.tax }}</label-->
-        </div><br>
+        </div>
+        <br>
       </div>
       <div class="item total">
           <span class="totalItems">Items: {{ todos.length }} total: {{ totalItems }}</span>Tax: $ {{ taxTotal }} - Total: $ {{ total }}
