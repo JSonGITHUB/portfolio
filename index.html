@@ -280,7 +280,11 @@
           } else if (selectedAisle == "Price") {
             this.todos[index].price = Number(prompt("Enter price:", "")).toFixed(2);
             selectedAisle = prompt("Enter aisle number:", this.todos[index].aisle);
-           // this.updateAisles();
+            if(this.aisles.indexOf(selectedAisle) < 0){
+              this.aisles.push(selectedAisle);
+            }
+            this.todos[index].aisle = selectedAisle;
+            this.updateAisles();
           } else if (selectedAisle == "Edit") {
             this.todos[index].title = prompt("Enter new label:", this.todos[index].title);
             selectedAisle = prompt("Enter aisle number:", this.todos[index].aisle);
