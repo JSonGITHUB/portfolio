@@ -172,7 +172,7 @@
         </div>
         <br>
       </div>
-      <div class="item total">
+      <div class="item total"  v-bind:style="{ fontSize: fontSize + 'px' }">
           <span class="totalItems">Items: {{ todos.length }}<br>total: {{ totalItems }}</span>
           Tax: $ {{ taxTotal }}<br>
           Total: $ {{ total }}
