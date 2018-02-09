@@ -160,7 +160,7 @@
     }
     .selectionLabel {
       position:relative;
-      margin-left: 15px;
+      margin-left: 5px;
     }
     .tax {
       position:relative;
@@ -179,7 +179,7 @@
           {{ todo.title }}
         </div>
         <div class="itemSelectors">
-            <span class="tax">Tax: </span><input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
+            <span class="selectionLabel">Tax: <input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()"></span>
           <div id="quantitySelection">
             <span class="selectionLabel">Quantity: </span>
             <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
