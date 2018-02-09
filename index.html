@@ -180,8 +180,6 @@
           {{ todo.title }}
         </div>
         <div class="itemSelectors">
-            <span class="tax">Tax: </span>
-            <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
           <div id="quantitySelection">
             <span class="selectionLabel">Quantity: </span>
             <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
