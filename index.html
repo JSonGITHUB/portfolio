@@ -163,8 +163,8 @@
       margin-left: 5px;
     }
     .tax {
-      top:-5px;
-      position:absolute;
+      top:-2px;
+      position:relative;
     }
   </style>
 </head>
@@ -180,7 +180,8 @@
           {{ todo.title }}
         </div>
         <div class="itemSelectors">
-            <span class="tax">Tax: </span><input type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
+            <span class="tax">Tax: </span>
+            <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
           <div id="quantitySelection">
             <span class="selectionLabel">Quantity: </span>
             <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
