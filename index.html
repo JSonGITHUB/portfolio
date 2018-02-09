@@ -91,7 +91,8 @@
       cursor:pointer;
     }
     .price {
-      margin-right:20px;
+      margin-top: 3px;
+      width:50px;
       float: left;
     }
     .input {
@@ -103,9 +104,10 @@
       z-index: 100;
     }
     #indexSelector {
-      margin-right:25px;
+      margin-left:3px;
     }
     #quantitySelector {
+      margin-left:3px;
     }
     .menu {
       width: 100%;
@@ -156,6 +158,15 @@
       position: relative;
       float: right;
     }
+    .selectionLabel {
+      bottom: -5px;
+      position:relative;
+      margin-left: 15px;
+    }
+    .tax {
+      bottom: -2px;
+      position:relative;
+    }
   </style>
 </head>
 <body>
@@ -170,8 +181,9 @@
           {{ todo.title }}
         </div>
         <div class="itemSelectors">
+            <span class="tax">Tax: </span><input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
           <div id="quantitySelection">
-            Quantity: 
+            <span class="selectionLabel">Quantity: </span>
             <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
               <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
                   {{ quantities[selectedQuantity] }}
@@ -182,7 +194,7 @@
             </select>
           </div>
           <div id="indexSelection">
-            Aisle: 
+              <span class="selectionLabel">Aisle: </span>
             <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
               <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
                   {{ aisles[selectedId] }}
@@ -193,7 +205,6 @@
             </select>
           </div>
           <div class="itemDollars">
-            Tax:<input class="tax" type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
             <span class="price">
               ${{ todo.price }}
             </span>
