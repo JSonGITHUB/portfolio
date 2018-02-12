@@ -179,9 +179,10 @@
           {{ todo.title }}
         </div>
         <div class="itemSelectors">
-            <span class="selectionLabel">Tax:</span><input type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
+            <span class="selectionLabel">Tax:</span>
+            <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="getTotal()">
           <div id="quantitySelection">
-            <span class="selectionLabel">Quantity: </span>
+            <span class="selectionLabel">Count:</span>
             <select id="quantitySelector" v-model="todo.quantity" v-on:change="getTotal()">
               <option v-for="(quantity, selectedQuantity) in quantities" :value="quantities[selectedQuantity]" class="optionFont" v-if="quantities[selectedQuantity] == todo.quantity">
                   {{ quantities[selectedQuantity] }}
@@ -192,7 +193,7 @@
             </select>
           </div>
           <div id="indexSelection">
-              <span class="selectionLabel">Aisle: </span>
+              <span class="selectionLabel">Aisle:</span>
             <select id="indexSelector" v-model="todo.aisle" v-on:change="reIndex(index, todo.aisle)">
               <option v-for="(aisle, selectedId) in aisles" :value="aisles[selectedId]" class="optionFont" v-if="aisles[selectedId] == todo.aisle">
                   {{ aisles[selectedId] }}
