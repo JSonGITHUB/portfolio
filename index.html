@@ -250,6 +250,7 @@
         newItem: {title: '', aisle: '', price: '', quantity: '', tax: false},
         newTodoText: '',
         newAisle: '',
+        newPrice: '',
         total: 0,
         taxTotal: 0,
         totalItems: 0,
@@ -281,8 +282,9 @@
             if(this.aisles.indexOf(this.newAisle) < 0){
               this.aisles.push(this.newAisle);
             }
+            this.newPrice = prompt("Enter price:", "");
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(0.00).toFixed(2), quantity: 1, tax: false};
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(this.newPrice).toFixed(2), quantity: 1, tax: false};
             this.todos.push(this.newItem);
             this.retrievedData = localStorage.getItem("vueTodos");
             this.retrievedData = JSON.parse(this.retrievedData);
