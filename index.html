@@ -283,6 +283,7 @@
         this.todos = [];
         if (!localStorage.getItem("vueTodos")) {
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
+          localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
         } else {
           this.retrievedData = localStorage.getItem("vueTodos");
           this.todos = JSON.parse(this.retrievedData);
@@ -316,10 +317,14 @@
             this.retrievedData.push(this.newItem);
             this.updateAisles();
             localStorage.setItem("vueTodos", JSON.stringify(this.retrievedData));
-            this.retrievedData = localStorage.getItem("vueTodosSaved");
-            this.retrievedData = JSON.parse(this.retrievedData);
-            this.retrievedData.push(this.newItem);
-            localStorage.setItem("vueTodosSaved", JSON.stringify(this.retrievedData));
+            if (!localStorage.getItem("vueTodosSaved")) {
+              localStorage.setItem("vueTodosSaved", JSON.stringify(this.todos));
+            } else {
+              this.retrievedData = localStorage.getItem("vueTodosSaved");
+              this.retrievedData = JSON.parse(this.retrievedData);
+              this.retrievedData.push(this.newItem);
+              localStorage.setItem("vueTodosSaved", JSON.stringify(this.retrievedData));
+            }
             this.newTodoText = '';
             document.getElementById("itemEntry").setAttribute("value", "");
             this.getTotal();
