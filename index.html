@@ -190,7 +190,7 @@
 <body>
   <div id="app">
     <div class="input">
-      <input class="inputItem" v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
+      <input id="itemEntry" class="inputItem" v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
       <image class="settings" src="assets/menu.png" v-on:click="toggleSettings()"/>
     </div>
     <div class="menu">
@@ -321,6 +321,7 @@
             this.retrievedData.push(this.newItem);
             localStorage.setItem("vueTodosSaved", JSON.stringify(this.retrievedData));
             this.newTodoText = '';
+            document.getElementById("itemEntry").setAttribute("value", "");
             this.getTotal();
           }
         },
