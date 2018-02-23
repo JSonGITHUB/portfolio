@@ -25,6 +25,11 @@
       top:18px;
       position: absolute;
     }
+    .cart {
+      right:11px;
+      top:8px;
+      position: absolute;
+    }
     .settings:hover {
       opacity: .7;
       cursor:pointer;
@@ -198,8 +203,8 @@
       <div class="item" v-bind:style="{ borderTop:'2px solid ' + todo.color }" v-for="(todo, index) in todos">
         <div class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="toggleCart(index)">
           {{ todo.title }}
-          <image class="settings" src="assets/cart.png" v-if="todo.cart"/>
-          <image class="settings" src="assets/addToCart.png" v-if="!todo.cart"/>
+          <image class="cart" src="assets/cart.png" v-if="todo.cart"/>
+          <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
         <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
             <span class="selectionLabel">Tax:</span>
