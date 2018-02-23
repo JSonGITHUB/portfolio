@@ -62,7 +62,7 @@
       font-family: Arial, sans-serif;
       color:#FFFFFF;
       background-color:#000000;
-      width: 100%;
+      width: calc(100% - 4px);
       height: 90px;
       left:0px;
       position: relative;
@@ -95,6 +95,7 @@
       color: #BBBBBB;
       font-size:12px;
       text-align: right;
+      text-shadow: 1px 2px #000000;
     }
     .itemRemove {
       padding: 10px;
@@ -194,13 +195,13 @@
       <image class="settings" src="assets/menu.png" v-on:click="toggleSettings()"/>
     </div>
     <div class="menu">
-      <div class="item" v-for="(todo, index) in todos">
+      <div class="item" v-bind:style="{ borderTop:'2px solid ' + todo.color }" v-for="(todo, index) in todos">
         <div class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="toggleCart(index)">
           {{ todo.title }}
           <image class="settings" src="assets/cart.png" v-if="todo.cart"/>
           <image class="settings" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
-        <div class="itemSelectors">
+        <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
             <span class="selectionLabel">Tax:</span>
             <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="toggleTax(index)">
           <div id="quantitySelection">
@@ -250,7 +251,6 @@
   </div>
 
   <script>
-
     var app = new Vue({
       el: '#app',
       data: {
@@ -439,7 +439,6 @@
               alphabetic.push(array[n]);
             }
           }
-
           alphabetic.sort();
           numeric.sort(function(a, b){return a - b});
           array = [];
@@ -460,6 +459,7 @@
             this.aisles = array;
         },
         updateAisles: function () {
+          let aisleColor;
           for (x in this.todos) {
             if(this.aisles.indexOf(this.todos[x].aisle) < 0){
               this.aisles.push(this.todos[x].aisle);
@@ -468,8 +468,10 @@
           this.sortArray(this.aisles);
           this.todoSort = [];
           for (a in this.aisles) {
+            aisleColor = Math.floor(Math.random()*16777215).toString(16);
             for (t in this.todos) {
               if (this.todos[t].aisle == this.aisles[a]) {
+                this.todos[t].color = "#" + aisleColor;
                 this.todoSort.push(this.todos[t]);
               }
             }
