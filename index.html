@@ -262,7 +262,6 @@
         fontSize: 25,
         tax: 7.75,
         todos: [],
-        todoSort: [],
         itemMenuDefault: ["Add Index", "Edit", "Price", "Delete"],
         aisles: [],
         quantities: [0,1,2,3,4,5,6,7,8,9,10],
@@ -342,6 +341,7 @@
           } else {
             this.todos[index].cart = true;
           }
+          this.updateAisles();
           this.getTotal();
         },
         toggleSettings: function () {
@@ -465,23 +465,30 @@
         },
         updateAisles: function () {
           let aisleColor;
+          let todoSort = [];
+          let inactiveTodos = [];
           for (x in this.todos) {
             if(this.aisles.indexOf(this.todos[x].aisle) < 0){
               this.aisles.push(this.todos[x].aisle);
             }
           }
           this.sortArray(this.aisles);
-          this.todoSort = [];
           for (a in this.aisles) {
             aisleColor = Math.floor(Math.random()*16777215).toString(16);
             for (t in this.todos) {
-              if (this.todos[t].aisle == this.aisles[a]) {
+              if (this.todos[t].aisle == this.aisles[a] && this.todos[t].cart) {
                 this.todos[t].color = "#" + aisleColor;
-                this.todoSort.push(this.todos[t]);
+                todoSort.push(this.todos[t]);
+              } else if (this.todos[t].aisle == this.aisles[a] && !this.todos[t].cart) {
+                this.todos[t].color = "#" + aisleColor;
+                inactiveTodos.push(this.todos[t]);
               }
             }
           }
-          this.todos = this.todoSort;
+          for (i in inactiveTodos) {
+            todoSort.push(inactiveTodos[i]);
+          }
+          this.todos = todoSort;
         },
         updatePrice: function () {
           for (x in this.todos) {
