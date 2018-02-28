@@ -314,7 +314,7 @@
             }
             this.newPrice = prompt("Enter price:", "");
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(this.newPrice).toFixed(2), quantity: 1, tax: false, cart: false};
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(this.newPrice).toFixed(2), quantity: 1, tax: false, cart: true};
             this.todos.push(this.newItem);
             this.retrievedData = localStorage.getItem("vueTodos");
             this.retrievedData = JSON.parse(this.retrievedData);
