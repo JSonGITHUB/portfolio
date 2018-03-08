@@ -207,6 +207,7 @@
           <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
         <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
+            <span class="selectionLabel">Last Purchase: {{ todo.lastPurchase }}</span>
             <span class="selectionLabel">Tax:</span>
             <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="toggleTax(index)">
           <div id="quantitySelection">
@@ -233,7 +234,7 @@
           </div>
           <div class="itemDollars">
             <span class="price">
-              ${{ todo.price }}
+                <input type="checkbox" id="select" v-on:change="toggleSelect(index)"> ${{ todo.price }}
             </span>
           </div>
         </div>
@@ -269,12 +270,13 @@
         settings: [
           "Sort by Name",
           "Font Size",
+          "Tax",
           "Save", 
           "Restore", 
           "Clear", 
           "Revert"
         ],
-        newItem: {title: '', aisle: '', price: '', quantity: '', tax: false, cart: false},
+        newItem: {title: '', aisle: '', price: '', quantity: '', tax: false, cart: false, select: false, lastPurchase: ''},
         ogTitle: '',
         newTodoText: '',
         newAisle: '',
@@ -296,12 +298,22 @@
           this.updatePrice();
           this.updateCart();
           this.updateQuantity();
+          this.updateLastPurchase();
           localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
         }
         if (!localStorage.getItem("fontSize")) {
           localStorage.setItem("fontSize", this.fontSize);
         } else {
           this.fontSize = localStorage.getItem("fontSize");
+        }
+        if (!localStorage.getItem("tax")) {
+          localStorage.setItem("tax", this.tax);
+        } else {
+          if(localStorage.getItem("tax") != "null"){
+            this.tax = localStorage.getItem("tax");
+          } else {
+            localStorage.setItem("tax", this.tax);
+          }
         }
         this.toggleSettings();
         this.getTotal();
@@ -421,6 +433,10 @@
           } else if (this.settings[index] == "Sort by Index") {
             this.settings.splice(0, 1, "Sort by Name");
             this.updateAisles();
+          } else if (this.settings[index] == "Tax") {
+            this.tax = prompt("Enter sales tax", this.tax);
+            localStorage.setItem("tax", this.tax);
+            this.getTotal();
           } else if (this.settings[index] == "Font Size") {
             this.fontSize = prompt("Enter font size", this.fontSize);
             localStorage.setItem("fontSize", this.fontSize);
@@ -513,7 +529,7 @@
         },
         updatePrice: function () {
           for (x in this.todos) {
-            if (this.todos[x].price == undefined) {
+            if (typeof this.todos[x].price === 'undefined') {
               this.todos[x].price = Number(0).toFixed(2);
             }
           }
@@ -521,8 +537,15 @@
         },
         updateQuantity: function () {
           for (x in this.todos) {
-            if (this.todos[x].quantity == undefined) {
+            if (typeof this.todos[x].quantity === 'undefined') {
               this.todos[x].quantity = this.quantities[1];
+            }
+          }
+        },
+        updateLastPurchase: function () {
+          for (x in this.todos) {
+            if (typeof this.todos[x].lastPurchase === 'undefined') {
+              this.todos[x].lastPurchase = '00/00/00';
             }
           }
         },
@@ -537,16 +560,26 @@
           localStorage.setItem("vueTodosSaved", JSON.stringify(this.retrievedData));
           this.getTotal();
         },
+        toggleSelect: function(index) {          
+          let date = new Date();
+          date = date.getMonth() + "/" + date.getDay() + "/"+ date.getFullYear();
+          for (x in this.todos) {
+            if (this.todos[x].title == this.todos[index].title) {
+              this.todos[x].lastPurchase = date;
+            }
+          }
+          localStorage.setItem("vueTodos", JSON.stringify(this.todos));     
+        },
         updateTax: function () {
           for (x in this.todos) {
-            if (this.todos[x].tax == undefined) {
+            if (typeof this.todos[x].tax === 'undefined') {
               this.todos[x].tax = false;
             }
           }
         },
         updateCart: function () {
           for (x in this.todos) {
-            if (this.todos[x].cart == undefined) {
+            if (typeof this.todos[x].cart === 'undefined') {
               this.todos[x].cart = false;
             }
           }
@@ -582,7 +615,7 @@
           this.items = 0;
           this.totalItems = 0;
           for (n in this.todos) {
-            if (this.todos[n].price != undefined && this.todos[n].cart) {
+            if (typeof this.todos[n].price !== 'undefined' && this.todos[n].cart) {
               this.items++;
               this.totalItems = Number(this.totalItems) + Number(this.todos[n].quantity);
               subtotal = parseFloat(Number(this.todos[n].price)) * Number(this.todos[n].quantity);
