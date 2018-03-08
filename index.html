@@ -207,7 +207,6 @@
           <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
         <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
-            <span class="selectionLabel">{{ todo.days }} </span>
             <span class="selectionLabel">Tax:</span>
             <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="toggleTax(index)">
           <div id="quantitySelection">
