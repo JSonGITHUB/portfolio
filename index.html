@@ -207,7 +207,7 @@
           <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
         <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
-            <span class="selectionLabel">Purchased: {{ todo.lastPurchase }}</span>
+            <span class="selectionLabel">{{ todo.days }} days ago </span>
             <span class="selectionLabel">Tax:</span>
             <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="toggleTax(index)">
           <div id="quantitySelection">
@@ -260,6 +260,7 @@
     var app = new Vue({
       el: '#app',
       data: {
+        today: new Date(),
         fontSize: 25,
         tax: 7.75,
         todos: [],
@@ -276,7 +277,7 @@
           "Clear", 
           "Revert"
         ],
-        newItem: {title: '', aisle: '', price: '', quantity: '', tax: false, cart: false, select: false, lastPurchase: ''},
+        newItem: {title: '', aisle: '', price: '', quantity: '', tax: false, cart: false, select: false, lastPurchase: '', days: 0},
         ogTitle: '',
         newTodoText: '',
         newAisle: '',
@@ -327,7 +328,7 @@
             }
             this.newPrice = prompt("Enter price:", "");
             localStorage.setItem("vueTodosRevert", JSON.stringify(this.todos));
-            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(this.newPrice).toFixed(2), quantity: 1, tax: false, cart: true};
+            this.newItem = {title: this.newTodoText, aisle: this.newAisle, price: Number(this.newPrice).toFixed(2), quantity: 1, tax: false, cart: true, select: true, lastPurchase: this.today, days: 0};
             this.todos.push(this.newItem);
             this.retrievedData = localStorage.getItem("vueTodos");
             this.retrievedData = JSON.parse(this.retrievedData);
@@ -545,9 +546,28 @@
         updateLastPurchase: function () {
           for (x in this.todos) {
             if (typeof this.todos[x].lastPurchase === 'undefined') {
-              this.todos[x].lastPurchase = '00/00/00';
+              this.todos[x].lastPurchase = this.today;
+              this.todos[x].days = 0;
+            } else {
+              this.todos[x].days = this.getDaysSincePurchase(x);
             }
           }
+        },
+        getDaysSincePurchase: function(index) {
+
+//          console.log("Today = " + this.today + " Todo" + index + " last purchased = " + this.todos[index].lastPurchase);
+          let lastPurchase = new Date(this.todos[index].lastPurchase);
+          let todoPurchase = new Date(lastPurchase.getFullYear(), lastPurchase.getMonth(), lastPurchase.getDate()); 
+          let one_day=1000*60*60*24;    // Convert both dates to milliseconds
+          let date1_ms = todoPurchase.getTime();   
+          let date2_ms = this.today.getTime();    // Calculate the difference in milliseconds  
+          let difference_ms = date2_ms - date1_ms;        // Convert back to days and return   
+          
+//          console.log( 'last purchase: ' + lastPurchase + 'todo purchase: ' + todoPurchase);
+//          console.log( 'Days since last purchase: ' + Math.round(difference_ms/one_day));
+
+          return Math.round(difference_ms/one_day);
+
         },
         toggleTax: function(index) {          
           this.retrievedData = localStorage.getItem("vueTodosSaved");
@@ -561,11 +581,11 @@
           this.getTotal();
         },
         toggleSelect: function(index) {          
-          let date = new Date();
-          date = date.getMonth() + "/" + date.getDay() + "/"+ date.getFullYear();
+          
           for (x in this.todos) {
             if (this.todos[x].title == this.todos[index].title) {
-              this.todos[x].lastPurchase = date;
+              this.todos[x].lastPurchase = this.today;
+              this.todos[x].days = 0;
             }
           }
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));     
