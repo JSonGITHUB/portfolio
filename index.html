@@ -98,7 +98,7 @@
       border:1px solid #000000;
       position:relative;
       color: #BBBBBB;
-      font-size:12px;
+      font-size: 18px;
       text-align: right;
       text-shadow: 1px 1px #000000;
     }
@@ -113,7 +113,7 @@
       cursor:pointer;
     }
     .price {
-      margin-top: 3px;
+      margin-top: 0px;
       float: left;
       width: auto;
     }
@@ -156,7 +156,7 @@
     .totalItems {
       color:#CCCCCC;
       font-weight:bolder;
-      left:20px;
+      left:10px;
       text-align: right;
       position: absolute;
     }
@@ -191,9 +191,17 @@
       top:-2px;
       position:relative;
     }
+    #tax {
+      top:-1px;
+      position: relative;
+    }
+    #select {
+      top:-2px;
+      position: relative;
+    }
   </style>
 </head>
-<body>
+<body onresize="resize()">
   <div id="app">
     <div class="input">
       <input id="itemEntry" class="inputItem" v-model="newTodoText" v-on:keyup.enter="addTodo" placeholder="Add items">
@@ -207,6 +215,7 @@
           <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
         <div class="itemSelectors" v-bind:style="{ backgroundColor: todo.color }">
+            <span id="lastPurchase" class="selectionLabel" v-if="wide">Days: {{ todo.days }} </span>
             <span class="selectionLabel">Tax:</span>
             <input type="checkbox" id="tax" v-model="todo.tax" v-on:change="toggleTax(index)">
           <div id="quantitySelection">
@@ -256,10 +265,19 @@
   </div>
 
   <script>
+    function resize() {
+      console.log(window.innerWidth);
+      if (window.innerWidth > 500) {
+        app.wide = true; 
+      } else {
+        app.wide = false;
+      }
+    }
     var app = new Vue({
       el: '#app',
       data: {
         today: new Date(),
+        wide: false,
         fontSize: 25,
         tax: 7.75,
         todos: [],
@@ -287,6 +305,11 @@
         totalItems: 0,
       },
       created: function () {
+        if (window.innerWidth > 500) {
+          this.wide = true; 
+        } else {
+          this.wide = false;
+        }
         this.todos = [];
         if (!localStorage.getItem("vueTodos")) {
           localStorage.setItem("vueTodos", JSON.stringify(this.todos));
