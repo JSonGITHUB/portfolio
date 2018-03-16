@@ -234,6 +234,9 @@
       width: 20%;
       text-align: center;
     }
+    .itemTitle {
+      margin-right:55px;
+    }
   </style>
 </head>
 <body onresize="resize()">
@@ -245,7 +248,7 @@
     <div class="menu">
       <div class="item" v-bind:style="{ borderTop:'2px solid ' + todo.color }" v-for="(todo, index) in todos">
         <div class="itemRemove" v-bind:style="{ fontSize: fontSize + 'px' }" v-on:click="toggleCart(index)">
-          {{ todo.title }}
+          <div class="itemTitle">{{ todo.title }}</div>
           <image class="cart" src="assets/cart.png" v-if="todo.cart"/>
           <image class="cart" src="assets/addToCart.png" v-if="!todo.cart"/>
         </div>
