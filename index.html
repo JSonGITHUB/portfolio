@@ -67,7 +67,7 @@
       font-family: Arial, sans-serif;
       color:#FFFFFF;
       background-color:#000000;
-      width: calc(100% - 4px);
+      width: 100%;
       left:0px;
       position: relative;
     } 
@@ -624,12 +624,12 @@
         },
         updateLastPurchase: function () {
           for (x in this.todos) {
-//            if (typeof this.todos[x].lastPurchase === 'undefined') {
+            if (typeof this.todos[x].lastPurchase === 'undefined') {
               this.todos[x].lastPurchase = this.today;
               this.todos[x].days = 0;
-//            } else {
-//              this.todos[x].days = this.getDaysSincePurchase(x);
-//            }
+            } else {
+              this.todos[x].days = this.getDaysSincePurchase(x);
+            }
           }
         },
         getDaysSincePurchase: function(index) {
