@@ -5,9 +5,13 @@ function showInteractive() {
     for (var x=0;x < interactive.length; x++) {
         document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
                                                         "<div class='interactiveContainer'>" +
-                                                            "<image class='mobileImage' src='assets/290/" + interactive[x] + "'><br>" +
-                                                            "<image class='mobileImage' src='assets/290/" + interactive[x+1] + "'>"
-                                                        "</div>";
+                                                            "<image class='mobileImage' src='assets/290/" + interactive[x] + "'><br>";
+                                                            
+        if (interactive[x+1]) { 
+            document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
+                    "<image class='mobileImage' src='assets/290/" + interactive[x+1] + "'>";
+        }
+        document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML + "</div>";
         x++;
     }
     document.getElementById("resume").className = "mobile";
