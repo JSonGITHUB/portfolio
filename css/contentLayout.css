@@ -1,0 +1,2658 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:#EEEEEE;
+	
+}
+
+#leftContainer {	
+	
+	top:1000px;
+	left:0px;
+	
+	width:100%;
+	height:930px;
+	
+	position:absolute;
+
+}
+
+#popUp {
+	
+	top:0px;
+	left:0px;
+	
+	color:#FFFFFF;
+	background-color: rgba(0, 0, 0, 0.8);
+		
+	width:100%;
+	height:100%;
+	
+	position:fixed;
+	
+	visibility:hidden;
+
+}
+	
+#contentContainer {
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	background-color:#FFFFFF;
+	
+	left:5%;
+	top:5%;
+	
+	width:90%;
+	height:90%;
+	
+	position:inherit;
+
+}
+
+#menu {
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	left:0%;
+	margin-top:13px;
+	
+	width:100%;
+	height:90%;
+	
+	overflow-x:hidden;
+	overflow-y:scroll;
+	
+	position:absolute;
+
+}
+
+#footer {
+	
+	width:100%;
+	
+	left:10px;
+	bottom:970px;
+	
+	margin-bottom:30px;
+	
+	position:fixed;
+
+}
+
+#contentUpper {	
+	
+	width:100%;
+	position:relative;
+
+}
+
+#contentLower {	
+
+	width:100%;
+	top:250px;
+	position:relative;
+
+}
+
+#productSearchBox {
+	
+	left:-3px;
+	width:394px;
+	
+}
+
+.searchBox {
+	
+    background: -webkit-linear-gradient(#656565, #484848); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#656565, #484848); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#656565, #484848); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#656565, #484848); /* Standard syntax (must be last) */
+	
+
+	
+	width:100%;
+	height:45px;
+	
+	position:relative;
+
+}
+
+.searchField {
+	
+	font-family:"Verdana";
+	font-size:11px;
+	
+	color:#9b9b9b;
+	
+	border:1px solid #cdcdcd;
+	
+	border-radius: 15px;
+		
+	-moz-border-radius: 15px;		
+	-webkit-border-radius: 15px;
+	
+	margin-left:10px;
+	margin-right:0px;
+	margin-top:14px;
+	
+	padding-top:6px;
+	padding-left:10px;
+	
+	background-color:#FFFFFF;
+	
+	overflow-y: hidden;
+	
+	height:21px;
+	width:200px;
+
+}
+
+.shareField {
+	
+	font-family:"Verdana";
+	font-size:11px;
+	
+	color:#9b9b9b;
+	
+	border:1px solid #cdcdcd;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	margin-left:10px;
+	margin-right:20px;
+	margin-top:7px;
+	
+	padding-top:6px;
+	padding-left:10px;
+	
+	background-color:#FFFFFF;
+	
+	overflow-y: hidden;
+	
+	height:21px;
+	width:358px;
+
+}
+
+.rightMargin22px {
+	margin-right:22px;
+	
+}
+
+.rightMargin15px {
+	margin-right:15px;
+	
+}
+
+.bottomMargin90px {
+	margin-bottom:90px;
+	
+}
+
+#recentUploads {
+	
+	top:52px;
+	position:absolute;
+	
+	width:95%;
+	
+}
+
+#featuredContent {
+	
+	width:100%;
+	top:530px;
+	
+	position:absolute;
+	
+}
+
+#contentDivider {
+	
+	top:15px;
+	position:absolute;
+	
+}
+
+#playlist {
+	
+	top:70px;
+	width:95%;
+	
+	position:absolute;
+	
+}
+
+#features {
+	
+	top:70px;
+	position:absolute;
+	
+}
+
+#related {
+	
+	top:70px;
+	position:absolute;
+	
+}
+
+#searchMainNav {
+	
+	left:0px;
+	top:0px;
+	
+	width:100%;
+	height:27px;
+	
+	background-color:#FFFFFF;
+	
+	position:relative;
+
+}
+
+.viewSelections {
+	float:right;
+	
+}
+
+
+#searchNav {
+	
+	top:40px;
+	left:15px;
+	
+	width:620px;
+	height:45px;
+	
+	position:relative;
+
+}
+
+.searchNavButton {
+	
+	font-family:"Verdana";
+	font-size:11px;
+	
+	background-color:#FFFFFF;
+	color:#5F6062;
+	
+	border:1px solid #c6c6c6;
+	
+	margin-left:-1px;
+	
+	padding-top:8px;
+	padding-bottom:10px;
+	padding-left:10px;
+	
+	width:105px;
+	
+	float:left;
+	
+	position:relative;
+
+}
+
+.roleSearchResults {
+	
+	padding:10px;
+	
+}
+
+.metaTag {
+	
+	font-family:"Verdana";
+	font-size:9px;
+	
+	background-color:#FFFFFF;
+	color:#5F6062;
+	
+	border:1px solid #c6c6c6;
+	
+	border-radius: 3px;
+		
+	-moz-border-radius: 3px;		
+	-webkit-border-radius: 3px;
+	
+	margin-right:3px;
+	margin-top:5px;
+	
+	padding-top:1px;
+	padding-bottom:2px;
+	padding-left:2px;
+	
+	width:90px;
+	
+	
+	display:inline-block;
+	
+}
+
+.topLeftRadius {
+	
+	border-top-left-radius: 5px;
+		
+	-moz-border-top-left-radius: 5px;		
+	-webkit-border-top-left-radius: 5px;
+	
+}
+
+.bottomLeftRadius {
+	
+	border-bottom-left-radius: 5px;
+		
+	-moz-border-bottom-left-radius: 5px;		
+	-webkit-border-bottom-left-radius: 5px;
+	
+}
+
+.topRightRadius {
+	
+	border-top-right-radius: 5px;
+		
+	-moz-border-top-right-radius: 5px;		
+	-webkit-border-top-right-radius: 5px;
+	
+}
+
+.bottomRightRadius {
+	
+	border-bottom-right-radius: 5px;
+		
+	-moz-border-bottom-right-radius: 5px;		
+	-webkit-border-bottom-right-radius: 5px;
+	
+}
+
+.searchMainNavItem {
+	
+	font-family:"Verdana";
+	font-size:9px;
+	
+	color:#9b9b9b;
+	
+	padding-top:7px;
+	padding-bottom:10px;
+	padding-left:5px;
+	
+	float:left;
+
+}
+
+.roundedBoxOrangeHeader {
+	
+	-moz-box-shadow: inset 0px 4px 0px #F58025;
+	-webkit-box-shadow: inset 0px 4px 0px #F58025;
+	box-shadow: inset 0px 4px 0px #F58025;
+	
+	border:1px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	border-radius: 5px;
+	
+	padding-top:4px;
+	padding-bottom:2px;
+	padding-left:0px;
+	
+	margin-top:10px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	width:100%;
+
+}
+
+.roundedBoxGreyHeader {
+	
+	-moz-box-shadow: inset 0px 4px 0px #5F6062;
+	-webkit-box-shadow: inset 0px 4px 0px #5F6062;
+	box-shadow: inset 0px 4px 0px #5F6062;
+	
+	border:1px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	border-radius: 5px;
+	
+	padding-top:4px;
+	padding-bottom:0px;
+	padding-left:0px;
+	
+	margin-top:10px;
+	
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	width:100%;
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	position:relative;
+
+}
+
+.roundedBox {
+	
+	border:1px solid #cdcdcd;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+
+}
+
+.rounded {
+	
+	border:0px solid #cdcdcd;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+
+}
+
+.indent10px {
+	padding-left:10px;
+	
+}
+
+.playlists {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	
+	width:270px;
+	height:20px;
+	
+	position:relative;
+
+}
+
+.orangeCount {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	text-align:center;
+	
+	font-weight:bold;
+	
+	color:#FFFFFF;
+	
+	background-image:url('../assets/countBackgroundOrange.png');
+	
+	width:26px;
+	height:16px;
+	
+	top:4px;
+	
+	right:125px;
+	
+	position:absolute;
+	
+}
+
+.greyCount {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	text-align:center;
+	
+	font-weight:bold;
+	
+	color:#5F6062;
+	
+	background-image:url('../assets/countBackground.png');
+	
+	width:26px;
+	height:16px;
+	
+	top:4px;
+	
+	right:90px;
+	
+	position:absolute;
+	
+}
+
+.middleVert {
+	vertical-align:middle;
+	
+}
+
+.leftPadding {
+	padding-left:5px;
+	
+}
+
+.topPadding {
+	padding-top:5px;
+	
+}
+
+#categoriesSelector {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	padding-top:8px;
+	padding-left:10px;
+	
+	display:inline-block;
+
+}
+
+
+#searchProduct {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	padding-top:8px;
+	padding-left:10px;
+	
+	width:270px;
+	height:32px;
+	
+	position:relative;
+
+}
+
+#searchProductDropDown {
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	left:0px;
+	top:-1px;
+	
+	width:100%;
+	
+	overflow-x:hidden;
+	overflow-y:scroll;
+	
+	position:relative;
+
+}
+
+#searchRoleDropDown {
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	left:0px;
+	top:-1px;
+	
+	width:100%;
+	
+	overflow-x:hidden;
+	overflow-y:scroll;
+	
+	position:relative;
+
+}
+
+#playlistDropDown {
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	left:0px;
+	top:-1px;
+	
+	width:100%;
+	
+	overflow-x:hidden;
+	overflow-y:scroll;
+	
+	position:relative;
+
+}
+
+#sharedDropDown {
+	
+	border:0px solid #cdcdcd;
+	
+	background-color:#FFFFFF;
+	
+	left:0px;
+	top:-5px;
+	
+	width:100%;
+	
+	overflow-x:hidden;
+	overflow-y:scroll;
+	
+	position:relative;
+
+}
+
+#searchRole {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+
+	padding-top:8px;
+	padding-left:10px;
+	
+	width:270px;
+	height:35px;
+	
+	position:relative;
+
+}
+
+#howTo {	
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	border:0px solid #cdcdcd;
+	
+	padding-top:8px;
+	padding-left:10px;
+	
+	width:270px;
+	height:32px;
+	
+	position:relative;
+
+}
+
+.browseContentBox {
+	
+	margin-top:30px;
+	
+	color:#5F6062;
+	
+	left:0px;
+	
+	width:100%;
+	height:98px;
+	
+	background-color:#FFFFFF;
+	border:1px solid #cdcdcd;
+	
+	position:relative;
+	
+}
+
+#upperHeader {
+		
+	font-family:"Verdana";
+	font-size:12px;
+	font-weight:bold;
+	
+	color:#FFFFFF;
+	
+	padding-left:0px;
+	padding-top:8px;
+	
+	margin-bottom:8px;
+	
+	background-color:#F58025;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	width:100%;
+	height:22px;
+
+}
+
+#upperContent {
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	border:1px solid #cdcdcd;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	background-color:#E9E9E9;
+	
+	width:100%;
+	height:auto;
+
+}
+
+#tutorialImage {
+	
+	border:1px solid #cdcdcd;
+	
+	border-radius: 7px;
+		
+	-moz-border-radius: 7px;		
+	-webkit-border-radius: 7px;
+	
+	width:303px;
+	height:198px;
+	
+	margin-top:20px;
+	margin-left:20px;
+	
+	float:left;
+
+}
+
+#tutorialSelector {
+	
+	width:53px;
+	height:23px;
+	
+	background-color:#e6e6e6;
+	border:1px solid #cdcdcd;
+	
+	 top:255px;
+	 left:157px;
+	 
+	 align-content:center;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	position:relative;
+
+}
+
+#tutorialSelectorContainer {
+	position:absolute;
+
+}
+
+.selector {
+	
+	width:10px;
+	height:10px;
+	
+	background-color:#cccccc;
+	border:1px solid #cdcdcd;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	-moz-box-shadow: inset 1px 1px 1px #8f8f91;
+	-webkit-box-shadow: inset 1px 1px 1px #8f8f91;
+	box-shadow: inset 1px 1px 1px #8f8f91;
+	
+	margin-top:5px;
+	margin-right:4px;
+	
+	float:left;
+
+}
+
+.selector:hover {
+	
+	-moz-box-shadow: inset 3px 3px 3px #f79951;
+	-webkit-box-shadow: inset 3px 3px 3px #f79951;
+	box-shadow: inset 3px 3px 3px #f79951;
+	
+	background-color:#F58025;
+	border:1px solid #F58025;
+	
+	cursor:pointer;
+
+}
+
+.selectorHighlight {
+	
+	width:10px;
+	height:10px;
+	
+	-moz-box-shadow: inset 3px 3px 3px #f79951;
+	-webkit-box-shadow: inset 3px 3px 3px #f79951;
+	box-shadow: inset 3px 3px 3px #f79951;
+	
+	background-color:#F58025;
+	border:1px solid #F58025;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	margin-top:5px;
+	margin-right:4px;
+	
+	float:left;
+
+}
+
+.selectorHighlight:hover {
+	
+	-moz-box-shadow: inset 3px 3px 3px #F58025;
+	-webkit-box-shadow: inset 3px 3px 3px #F58025;
+	box-shadow: inset 3px 3px 3px #F58025;
+	
+	background-color:#F58025;
+	border:1px solid #F58025;
+	
+	cursor:pointer;
+
+}
+
+#tutorialImageTab {
+	
+	top: 31px;
+	left:333px;
+	width: 10px;
+	height: 70px;
+	
+	background-color:#F58025;
+	
+	position:absolute;
+
+}
+
+.indentLeft {
+	
+	bottom:14px;
+	left:45px;
+	
+	position:absolute;
+
+}
+
+.bottom51px {
+	
+	bottom:51px;
+	position:absolute;
+	
+}
+
+.bottom12px {
+	
+	bottom:12px;
+	position:absolute;
+	
+}
+
+.bottom10px {
+	
+	bottom:10px;
+	position:absolute;
+	
+}
+
+.top28px {
+	
+	top:28px;
+	position:absolute;
+	
+}
+
+.right50px {
+	
+	right:53px;
+	position:absolute;
+	
+}
+
+.right37px {
+	
+	right:37px;
+	position:absolute;
+	
+}
+
+.right10px {
+	
+	right:10px;
+	position:absolute;
+	
+}
+
+.right20px {
+	
+	right:20px;
+	position:absolute;
+	
+}
+
+.iconRight {
+	
+	bottom:15px;
+	right:0px;
+	
+	position:absolute;
+
+}
+
+.linkRight {
+	
+	bottom:11px;
+	right:0px;
+	
+	position:absolute;
+
+}
+
+.roleLinkRight {
+	
+	top:10px;
+	right:0px;
+	
+	position:absolute;
+
+}
+
+.searchIcon {
+	
+	margin-left:-13px;
+	margin-top:14px;
+	
+	position:absolute;
+
+}
+
+.orange {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	
+	color:#F58025;
+
+}
+
+.grey {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	
+	color:#9e9e9e;
+
+}
+
+#tutorialCloseX {
+	
+	top:20px;
+	right:20px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:15px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+
+}
+
+.searchTitle {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	font-weight:bold;
+	
+	padding-top:12px;
+	margin-left:10px;
+	
+	color:#5F6062;
+	
+}
+
+#searchDescription {
+	
+	margin-top:55px;
+	margin-left:15px;
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+}
+
+#playlistDescription {
+	
+	
+	width:400px;
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+}
+
+#tutorialTitle {
+		
+	font-family:"Verdana";
+	font-size:22px;
+	
+	color:#2d2d2d;
+	
+}
+
+.tutorialTitleSub {
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	padding-top:10px;
+	padding-bottom:7px;
+	
+	color:#646464;
+	
+}
+
+.tutorialDescriptionSub {
+		
+	font-family:"Verdana";
+	font-size:10px;
+	
+	padding-top:10px;
+	
+	color:#8d8d8d;
+	
+}
+
+#tutorialDescription {
+		
+	font-family:"Verdana";
+	font-size:12px;
+	
+	margin-top:5px;
+	
+	color:#5F6062;
+	
+}
+
+.dropDownButton {
+	
+	width: 150px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:10px;
+	
+	margin-left:10px;
+	margin-top:22px;
+	
+	color:#5F6062;
+	background-color:#FFFFFF;
+	
+}
+
+#goButton {
+	
+	width: 50px;
+	height: 28px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	margin-left:10px;
+	margin-top:22px;
+	
+	text-align:center;
+	padding-top:10px;
+	
+	color:#FFFFFF;
+	background-color:#F58025;
+	
+	border:1px solid #da580d;
+	
+}
+
+#addNewList {
+	
+	left:10px;
+	width:200px;
+	top:120px;
+	
+	position:absolute;
+	
+}
+
+#mainContent {
+	
+	padding:20px;
+	
+	width:300px;
+	height:205px;
+
+	display:inline-block;
+	
+}
+
+#tutorialLaunchButton {
+	
+	margin-top:20px;
+	margin-bottom:20px;
+	
+}
+
+.blueButton {
+	
+	width: 145px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:12px;
+	
+	margin-right:10px;
+	margin-bottom:7px;
+	
+	padding:5px;
+	
+	color:#FFFFFF;
+	background-color:#007DB1;
+	
+	border:1px solid #000000;
+	
+	border-radius: 5px;
+	
+	float:left;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+}
+
+.orangeButton {
+	
+	width: 110px;
+	height: 20px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	text-align:center;
+	padding-top:5px;
+	
+	color:#FFFFFF;
+	background-color:#F58025;
+	
+	border:1px solid #da580d;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+}
+
+.orangeButton:hover {
+	
+	opacity:.5;
+	cursor:pointer;
+	
+}
+
+.silverButton {
+	
+	width: 350px;
+	height: 23px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	text-align:left;
+	padding-top:10px;
+	padding-left:10px;
+	
+	color:#888888;;
+	background-color:#FFFFFF;
+	
+	border:1px solid #CCCCCC;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+}
+
+.silverButton:hover {
+	cursor:pointer;
+	
+}
+
+#downloadContainer {
+	
+	top:80px;
+	
+	margin-left:0%;
+	
+	width: 100%;
+	height: 70px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	text-align:center;
+	padding:20px;
+	
+	color:#CCCCCC;
+	background-color:#000000;
+	
+	border:1px solid #cdcdcd;
+	
+	position:absolute;
+	
+	
+}
+
+.launchButton {
+	
+	width: 150px;
+	height: 20px;
+		
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:15px;
+	
+	margin-top:14px;
+	margin-left:15px;
+	margin-right:15px;
+	
+	text-align:center;
+	padding:10px;
+	
+	color:#FFFFFF;
+	background-color:#F58025;
+	
+	border:1px solid #da580d;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	float:left;
+	
+}
+
+.launchButton:hover {
+	
+	opacity:.5;
+	cursor:pointer;
+	
+}
+
+#lowerHeaderTop {
+	
+	top:13px;
+	left:13px;
+		
+	font-family:"Verdana";
+	font-size:19px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	
+}
+
+.mainTitle {
+	
+	top:100px;
+	left:23px;
+	
+	font-family:"Verdana";
+	font-size:19px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	
+}
+
+#lowerHeaderBottom {
+	
+	top:30px;
+	left:13px;
+		
+	font-family:"Verdana";
+	font-size:19px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	
+}
+
+#lowerHeaderLeft {
+	
+	top:26px;
+	left:30px;
+		
+	font-family:"Verdana";
+	font-size:19px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	
+}
+
+#lowerHeaderRight {
+	
+	top:26px;
+	left:340px;
+		
+	font-family:"Verdana";
+	font-size:19px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	
+}
+
+#downloadVerticalDivider {
+	
+	top:0px;
+	left:444px;
+	
+	height:100%;
+	width:1px;
+	
+	background-color:#e0e0e0;
+	
+	position:absolute;
+	
+}
+
+#downloadInfo {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	text-align:left;
+	
+	top:0px;
+	left:450px;
+	
+	margin-top:35px;
+	padding-left:15px;
+	
+	height:40px;
+	width:125px;
+	
+	color:#CCCCCC;
+	
+	position:absolute;
+	
+}
+
+#lowerHeaderLeftDivider {
+	
+	top:65px;
+	left:30px;
+	
+	height:1px;
+	width:285px;
+	
+	background-color:#e0e0e0;
+	
+	position:absolute;
+	
+}
+
+.lowerLeftDivider {
+	
+	height:1px;
+	width:100%;
+	
+	background-color:#e0e0e0;
+	
+	
+}
+
+#lowerHeaderRightDivider {
+	
+	top:65px;
+	left:340px;
+	
+	height:1px;
+	width:280px;
+	
+	background-color:#e0e0e0;
+	
+	position:absolute;
+	
+}
+
+#lowerViewListSelect {
+	
+	width:32px;
+	height:32px;
+	
+	 top:22px;
+	 left:555px;
+	
+	position:absolute;
+
+}
+
+#lowerViewThumbSelect {
+	
+	width:32px;
+	height:32px;
+	
+	 top:22px;
+	 left:588px;
+	
+	position:absolute;
+
+}
+
+#bigSearchResults {
+	
+	margin-top:10px;
+	
+	height:91%;
+	width:100%;	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	background-color:#FFFFFF;
+	
+}
+
+#productSearchResults {
+	
+	height:243px;
+	width:100%;	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+}
+
+.videoPlayerHeader {
+	
+	font-family:"Verdana";
+	font-size:20px;
+	
+	color:#5F6062;
+	
+	padding:25px;
+	
+	height:auto;
+	width:100%;
+	
+	position:absolute;
+	
+}
+
+.videoPlayerSubHeader {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	height:auto;
+	width:100%;
+	
+	position:absolute;
+	
+}
+
+.videoDescriptionContainer {
+	
+	top:530px;
+	left:28px;
+	
+	position:absolute;
+	
+}
+
+.downloadDescriptionContainer {
+	
+	top:285px;
+	left:0px;
+	
+	margin-left:28px;
+	
+	width:595px;
+	
+	position:inherit;
+	
+}
+.downloadDescription {
+	
+	font-family:"Verdana";
+	font-size: 12px;
+	
+	overflow-y:scroll;
+		
+	height:100px;
+	width: 100%;
+	
+	padding-left:30px;
+	
+	top:250px;
+	
+	position:absolute;
+	
+}
+
+.videoDescription {
+	
+	font-family:"Verdana";
+	font-size: 12px;
+	
+	overflow-y:scroll;
+		
+	height:100px;
+	width: 100%;
+	
+	padding-left:30px;
+	
+	background-color:#FFFFFF;
+	
+	top:510px;
+	
+	position:absolute;
+	
+}
+
+.playlistAddWarning {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	background-color:#F9EAD0;
+	
+	padding-left:15px;
+	padding-top:2px;
+	padding-bottom:4px;
+	
+}
+
+.dialogBoxHeader {
+	
+	font-family:"Verdana";
+	font-size:20px;
+	
+	color:#5F6062;
+	
+	padding-left:15px;
+	padding-top:15px;
+	
+	height:auto;
+	
+	position:absolute;
+	
+}
+
+.playlistSelectionMenu {
+	
+	margin-top:10px;
+	
+	height:118px;
+	
+	overflow-x: hidden;
+	overflow-y: scroll;
+	
+}
+
+.searchResultItem {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	height:20px;
+	width:100%;
+	
+	border:1px solid #E1E1E1;
+	
+	padding:10px;
+	
+	background-color:#EEEEEE;
+	
+	color:#5F6062;
+	
+	position:relative;
+	
+}
+
+.searchResultItem:hover {
+	
+	color:#FFFFFF;
+	background-color:#F58025;
+	
+}
+
+.searchCategoryItem {
+	
+	font-family:"Verdana";
+	font-size:10px;
+	
+	height:25px;
+	width:100%;
+	
+	border:1px solid #E1E1E1;
+	
+	padding-top:10px;
+	padding-left:20px;
+	
+	background-color:#EEEEEE;
+	
+	color:#5F6062;
+	
+	position:relative;
+	
+}
+
+.searchCategoryItem:hover {
+	
+	color:#FFFFFF;
+	background-color:#F58025;
+	
+}
+
+#sharedTutorialsContainer {
+	
+	height:300px;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+}
+
+#lowerContent {
+	
+	top:55px;
+	left:13px;
+	
+	height:520px;
+	width:630px;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	position:absolute;
+	
+}
+
+#lowerLeftContent {
+	
+	top:81px;
+	left:30px;
+	
+	height:520px;
+	width:285px;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	position:absolute;
+	
+}
+
+#lowerRightContent {
+	
+	top:81px;
+	left:340px;
+	
+	height:520px;
+	width:295px;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	position:absolute;
+	
+}
+
+.floatLeft {
+	float:left;
+	
+}
+
+.videoLength {
+	
+	font-family:"Verdana";
+	font-size:10px;
+	
+	color:#FFFFFF;
+	background:#000000;
+	
+	opacity:.8;
+	
+	padding:3px;
+	
+	bottom: 6px;
+	right: 3px;
+					
+	position: absolute;
+
+}
+
+.tutorialLength {
+	
+	font-family:"Verdana";
+	font-size:10px;
+	
+	color:#636363;
+
+}
+
+.linkIcon {
+	
+	bottom: 8px;
+	right: 3px;
+					
+	position: absolute;
+
+}
+
+.likeIcon {
+	
+	top: 0px;
+	right: 25px;
+					
+	position: absolute;
+
+}
+
+.shareIcon {
+	
+	top: 1px;
+	right: 56px;		
+	
+	position: absolute;
+
+}
+
+.suggestedTitle {
+	
+	font-family:"Verdana";
+	font-size:14px;
+	
+	color:#2d2d2d;
+	
+}
+
+.suggestedDescription {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5e5e5e;
+	
+}
+
+.suggestedLinks {
+	
+	width:213px;
+	height:35px;
+	
+}
+
+.links:hover {
+	
+	opacity:.5;
+	cursor:pointer;
+	
+}
+
+.links {
+	
+	cursor:pointer;
+	.unselectable;
+	
+}
+
+.unselectable {
+		
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+	 Introduced in IE 10.
+	 See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   
+   -ms-user-select: none;
+   user-select: none;
+   
+	-moz-user-select: none;
+	-o-user-select: none;
+	
+	pointer-events: none;
+   
+}
+
+.likeCount {
+	
+	top:10px;
+	right:5px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	text-align:center;
+	
+	width:15px;
+	
+	color:#AAAAAA;
+	
+	position:absolute;
+	.unselectable;
+	
+}
+
+.itemsCount {
+	
+	top:-27px;
+	left:220px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	text-align:center;
+	
+	width:15px;
+	
+	color:#2d2d2d;
+	
+	position:relative;
+	.unselectable;
+	
+}
+
+.itemsRole {
+	
+	top:-34px;
+	left:530px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	text-align:center;
+	
+	width:15px;
+	
+	color:#2d2d2d;
+	
+	position:relative;
+	.unselectable;
+	
+}
+
+.itemsPlaylist {
+	
+	top:20px;
+	right:53px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:11px;
+	
+	text-align:center;
+	
+	width:15px;
+	
+	color:#2d2d2d;
+	
+	position:absolute;
+	.unselectable;
+	
+}
+
+.recentThumb {
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	width:132px;
+	height:95px;
+	
+	background-color:#F58025;
+	
+	position:relative;
+	
+}
+
+.recentList {
+	
+	width:90px;
+	height:69px;
+	
+	background-color:#F58025;
+	
+	position:relative;
+	
+}
+
+.bigSearchList {
+	
+	left:10px;
+	
+	width:132px;
+	height:97px;
+	
+	background-color:#F58025;
+	
+	position:relative;
+	
+}
+
+.sharedList {
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	width:90px;
+	height:69px;
+	
+	background-color:#F58025;
+	
+	position:relative;
+	
+}
+
+.listThumb {
+	
+	width:90px;
+	height:64px;
+	
+	position:relative;
+	
+}
+
+.bigSearchThumb {
+	
+	width:132px;
+	height:94px;
+	
+	position:relative;
+	
+}
+
+.sharedThumb {
+	
+	width:90px;
+	height:64px;
+	
+	position:absolute;
+	
+}
+
+.tutorialTitle {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:12px;
+	
+	padding-top:5px;
+	
+	width:136px;
+	
+	color:#515151;
+	
+	postition:absolute;
+	
+}
+
+.menuTitle {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:20px;
+	
+	padding-top:5px;
+	padding-left:10px;
+	
+	color:#515151;
+	
+	postition:absolute;
+	
+}
+
+.bigSearchTitle {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:12px;
+
+	width:300px;
+	
+	color:#515151;
+	
+	padding:10px;
+	
+	postition:absolute;
+	
+}
+
+.bigSearchDescription {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	padding-left:10px;
+
+	width:340px;
+	
+	color:#515151;
+	
+	postition:absolute;
+	
+}
+
+.recentTitleList {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:12px;
+	
+	padding-top:5px;
+
+	width:100%;
+	
+	color:#515151;
+	
+	postition:absolute;
+	
+}
+
+.verticalSpacer5px {
+	padding-top:5px;
+	
+}
+
+.verticalSpacer10px {
+	padding-top:10px;
+	
+}
+
+.horizontalDirectory {
+	
+	left:15px;
+	
+	height:190px;
+	width:100%;
+	
+	overflow-y: hidden;
+	overflow-x:scroll;
+	
+	position:absolute;
+	
+}
+
+.sharedTitle {
+	
+	padding-top:10px;
+	padding-left:10px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	color:#515151;
+	
+	postition:absolute;
+	
+}
+
+.list {
+	
+	top:0px;
+	left:100px;
+	
+	position:absolute;
+	
+	
+}
+
+.listBigSearch {
+	
+	top:0px;
+	left:150px;
+	
+	position:absolute;
+	
+	
+}
+
+.playlistMenuItem {
+	
+	top:0px;
+	left:110px;
+	
+	position:absolute;
+	
+	
+}
+
+.editListHeader {
+	
+	top:43px;
+	left:0px;
+	
+	width:100%;
+	
+	padding-top:10px;
+	
+	height:80px;
+	
+	position:absolute;
+	background-color:#DDDDDD;
+	
+	border:0px solid #E1E1E1;
+	
+}
+
+.listItem {
+	
+	padding:10px;
+	
+	position:relative;
+	background-color:#EEEEEE;
+	
+	border:0px solid #E1E1E1;
+	
+}
+
+.sharedItem {
+	
+	padding:10px;
+	
+	position:relative;
+	background-color:#EEEEEE;
+	
+	border:1px solid #E1E1E1;
+	
+}
+
+.sharedDate {
+	
+	padding-left:10px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;	
+	
+	color:#BBBBBB;
+	
+	postition:absolute;
+	
+}
+
+.copyright {
+	
+	padding-left:5px;
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;	
+	
+	color:#BBBBBB;
+	
+	postition:absolute;
+	
+}
+
+.uploadDate {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	padding-left:10px;
+	padding-top:10px;
+	
+	color:#BBBBBB;
+	
+	postition:absolute;
+	
+}
+
+.category {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	padding-top:5px;
+	
+	color:#636363;
+	
+	postition:absolute;
+	
+}
+
+.categories {
+	
+}
+
+.uploadDateMain {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:10px;
+	
+	padding-top:5px;
+	
+	color:#636363;
+	
+}
+
+.darkAlpha {
+		
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	
+	background-color: rgba(0, 0, 0, 0.8);
+	
+	position:fixed;	
+	
+}
+
+.dialogBox {
+		
+	top:50px;
+	left:150px;
+	height:350px;
+	width:390px;
+	
+	border:3px solid #000000;
+	
+	border-radius: 10px;
+		
+	-moz-border-radius: 10px;		
+	-webkit-border-radius: 10px;
+	
+	overflow:hidden;
+	
+	background-color:#FFFFFF;
+	
+	position:absolute;	
+	
+}
+
+.top10px {
+	
+	top:10px;
+	position:absolute;
+	
+}
+
+.top-9px {
+	
+	top:-9px;
+	position:absolute;
+	
+}
+
+.rightAlign {
+		
+	right:10px;
+	position:absolute;
+	
+}
+
+.dialogBoxClose {
+	
+	font-family:"Verdana";
+	font-weight:bold;
+	font-size:20px;
+	
+	padding-top:15px;
+	padding-left:20px;
+		
+	top:-1px;
+	right:-1px;
+	height:45px;
+	width:35px;
+	
+	color:#000000;
+	
+	border:1px solid #5F6062;
+	
+	background-color:#CCCCCC;
+	
+	position:absolute;	
+	
+}
+
+.videoDiv {
+		
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	
+	background-color:#FFFFFF;
+	
+	position:fixed;
+	
+	z-index: 1000;
+	
+	visibility:hidden;
+	
+}
+
+.downloadDiv {
+		
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	
+	background-color:#F3F3F3;
+	
+	position:fixed;	
+	
+	z-index: 1000;
+	
+	visibility:hidden;
+	
+}
+
+.videoSocial {
+	
+	right:26px;
+	top:475px;
+	
+	position:absolute;
+	
+}
+
+.downloadSocial {
+	
+	right:26px;
+	top:195px;
+	
+	position:absolute;
+	
+}
+
+#metaContainer {	
+
+	left:28px;
+	top:475px;
+
+	background-color:#FFFFFF;
+	padding-top:3px;
+	
+	height:32px;
+	width:586px;
+	
+	position:absolute;
+
+}
+
+#downloadMetaContainer {	
+
+	left:28px;
+	top:200px;
+
+	background-color:#FFFFFF;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 5px;		
+	-webkit-border-radius: 5px;
+	
+	border:0px solid rgba(0,0,0,.2);
+	
+	height:32px;
+	width:92%;
+	
+	position:absolute;
+
+}
+
+.playerDiv {
+	
+	top:110px;
+	left:0px;
+	
+	border:1px solid rgba(0,0,0,1);
+		
+	height:363px;
+	width: 100%;
+	
+	position:relative;
+	
+}
+
+.btn {
+		
+	text-align:center;
+
+	font-family:"Verdana";
+	font-size: 15px;
+	
+	text-decoration:none;
+	
+	display: inline-block;
+	
+	padding-top:5px;
+	padding-bottom:6px;
+	padding-right:5px;
+	padding-left:5px;
+	
+	text-shadow: 2px 2px 2px rgba(95,96,98,.55);
+	
+	border:1px solid rgba(95,96,98,1);
+	
+	cursor:pointer;
+	
+}
+
+.btn:hover {
+	border:1px solid rgba(0,0,0,1);
+	
+}
+
+.closeBtn {
+
+	right: 5px;
+	top: 5px;
+	
+	border-radius: 5px;
+		
+	-moz-border-radius: 3px;		
+	-webkit-border-radius: 3px;
+	
+	width: 20px;
+	height: 20px;
+	
+	position:absolute;
+	
+}
+
+.shine {
+	
+	background-image:url('../assets/buttonShineOverlay.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	background-origin:content-box;
+	
+}
+
+.footerItem {
+	
+	font-family:"Verdana";
+	font-size:12px;
+	
+	color:#5F6062;
+	
+	margin-top: 8px;
+	margin-left: 5px;
+    margin-right: 10px;
+	margin-bottom: 10px;
+	
+	float:left;
+	
+}
+
+.searchResultPageCount {
+	
+	font-family:"Verdana";
+	font-size:11px;
+	
+	color:#5F6062;
+	
+	margin-top: 9px;
+}
+
+.rightMargin10px {
+    margin-right: 10px;
+	
+}
+
+.animate {
+	
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-o-transition-property: all;
+	-ms-transition-property: all;
+	transition-property: all;
+	
+	-webkit-transition: all 0.3s ease;
+	-moz-transition:all 0.3s ease;  
+	-o-transition:all 0.3s ease; 
+	-ms-transition:all 0.3s ease;  
+	transition:all 0.3s ease; 
+	
+}
+
+.fadeIn {
+			
+	opacity:0;
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	-o-animation:fadeIn ease-in 1;
+	-ms-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+	
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	-ms-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	
+	-webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	-o-animation-duration:.5s;
+	-ms-animation-duration:.5s;
+	animation-duration:.5s;
+	
+}
+
+@-webkit-keyframes fadeIn {
+	
+	from { 
+		opacity:0; 
+		
+	} to { 
+		opacity:1; 
+		
+	} 
+	
+}
+
+@-moz-keyframes fadeIn { 
+
+	from { 
+		opacity:0; 
+		
+	} to { 
+		opacity:1; 
+		
+	} 
+		
+}
+
+@-o-keyframes fadeIn {
+	
+	from { 
+		opacity:0; 
+		
+	} to { 
+		opacity:1; 
+		
+	} 
+	
+}
+
+@keyframes fadeIn { 
+
+	from { 
+		opacity:0; 
+		
+	} to {
+		opacity:1; 
+		
+	} 
+	
+}
