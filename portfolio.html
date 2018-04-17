@@ -3,33 +3,26 @@
 <head>
 
     <meta charset="utf-8">
-    <title>John Santucci Interactive</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=.1, user-scalable=yes" />
+    <title>John Santucci</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=.25, user-scalable=yes" />
     <meta http-equiv="X-UA-Compatible" content="IE=11">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">   
-	<link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
 
 </head>
-<body onResize="resize()">
-<nav class="navigation fadeIn">
-    <b>John Santucci</b>
-    <div class="navContainer">
+<body>
+<header onclick="toggleNav(this)"><b>John Santucci</b></header>
+<nav id="nav">
         <!--button onclick="showIntro()">Intro</button-->
-        <div class="button" onclick="showHTML5()">Applications</div>
-        <div class="button" onclick="showAdvertising()">Advertising</div>
-        <div class="button" onclick="showInteractive()">Web</div>
-        <div class="button" onclick="showMobile()">Mobile</div>
-        <div class="button" onclick="showResume()">Resume</div>
-        
-       
-        
+        <div class="button" onclick="toggleNav(this)">Applications</div>
+        <div class="button" onclick="toggleNav(this)">Advertising</div>
+        <div class="button" onclick="toggleNav(this)">Web</div>
+        <div class="button" onclick="toggleNav(this)">Mobile</div>
+        <div class="button" onclick="toggleNav(this)">Resume</div>
         <!--div onclick="showColumns()">Columns</div>
         <div class="button" onclick="showCams()">Cams</div-->
-        
-    </div>
 </nav>
-
 <div id="resume" class="resume animate"></div>
 </body>
 <script src="js/Interactive.js"></script>
@@ -43,6 +36,26 @@
 <script src="js/Advertising.js"></script>
 
 <script type="text/javascript">
-	showResume();
+    //document.getElementById("header").style.height = "100%";
+    showResume();
+
+    function toggleNav(obj) {
+        if (document.getElementsByTagName('nav')[0].className == 'animate display') {
+            document.getElementsByTagName('nav')[0].className = 'animate';
+        } else {
+            document.getElementsByTagName('nav')[0].className = 'animate display';
+        }
+        if (obj.innerHTML == "Applications") {
+            showHTML5();
+        } else if (obj.innerHTML == "Advertising") {
+            showAdvertising();
+        } else if (obj.innerHTML == "Web") {
+            showInteractive();
+        } else if (obj.innerHTML == "Mobile") {
+            showMobile();
+        } else if (obj.innerHTML == "Resume") {
+            showResume();
+        }
+    }
 </script>
 </html>
