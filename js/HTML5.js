@@ -21,8 +21,7 @@ function showHTML5() {
 */
 function showHTML5() {
     document.getElementById("resume").style.opacity = 0;
-    document.getElementById("resume").innerHTML = "<span class='mobileBumper'></span>" +
-        "<image class='html5Image' src='portfolio/CarefusionVideoStrategy.png'>" +
+    document.getElementById("resume").innerHTML = "<image class='html5Image' src='portfolio/CarefusionVideoStrategy.png'>" +
         "<image class='html5Image' src='portfolio/DecisionSupport.png'>" +
         "<image class='html5Image' src='portfolio/ES.png'>" +
         "<image class='html5Image' src='portfolio/IRN.png'>" +
