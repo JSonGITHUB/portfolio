@@ -13,9 +13,12 @@
 </head>
 <body>
 <container class='container-fluid'>
-    <header onclick="toggleNav(this)"><b>John Santucci</b></header>
+    <header><b>John Santucci</b></header>
     <nav id="nav"></nav>
     <div id="resume" class="resume animate"></div>
+    <div class='headshot'></div>
+    <div id="menuClose"></div>
+    <div id="menu" onclick="toggleNav(this)"></div>
 </container>
 </body>
 <script src="js/Interactive.js"></script>
@@ -30,6 +33,7 @@
 
 <script type="text/javascript">
     //document.getElementById("header").style.height = "100%";
+    document.getElementById('menuClose').className = "hide";
     showResume();
 
     function toggleNav(obj) {
@@ -39,6 +43,9 @@
         if (document.getElementsByTagName('nav')[0].className == 'animate display') {
             document.getElementsByTagName('nav')[0].className = 'animate';
             document.getElementsByTagName('nav')[0].innerHTML = "";
+            document.getElementById('menuClose').className = "animate hide";
+            document.getElementById('menu').className = "animate show";
+
         } else {
             document.getElementsByTagName('nav')[0].className = 'animate display';
             //<!--button onclick="showIntro()">Intro</button-->
@@ -48,6 +55,9 @@
                 document.getElementsByTagName('nav')[0].innerHTML = document.getElementsByTagName('nav')[0].innerHTML +
                                             "<div class='button' onclick='toggleNav(this)'>"+selections[i]+"</div>";
             }
+            
+            document.getElementById('menu').className = "animate hide";
+            document.getElementById('menuClose').className = "animate show";
         }
         if (obj.innerHTML == "Applications") {
             showHTML5();
