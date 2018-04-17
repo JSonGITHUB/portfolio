@@ -132,8 +132,8 @@ header {
 	top:0px;
 	left:0px;
 	position: fixed;
-	width: calc(100% - 40px);
-	height:20px;
+	width: 100%;
+	height:auto;
 	padding: 20px;
 	color:#FFFFFF;
 	background-color: #000000;
