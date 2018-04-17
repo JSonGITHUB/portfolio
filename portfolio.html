@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="utf-8">
     <title>John Santucci</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=.25, user-scalable=yes" />
@@ -9,21 +8,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">   
     <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 </head>
 <body>
-<header onclick="toggleNav(this)"><b>John Santucci</b></header>
-<nav id="nav">
-        <!--button onclick="showIntro()">Intro</button-->
-        <div class="button" onclick="toggleNav(this)">Applications</div>
-        <div class="button" onclick="toggleNav(this)">Advertising</div>
-        <div class="button" onclick="toggleNav(this)">Web</div>
-        <div class="button" onclick="toggleNav(this)">Mobile</div>
-        <div class="button" onclick="toggleNav(this)">Resume</div>
-        <!--div onclick="showColumns()">Columns</div>
-        <div class="button" onclick="showCams()">Cams</div-->
-</nav>
-<div id="resume" class="resume animate"></div>
+<container class='container-fluid'>
+    <header onclick="toggleNav(this)"><b>John Santucci</b></header>
+    <nav id="nav"></nav>
+    <div id="resume" class="resume animate"></div>
+</container>
 </body>
 <script src="js/Interactive.js"></script>
 <script src="js/Mobile.js"></script>
@@ -40,10 +33,21 @@
     showResume();
 
     function toggleNav(obj) {
+
+        const selections = ["Resume", "Mobile", "Web", "Advertising", "Applications"];
+
         if (document.getElementsByTagName('nav')[0].className == 'animate display') {
             document.getElementsByTagName('nav')[0].className = 'animate';
+            document.getElementsByTagName('nav')[0].innerHTML = "";
         } else {
             document.getElementsByTagName('nav')[0].className = 'animate display';
+            //<!--button onclick="showIntro()">Intro</button-->
+           // <!--div onclick="showColumns()">Columns</div>
+           // <div class="button" onclick="showCams()">Cams</div-->
+            for (var i=0; i<selections.length; i++) {
+                document.getElementsByTagName('nav')[0].innerHTML = document.getElementsByTagName('nav')[0].innerHTML +
+                                            "<div class='button' onclick='toggleNav(this)'>"+selections[i]+"</div>";
+            }
         }
         if (obj.innerHTML == "Applications") {
             showHTML5();
