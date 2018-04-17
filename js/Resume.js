@@ -1,10 +1,18 @@
 var resume = "(760) 402-5646<br>" +
 	"<a href='https://www.linkedin.com/in/johnsantucci'><span style='font-size: 12px'>www.linkedin.com/in/johnsantucci</span></a><br>" +
 	"jhnsntcc@gmail.com<br><br>" +
-	"<span class='title'>WEB APPLICATION DEVELOPER</span><br><br>" +
+	"<span class='title'>FRONT END DEVELOPER</span><br>" +
 	"Web Application and Website Developer able to produce a seamless interactive experience for the end user by applying visual sense and technical skills. Creative thinker with a track record of integrating new web technologies. Effective at building relationships at all levels within an organization. Successful collaborating with a team of designers and developers and owning projects.<br><br><br>" +
-	"<span class='title'>TECHNOLOGIES/CONCEPTS/PROCESS</span><br><br>" +
-	"HTML5, CSS, JavaScript, VanillaJS, Web Applications, AJAX, XML, Local Storage, eCommerce, eLearning, Decision Support, Simulation, Product Support, UI, UX, Web Analytics, Social Media, Sharing, Playlists, Shopping Cart Development, Agile/Scrum, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, GPS, Sensors, Accelerometer, Embedded, Source Control, Testing, Test Scripting, Feedback Analysis, Optimization, GitHub, Teamwork, Slack, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Excel, Perforce, Jira, Illustrator, Quicktime, InDesign, Premiere and Final Cut Pro<br><br><br>" +
+
+	"<span class='title'>TECHNOLOGIES</span><br>" +
+	"HTML5, JavaScript, CSS, AJAX, XML, jQuery, REST, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Sensors, Accelerometer, GitHub, Grunt, Teamwork, Slack, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" +
+
+	"<span class='title'>CONCEPTS</span><br>" +
+	"Single Page Application Development, Progressive Web Apps, VanillaJS, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded, MVC, MVP, Source Control and Testing<br><br><br>" +
+
+	"<span class='title'>PROCESS</span><br>" +
+	"Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum<br><br><br>" +
+
 	"<span class='title'>PROFESSIONAL EXPERIENCE<br><br>" +
 	"CareFusion</span>, San Diego, CA<br>" +
 	"<span class='title'>Application Developer</span><br>" +
