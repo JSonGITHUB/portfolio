@@ -1,5 +1,5 @@
 var resume = "(760) 402-5646<br>" +
-	"www.linkedin.com/in/johnsantucci<br>" +
+	"<a href='https://www.linkedin.com/in/johnsantucci'><span style='font-size: 12px'>www.linkedin.com/in/johnsantucci</span></a><br>" +
 	"jhnsntcc@gmail.com<br><br>" +
 	"<span class='title'>WEB APPLICATION DEVELOPER</span><br><br>" +
 	"Web Application and Website Developer able to produce a seamless interactive experience for the end user by applying visual sense and technical skills. Creative thinker with a track record of integrating new web technologies. Effective at building relationships at all levels within an organization. Successful collaborating with a team of designers and developers and owning projects.<br><br><br>" +
