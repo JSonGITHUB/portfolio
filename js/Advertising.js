@@ -7,10 +7,10 @@ function showAdvertising() {
     document.getElementById("resume").innerHTML = "";
     for (var x=0;x < ads.length; x++) {
        // if (x>3 && x<7) {
-        document.getElementById("resume").className += " ad";
+        document.getElementById("resume").className += " mobile";
             document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
                // "<div id='adContainer"+x+"' class='interactiveContainer'>" +
-                    "<object width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>"; /* +
+                    "<object class='ad' width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>"; /* +
                     "<object width='"+adsWidth[x+1]+"' height='"+adsHeight[x+1]+"' data='assets/banners/" + ads[x+1] + "'></object><br>" +
                     "<object width='"+adsWidth[x+2]+"' height='"+adsHeight[x+2]+"' data='assets/banners/" + ads[x+2] + "'></object>" +
                 "</div>";
@@ -50,7 +50,7 @@ function showAdvertising() {
         }
         */
     }                                            
-    document.getElementById("resume").className = "mobile";
+    //document.getElementById("resume").className = "mobile";
     document.getElementById("resume").style.opacity = 1;
     document.getElementById("resume").scrollTop = 0;
     document.getElementById("resume").scrollLeft = 0;

@@ -4,13 +4,9 @@ function showInteractive() {
     document.getElementById("resume").innerHTML = "";
     for (var x=0;x < interactive.length; x++) {
         document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
-                                                        "<div class='interactiveContainer'>" +
-                                                            "<image class='mobileImage' src='assets/290/" + interactive[x] + "'><br>" +
-                                                            "<image class='mobileImage' src='assets/290/" + interactive[x+1] + "'>" +
-                                                        "</div>";
-        x++;
+                                                            "<image class='mobileImage' src='assets/290/" + interactive[x] + "'>";
     }
-    document.getElementById("resume").className = "mobile";
+    document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
     document.getElementById("resume").scrollTop = 0;
     document.getElementById("resume").scrollLeft = 0;

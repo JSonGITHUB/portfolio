@@ -30,7 +30,7 @@ function showHTML5() {
         "<image class='html5Image' src='portfolio/OR_Specialized.png'>" +
         "<image class='html5Image' src='portfolio/OR_Workflow.png'>";
 
-    document.getElementById("resume").className = "mobile";
+    document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
     document.getElementById("resume").scrollTop = 0;
     document.getElementById("resume").scrollLeft = 0;
