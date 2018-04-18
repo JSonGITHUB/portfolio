@@ -36,7 +36,6 @@ object {
 }
 .mobileBumper {	
 	margin-left:150px;
-	
 }
 .mobileImage {
 	height: auto;
@@ -44,11 +43,13 @@ object {
 	width: auto;
 	max-width: 580px;
 	margin:15px;
+	margin-left:0px;
 }
 .ad {
 	max-height: 350px;
 	max-width: 580px;
 	margin:15px;
+	margin-left:0px;
 }
 .html5Image {
 	border: 1px solid #CCCCCC;
@@ -57,6 +58,7 @@ object {
 	width: auto;
 	max-width: 580px;
 	margin:15px;
+	margin-left:0px;
 }
 .moreThan800 {
 	text-align:center;
@@ -79,7 +81,6 @@ object {
 	background-color:#FF0;
 	outline:1px solid black;
 }
-
 .columns {
 	margin-top: 170px;
 	line-height: 25px;
@@ -139,7 +140,6 @@ object {
 	right:0px;
 	background-image:url(../assets/menuClose.png);
 }
-
 .HTML5 {
 	top:0px;
 	margin:0px;
@@ -153,10 +153,9 @@ object {
     white-space: nowrap;
 	margin-right:5px;
 }
-.mobile{
+.mobile {
 	text-align: center;
 }
-
 .button {
 	text-align: center;
 	position: relative;
@@ -168,7 +167,6 @@ object {
 	padding-bottom: 30px;
 	cursor:pointer;
 }
-
 header {
 	top:0px;
 	left:0px;
@@ -196,14 +194,11 @@ nav {
 	visibility: visible;
 	opacity: .9;
 }
-
 i {
 	color: #555555;
 	font-size:14px;
 }
-
 .animate {
-	
 	-webkit-transition-property: all;
 	-moz-transition-property: all;
 	-o-transition-property: all;
@@ -211,15 +206,12 @@ i {
 	transition-property: all;
 	
 	-webkit-transition: all 0.3s ease;
-	-moz-transition:all 0.3s ease;  
-	-o-transition:all 0.3s ease; 
-	-ms-transition:all 0.3s ease;  
-	transition:all 0.3s ease; 
-	
+	-moz-transition:all 0.3s ease;
+	-o-transition:all 0.3s ease;
+	-ms-transition:all 0.3s ease;
+	transition:all 0.3s ease;
 }
-
 .fadeIn {
-			
 	opacity:0;
 	-webkit-animation:fadeIn ease-in 1;
 	-moz-animation:fadeIn ease-in 1;
@@ -238,53 +230,32 @@ i {
 	-o-animation-duration:1s;
 	-ms-animation-duration:1s;
 	animation-duration:1s;
-	
 }
-
 @-webkit-keyframes fadeIn {
-	
-	from { 
-		opacity:0; 
-		
-	} to { 
-		opacity:1; 
-		
-	} 
-	
-}
-
-@-moz-keyframes fadeIn { 
-
-	from { 
-		opacity:0; 
-		
-	} to { 
-		opacity:1; 
-		
-	} 
-		
-}
-
-@-o-keyframes fadeIn {
-	
-	from { 
-		opacity:0; 
-		
-	} to { 
-		opacity:1; 
-		
-	} 
-	
-}
-
-@keyframes fadeIn { 
-
-	from { 
-		opacity:0; 
-		
+	from {
+		opacity:0;
 	} to {
-		opacity:1; 
-		
-	} 
-	
+		opacity:1;
+	}
+}
+@-moz-keyframes fadeIn {
+	from {
+		opacity:0;
+	} to {
+		opacity:1;
+	}
+}
+@-o-keyframes fadeIn {
+	from {
+		opacity:0;
+	} to {
+		opacity:1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity:0;
+	} to {
+		opacity:1;
+	}
 }
