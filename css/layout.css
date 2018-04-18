@@ -40,16 +40,23 @@ object {
 }
 .mobileImage {
 	height: auto;
-	max-height: 400px;
+	max-height: 350px;
 	width: auto;
-	margin-right:5px;
+	max-width: 580px;
+	margin:15px;
+}
+.ad {
+	max-height: 350px;
+	max-width: 580px;
+	margin:15px;
 }
 .html5Image {
-	height: auto;
-	max-height: 400px;
-	width: auto;
-	margin-right:30px;
 	border: 1px solid #CCCCCC;
+	height: auto;
+	max-height: 350px;
+	width: auto;
+	max-width: 580px;
+	margin:15px;
 }
 .moreThan800 {
 	text-align:center;
@@ -132,10 +139,7 @@ object {
 	right:0px;
 	background-image:url(../assets/menuClose.png);
 }
-.ad {
-	text-align: center;
-	/*float: left;*/
-}
+
 .HTML5 {
 	top:0px;
 	margin:0px;
@@ -150,12 +154,7 @@ object {
 	margin-right:5px;
 }
 .mobile{
-	opacity: 1;
-	margin-top: 60px;
-	overflow: auto;
-    white-space: nowrap;
-	margin-right:5px;
-	
+	text-align: center;
 }
 
 .button {
