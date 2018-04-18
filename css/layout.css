@@ -103,7 +103,7 @@ object {
 	margin: 12px;
 	margin-right: 9px;
 	position: fixed;
-	right:0px;
+	left:0px;
 	background-image:url(../assets/headShotSM.png);
 }
 #menu {
@@ -113,7 +113,7 @@ object {
 	top:0px;
 	margin: 12px;
 	position: fixed;
-	left:0px;
+	right:0px;
 	background-image:url(../assets/menu.png);
 }
 .hide {
@@ -129,7 +129,7 @@ object {
 	top:0px;
 	margin: 12px;
 	position: fixed;
-	left:0px;
+	right:0px;
 	background-image:url(../assets/menuClose.png);
 }
 .ad {
@@ -171,13 +171,13 @@ object {
 }
 
 header {
-	text-align: center;
 	top:0px;
 	left:0px;
 	position: fixed;
 	width: 100%;
 	height:auto;
 	padding: 20px;
+	padding-left: 65px;
 	color:#FFFFFF;
 	background-color: #000000;
 }
