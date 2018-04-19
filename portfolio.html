@@ -19,9 +19,9 @@
 </head>
 <body>
 <container class='container-fluid'>
+    <div id="resume" class="resume animate"></div>
     <header><b>John Santucci</b></header>
     <nav id="nav"></nav>
-    <div id="resume" class="resume animate"></div>
     <div class='headshot'></div>
     <div id="menuClose"></div>
     <div id="menu" onclick="toggleNav(this)"></div>
@@ -41,6 +41,11 @@
     //document.getElementById("header").style.height = "100%";
     document.getElementById('menuClose').className = "hide";
     showResume();
+
+    function goToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 
     function toggleNav(obj) {
 
@@ -67,14 +72,19 @@
         }
         if (obj.innerHTML == "Applications") {
             showHTML5();
+            goToTop()
         } else if (obj.innerHTML == "Advertising") {
             showAdvertising();
+            goToTop()
         } else if (obj.innerHTML == "Web") {
             showInteractive();
+            goToTop()
         } else if (obj.innerHTML == "Mobile") {
             showMobile();
+            goToTop()
         } else if (obj.innerHTML == "Resume") {
             showResume();
+            goToTop();
         }
     }
 </script>
