@@ -38,27 +38,28 @@ object {
 	margin-left:150px;
 }
 .mobileImage {
-	height: auto;
-	max-height: 350px;
-	width: auto;
-	max-width: 290px;
 	margin:15px;
 	margin-left:0px;
+	width:100%;
+	max-width: 500px;
+}
+.interactive {
+	margin:15px;
+	margin-left:0px;
+	width:100%;
+	max-width: 290px;
 }
 .ad {
 	max-height: 350px;
-	max-width: 290px;
+	width:100%;
 	margin:15px;
 	margin-left:0px;
 }
 .html5Image {
 	border: 1px solid #CCCCCC;
-	height: auto;
-	max-height: 350px;
-	width: auto;
-	max-width: 580px;
 	margin:15px;
 	margin-left:0px;
+	width:100%;
 }
 .moreThan800 {
 	text-align:center;
@@ -103,6 +104,8 @@ object {
 	margin-top: 60px;
 	margin-bottom: 50px;
 	font-size:14px;
+	-ms-flex: 100%;
+	flex: 100%;
 }
 .headshot {
 	height: 40px;
