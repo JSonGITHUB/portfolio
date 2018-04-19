@@ -61,6 +61,4 @@ function showResume() {
 	document.getElementById("resume").innerHTML = resume;
 	document.getElementById("resume").className = "resume animate";
 	document.getElementById("resume").style.opacity = 1;
-	document.getElementById("resume").scrollTop = 0;
-    document.getElementById("resume").scrollLeft = 0;
 }

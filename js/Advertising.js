@@ -52,6 +52,4 @@ function showAdvertising() {
     }                                            
     //document.getElementById("resume").className = "mobile";
     document.getElementById("resume").style.opacity = 1;
-    document.getElementById("resume").scrollTop = 0;
-    document.getElementById("resume").scrollLeft = 0;
 }
