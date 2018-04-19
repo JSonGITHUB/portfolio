@@ -1,14 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
-	background-color:#FFFFFF;
-	font-family:"Verdana";
+.noscroll { 
+	overflow: hidden;
 }
-.scrollReset {
-	
-}
-
 .title {
 	font-weight: bold;
 	font-size:16px;
@@ -170,6 +165,18 @@ object {
 	padding-bottom: 30px;
 	cursor:pointer;
 }
+button {
+	width: 50%;
+	margin-top: 5px;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+button:hover {
+	width: 50%;
+	margin-top: 5px;
+	color:  #000000;
+	background-color: #00FF00;
+}
 header {
 	top:0px;
 	left:0px;
@@ -182,20 +189,21 @@ header {
 	background-color: #000000;
 }
 nav {
+	text-align: center;
 	left: 0px;
 	top: 64px;
 	opacity: 0;
+	padding: 30px;
+	background-color:rgba(0, 0, 0, 0.9);
 	position: fixed;
 	width: 100%;
-	height:calc(100% - 64px);
-	color:#FFFFFF;
-	background-color: #000000;
+	height: calc(100% - 64px);
 	visibility: hidden;
 	overflow-y: scroll;
 }
 .display {
 	visibility: visible;
-	opacity: .9;
+	opacity: 1;
 }
 i {
 	color: #555555;
