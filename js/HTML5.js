@@ -21,14 +21,13 @@ function showHTML5() {
 */
 function showHTML5() {
     document.getElementById("resume").style.opacity = 0;
-    document.getElementById("resume").innerHTML = "<image class='html5Image' src='portfolio/CarefusionVideoStrategy.png'>" +
-        "<image class='html5Image' src='portfolio/DecisionSupport.png'>" +
-        "<image class='html5Image' src='portfolio/ES.png'>" +
-        "<image class='html5Image' src='portfolio/IRN.png'>" +
-        "<image class='html5Image' src='portfolio/IRN_Details.png'>" +
-        "<image class='html5Image' src='portfolio/OR_Implementation.png'>" +
-        "<image class='html5Image' src='portfolio/OR_Specialized.png'>" +
-        "<image class='html5Image' src='portfolio/OR_Workflow.png'>";
+    document.getElementById("resume").innerHTML = "<image class='mobileImage' src='portfolio/CarefusionVideoStrategy.png'>" +
+        "<image class='mobileImage' src='portfolio/DecisionSupport_Flex.png'>" +
+        "<image class='mobileImage' src='portfolio/ES_Flex.png'>" +
+        "<image class='mobileImage' src='portfolio/IRN_Flex.png'>" +
+        "<image class='mobileImage' src='portfolio/OR_Implementation.png'>" +
+        "<image class='mobileImage' src='portfolio/OR_Specialized.png'>" +
+        "<image class='mobileImage' src='portfolio/OR_Workflow.png'>";
 
     document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;

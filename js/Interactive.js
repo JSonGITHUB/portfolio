@@ -4,7 +4,7 @@ function showInteractive() {
     document.getElementById("resume").innerHTML = "";
     for (var x=0;x < interactive.length; x++) {
         document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
-                                                            "<image class='mobileImage' src='assets/290/" + interactive[x] + "'>";
+                                                            "<image class='interactive' src='assets/290/" + interactive[x] + "'>";
     }
     document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
