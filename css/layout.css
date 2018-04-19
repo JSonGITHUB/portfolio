@@ -166,14 +166,12 @@ object {
 	cursor:pointer;
 }
 button {
-	width: 50%;
+	width: 75%;
 	margin-top: 5px;
 	color: #FFFFFF;
 	background-color: #000000;
 }
 button:hover {
-	width: 50%;
-	margin-top: 5px;
 	color:  #000000;
 	background-color: #00FF00;
 }
