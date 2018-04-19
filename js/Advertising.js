@@ -24,13 +24,28 @@ function showAdvertising() {
 
             document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
 
-            "<video class='ad' autoplay='autoplay'>" +
+            "<video id='vid"+x+"' class='ad' loop>" +
                 "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
-            "</video>";
-                    
-        }   
+            "</video>" +
+            "<button id='button"+x+"' type='button' class='btn btn-default videoButtonPlay' onclick='playPause(this, "+x+")'>" +
+            "</button>";
+            
+        }  
+        document.getElementById("vid0").autoplay='autoplay';
+        document.getElementById("button0").className = document.getElementById("button0").className.replace("videoButtonPlay", "videoButtonPause");
     }                                         
     //document.getElementById("resume").className = "mobile";
     document.getElementById("resume").style.opacity = 1;
+}
+
+function playPause(btn, id) {
+    var myVideo = document.getElementById("vid" + id);
+    if (myVideo.paused) {
+        myVideo.play();
+        btn.className = btn.className.replace("videoButtonPlay", "videoButtonPause");
+    } else {
+        myVideo.pause();
+        btn.className = btn.className.replace("videoButtonPause", "videoButtonPlay");
+    } 
 }
