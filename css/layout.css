@@ -192,6 +192,7 @@ nav {
 	background-color: #000000;
 	height: 100%;
 	visibility: hidden;
+	overflow-y: scroll;
 }
 .display {
 	visibility: visible;
