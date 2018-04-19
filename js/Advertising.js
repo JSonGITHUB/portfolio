@@ -24,7 +24,7 @@ function showAdvertising() {
 
             document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
 
-            "<video class='ad' width='400'controls>" +
+            "<video class='ad' controls>" +
                 "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
             "</video>";
