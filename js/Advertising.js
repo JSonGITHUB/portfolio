@@ -33,7 +33,7 @@ function showAdvertising() {
                 "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
             "</video>" +
-            "<button id='button"+x+"' type='button' class='btn btn-default videoButton play' onclick='playPause(this, "+x+")'>" +
+            "<button id='button"+x+"' type='button' class='btn btn-default btn-lg videoButton play' onclick='playPause(this, "+x+")'>" +
             "</button>";
             
         }  
