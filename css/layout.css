@@ -171,31 +171,42 @@ button {
 	color: #FFFFFF;
 	background-color: #000000;
 }
-.videoButtonPlay {
-	width: 100%;
-	height: 60px;
-	margin-top: -21px;
+.play {
 	background-image:url(../assets/icons/play.png);
-	background-color: #FFFFFF;
-	background-repeat: no-repeat;
-	background-position-x: center;
-	background-position-y: center;
 }
-.videoButtonPause {
+.play:hover {
+	background-image:url(../assets/icons/playActive.png);
+}
+.play:active {
+	background-image:url(../assets/icons/play.png);
+}
+.pause {
+	background-image:url(../assets/icons/pause.png);
+}
+.pause:hover {
+	background-image:url(../assets/icons/pauseActive.png);
+}
+.pause:active {
+	background-image:url(../assets/icons/pause.png);
+}
+.videoButton {
 	width: 100%;
 	height: 60px;
 	margin-top: -21px;
-	background-image:url(../assets/icons/pause.png);
 	background-color: #FFFFFF;
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: center;
 }
-button:hover {
+.btn-lg:hover {
 	color:  #000000;
 	background-color: #00FF00;
 }
-button:active {
+.videoButton:hover {
+	color:  #000000;
+	background-color: #FFFFFF;
+}
+.videoButton:active {
 	color:  #000000;
 	background-color: #FFFFFF;
 }
