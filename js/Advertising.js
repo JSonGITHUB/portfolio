@@ -1,9 +1,9 @@
 function showAdvertising() {
     var vids = ["DC815X290Blabac.mov", "DC_PJ728X90a.mov", "DC_Dompirre300X100Link.mov", "trice.mov", "DCSkate_Dompierre600X200.mov", "DC_PJ160X600a.mov", "DC_240X400KOV.mov", "DC_300X100KOV.mov", "728X90.mov", "DC_300X250KOV.mov", "728X90_2.mov", "DC_corey160X600.mov", "DC_Jayke728X90.mov", "728x90_pj.mov"];
-    var ads = ["DC815X290Blabac.swf", "trice.swf", "DCSkate_Dompierre600X200.swf", "DC_PJ160X600a.swf", "DC_PJ728X90a.swf", "DC_300X100KOV.swf", "728X90.swf", "DC_300X250KOV.swf", "728X90_2.swf", "DC_Jayke728X90.swf", "728x90_pj.swf", "DC_corey160X600.swf", "SP09App.swf"];
+    var ads = ["DC815X290Blabac.swf", "trice.swf", "DCSkate_Dompierre600X200.swf", "DC_PJ160X600a.swf", "DC_corey160X600.swf", "DC_PJ728X90a.swf", "DC_300X100KOV.swf", "728X90.swf", "DC_300X250KOV.swf", "728X90_2.swf", "DC_Jayke728X90.swf", "728x90_pj.swf", "SP09App.swf"];
     var adsTop = ["-300px", "-390px", "-300px", "0px", "-500px", "-300px", "-300px", "-300px", "-510px", "-300px", "-300px", "0px", "-300px"];
-    var adsWidth = ["815px", "auto", "600px", "160px", "728px", "300px", "728px", "300px", "728px", "728px", "728px", "160px", "auto"];
-    var adsHeight = ["290px", "200px", "200px", "600[x", "90px", "100px", "90px", "250px", "90px", "90px", "90px", "600px", "auto"];
+    var adsWidth = ["815px", "auto", "600px", "110px", "110px", "728px", "300px", "728px", "300px", "728px", "728px", "728px", "auto"];
+    var adsHeight = ["290px", "150px", "160px", "600px", "600px", "90px", "100px", "90px", "250px", "79px", "90px", "90px", "auto"];
     document.getElementById("resume").style.opacity = 0;
     document.getElementById("resume").innerHTML = "";
     document.getElementById("resume").className += " mobile";
@@ -16,8 +16,13 @@ function showAdvertising() {
     }
     if (hasFlash) {
         for (x=0;x < ads.length; x++) {
-            document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
-                    "<object class='ad' width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>";
+            if (Number(String(adsHeight[x]).replace("px","")) > Number(String(adsWidth[x]).replace("px","")) || Number(String(adsWidth[x]).replace("px","")) <= 300 || adsWidth[x] == "auto") {
+                document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
+                "<object width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>";
+            } else {
+                document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
+                "<object class='ad' width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>";
+            }
         }
     } else {
         for (x=0;x < vids.length; x++) {
