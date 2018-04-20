@@ -177,17 +177,11 @@ button {
 .play:hover {
 	background-image:url(../assets/icons/playActive.png);
 }
-.play:active {
-	background-image:url(../assets/icons/play.png);
-}
 .pause {
 	background-image:url(../assets/icons/pause.png);
 }
 .pause:hover {
 	background-image:url(../assets/icons/pauseActive.png);
-}
-.pause:active {
-	background-image:url(../assets/icons/pause.png);
 }
 .videoButton {
 	width: 100%;
