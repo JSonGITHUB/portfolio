@@ -176,6 +176,7 @@ button {
 	height: 60px;
 	margin-top: -21px;
 	background-image:url(../assets/icons/play.png);
+	background-color: #FFFFFF;
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: center;
@@ -185,6 +186,7 @@ button {
 	height: 60px;
 	margin-top: -21px;
 	background-image:url(../assets/icons/pause.png);
+	background-color: #FFFFFF;
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: center;
@@ -192,6 +194,10 @@ button {
 button:hover {
 	color:  #000000;
 	background-color: #00FF00;
+}
+button:active {
+	color:  #000000;
+	background-color: #FFFFFF;
 }
 header {
 	top:0px;
