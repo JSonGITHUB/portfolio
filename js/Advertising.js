@@ -33,7 +33,7 @@ function showAdvertising() {
                 "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
             "</video>" +
-            "<button id='button"+x+"' type='button' class='btn btn-default videoButtonPlay' onclick='playPause(this, "+x+")'>" +
+            "<button id='button"+x+"' type='button' class='btn btn-default videoButton play' onclick='playPause(this, "+x+")'>" +
             "</button>";
             
         }  
@@ -48,9 +48,9 @@ function playPause(btn, id) {
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
         myVideo.play();
-        btn.className = btn.className.replace("videoButtonPlay", "videoButtonPause");
+        btn.className = btn.className.replace("play", "pause");
     } else {
         myVideo.pause();
-        btn.className = btn.className.replace("videoButtonPause", "videoButtonPlay");
+        btn.className = btn.className.replace("pause", "play");
     } 
 }
