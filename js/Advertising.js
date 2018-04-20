@@ -37,8 +37,8 @@ function showAdvertising() {
             "</button>";
             
         }  
-        document.getElementById("vid0").autoplay='autoplay';
-        document.getElementById("button0").className = document.getElementById("button0").className.replace("videoButtonPlay", "videoButtonPause");
+        //document.getElementById("vid0").autoplay='autoplay';
+        //document.getElementById("button0").className = document.getElementById("button0").className.replace("videoButtonPlay", "videoButtonPause");
     }                                         
     //document.getElementById("resume").className = "mobile";
     document.getElementById("resume").style.opacity = 1;
