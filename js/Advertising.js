@@ -45,6 +45,13 @@ function showAdvertising() {
 }
 
 function playPause(btn, id) {
+    var all = document.getElementsByTagName("video");
+    var playButton;
+    for (var i=0, max=all.length; i < max; i++) {
+        all[i].pause();
+        playButton = document.getElementById("button" + i);
+        playButton.className = playButton.className.replace("pause", "play");
+    }
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
         myVideo.play();
