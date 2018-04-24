@@ -56,8 +56,13 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 	"Dowling College, Oakdale, NY<br>";
 	
 function showResume() {
-	ga('set', 'page', '/resume');
-    ga('send', 'pageview');
+	
+	try {
+		ga('set', 'page', '/resume');
+    	ga('send', 'pageview');
+	} catch(err) {
+	}
+
 	//document.getElementById("resume").className = document.getElementById("resume").className.replace(" ad", "");
 	document.getElementById("resume").style.opacity = 0;
 	document.getElementById("resume").innerHTML = resume;
