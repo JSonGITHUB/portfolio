@@ -54,8 +54,8 @@ function playPause(btn, id) {
     }
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
-        myVideo.play();
         btn.className = btn.className.replace("play", "pause");
+        myVideo.play();
     } else {
         myVideo.pause();
         btn.className = btn.className.replace("pause", "play");
