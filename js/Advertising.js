@@ -52,6 +52,7 @@ function playPause(btn, id) {
         all[i].pause();
         playButton = document.getElementById("button" + i);
         playButton.className = playButton.className.replace("pause", "play");
+        playButton.blur();
     }
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
@@ -60,5 +61,6 @@ function playPause(btn, id) {
     } else {
         myVideo.pause();
         btn.className = btn.className.replace("pause", "play");
-    } 
+    }
+    btn.blur();
 }
