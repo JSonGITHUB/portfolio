@@ -58,8 +58,7 @@ function playPause(btn, id) {
     }
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
-        ga('set', 'page', '/advertising/'+id);
-        ga('send', 'pageview');
+        ga('send', 'event', 'ad video', 'play', id);
         btn.className = btn.className.replace("play", "pause");
         myVideo.play();
     } else {
