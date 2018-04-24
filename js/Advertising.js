@@ -1,11 +1,11 @@
 function showAdvertising() {
     ga('set', 'page', '/advertising');
     ga('send', 'pageview');
-    var vids = ["DC815X290Blabac.mov", "DC_PJ728X90a.mov", "DC_Dompirre300X100Link.mov", "trice.mov", "DCSkate_Dompierre600X200.mov", "DC_PJ160X600a.mov", "DC_240X400KOV.mov", "DC_300X100KOV.mov", "728X90.mov", "DC_300X250KOV.mov", "728X90_2.mov", "DC_corey160X600.mov", "DC_Jayke728X90.mov", "728x90_pj.mov"];
-    var ads = ["DC815X290Blabac.swf", "trice.swf", "DCSkate_Dompierre600X200.swf", "DC_PJ160X600a.swf", "DC_corey160X600.swf", "DC_PJ728X90a.swf", "DC_300X100KOV.swf", "728X90.swf", "DC_300X250KOV.swf", "728X90_2.swf", "DC_Jayke728X90.swf", "728x90_pj.swf", "SP09App.swf"];
+    var vids = ["DC815X290Blabac.mov", "DC_Dompirre300X100Link.mov", "trice.mov", "728X90.mov", "728X90_2.mov", "DC_Jayke728X90.mov", "728x90_pj.mov", "DC_corey160X600.mov"];
+    var ads = ["DC815X290Blabac.swf", "trice.swf", "DCSkate_Dompierre600X200.swf", "728X90.swf", "728X90_2.swf", "DC_Jayke728X90.swf", "728x90_pj.swf", "DC_corey160X600.swf"];
     var adsTop = ["-300px", "-390px", "-300px", "0px", "-500px", "-300px", "-300px", "-300px", "-510px", "-300px", "-300px", "0px", "-300px"];
-    var adsWidth = ["815px", "auto", "600px", "110px", "110px", "728px", "300px", "728px", "300px", "728px", "728px", "728px", "auto"];
-    var adsHeight = ["290px", "150px", "160px", "600px", "600px", "90px", "100px", "90px", "250px", "79px", "90px", "90px", "auto"];
+    var adsWidth = ["815px", "auto", "600px", "728px", "728px", "728px", "728px", "108px"];
+    var adsHeight = ["290px", "150px", "160px", "90px", "79px", "90px", "90px", "720px"];
     document.getElementById("resume").style.opacity = 0;
     document.getElementById("resume").innerHTML = "";
     document.getElementById("resume").className += " mobile";
@@ -47,19 +47,17 @@ function showAdvertising() {
 }
 
 function playPause(btn, id) {
-    btn.blur();
     var all = document.getElementsByTagName("video");
     var playButton;
-    for (var i=0, max=all.length; i < max; i++) {
-        all[i].pause();
-        playButton = document.getElementById("button" + i);
-        playButton.className = playButton.className.replace("pause", "play");
-        playButton.blur();
-    }
     var myVideo = document.getElementById("vid" + id);
     if (myVideo.paused) {
         ga('set', 'page', '/advertising/'+id);
         ga('send', 'pageview');
+        for (var i=0, max=all.length; i < max; i++) {
+            all[i].pause();
+            playButton = document.getElementById("button" + i);
+            playButton.className = playButton.className.replace("pause", "play");
+        }
         btn.className = btn.className.replace("play", "pause");
         myVideo.play();
     } else {
