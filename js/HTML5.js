@@ -20,6 +20,8 @@ function showHTML5() {
 }
 */
 function showHTML5() {
+    ga('set', 'page', '/applications');
+    ga('send', 'pageview');
     document.getElementById("resume").style.opacity = 0;
     document.getElementById("resume").innerHTML = "<image class='mobileImage' src='portfolio/CarefusionVideoStrategy.png'>" +
         "<image class='mobileImage' src='portfolio/DecisionSupport_Flex.png'>" +

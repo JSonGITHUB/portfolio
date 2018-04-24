@@ -1,4 +1,6 @@
 function showMobile() {
+    ga('set', 'page', '/mobile');
+    ga('send', 'pageview');
     document.getElementById("resume").style.opacity = 0;
     document.getElementById("resume").innerHTML = "<image class='mobileImage' class='mobileImage' src='assets/mobile/uProMX.png'>" +
             "<image class='mobileImage' src='assets/mobile/uProMX_0.png'>" +
