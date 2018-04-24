@@ -45,6 +45,7 @@ function showAdvertising() {
 }
 
 function playPause(btn, id) {
+    btn.blur();
     var all = document.getElementsByTagName("video");
     var playButton;
     for (var i=0, max=all.length; i < max; i++) {
