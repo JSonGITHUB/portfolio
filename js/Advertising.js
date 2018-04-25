@@ -75,7 +75,6 @@ function playPause(btn, id) {
         }
         btn.className = btn.className.replace("play", "pause");
         myVideo.play();
-        console.log("id = " + id + " - width = " + myVideo.videoWidth + " - height = " + myVideo.videoHeight);
     } else {
         myVideo.pause();
         btn.className = btn.className.replace("pause", "play");
