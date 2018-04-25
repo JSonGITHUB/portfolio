@@ -46,9 +46,10 @@ object {
 }
 .ad {
 	max-height: 350px;
-	width:100%;
+	max-width:100%;
 	margin:15px;
 	margin-left:0px;
+	background-color: #000000;
 }
 .html5Image {
 	border: 1px solid #CCCCCC;
