@@ -1,11 +1,26 @@
 function showAdvertising() {
     ga('set', 'page', '/advertising');
     ga('send', 'pageview');
-    var vids = ["DC815X290Blabac.mov", "DC_Dompirre300X100Link.mov", "trice.mov", "728X90.mov", "728X90_2.mov", "DC_Jayke728X90.mov", "728x90_pj.mov", "DC_corey160X600.mov"];
-    var ads = ["DC815X290Blabac.swf", "trice.swf", "DCSkate_Dompierre600X200.swf", "728X90.swf", "728X90_2.swf", "DC_Jayke728X90.swf", "728x90_pj.swf", "DC_corey160X600.swf"];
-    var adsTop = ["-300px", "-390px", "-300px", "0px", "-500px", "-300px", "-300px", "-300px", "-510px", "-300px", "-300px", "0px", "-300px"];
-    var adsWidth = ["815px", "auto", "600px", "728px", "728px", "728px", "728px", "108px"];
-    var adsHeight = ["290px", "150px", "160px", "90px", "79px", "90px", "90px", "720px"];
+    var banners = [
+        {file: "DC815X290Blabac.swf", width: 815, height: 290},
+        {file: "trice.swf", width: "auto", height: 150},
+        {file: "DCSkate_Dompierre600X200.swf", width: 600, height: 160},
+        {file: "728X90.swf", width: 728, height: 90},
+        {file: "728X90_2.swf", width: 728, height: 79},
+        {file: "DC_Jayke728X90.swf", width: 728, height: 90},
+        {file: "728x90_pj.swf", width: 728, height: 90},
+        {file: "DC_corey160X600.swf", width: 108, height: 720}
+    ];
+    var videos = [
+        {file: "DC720Blabac.mov", width: 700, height: 226},
+        {file: "DC_Dompirre720Link.mov", width: 700, height: 158},
+        {file: "trice720.mov", width: 420, height: 198},
+        {file: "720.mov", width: 700, height: 80},
+        {file: "720_2.mov", width: 700, height: 80},
+        {file: "DC_Jayke720.mov", width: 704, height: 78},
+        {file: "720_pj.mov", width: 700, height: 78},
+        {file: "DC_corey720.mov", width: 94, height: 347}
+    ];
     document.getElementById("resume").style.opacity = 0;
     document.getElementById("resume").innerHTML = "";
     document.getElementById("resume").className += " mobile";
@@ -17,22 +32,22 @@ function showAdvertising() {
         hasFlash = ('undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash']);
     }
     if (hasFlash) {
-        for (x=0;x < ads.length; x++) {
-            if (Number(String(adsHeight[x]).replace("px","")) > Number(String(adsWidth[x]).replace("px","")) || Number(String(adsWidth[x]).replace("px","")) <= 300 || adsWidth[x] == "auto") {
+        for (x=0;x < banners.length; x++) {
+            if (banners[x].height > banners[x].width || banners[x].width <= 300 || banners[x].width == "auto") {
                 document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
-                "<object width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>";
+                "<object width='"+banners[x].width+"px' height='"+banners[x].height+"px' data='assets/banners/" + banners[x].file + "'></object>";
             } else {
                 document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
-                "<object class='ad' width='"+adsWidth[x]+"' height='"+adsHeight[x]+"' data='assets/banners/" + ads[x] + "'></object>";
+                "<object class='ad' width='"+banners[x].width+"' height='"+banners[x].height+"' data='assets/banners/" + banners[x].file + "'></object>";
             }
         }
     } else {
-        for (x=0;x < vids.length; x++) {
+        for (x=0;x < videos.length; x++) {
 
             document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
 
-            "<video id='vid"+x+"' class='ad' loop preload='none'>" +
-                "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
+            "<video id='vid"+x+"' class='ad' loop preload='none' width='"+videos[x].width+"' height='"+videos[x].height+"'>" +
+                "<source src='assets/banners/" + videos[x].file + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
             "</video>" +
             "<button id='button"+x+"' type='button' class='btn btn-default btn-lg videoButton play' onclick='playPause(this, "+x+")'>" +
@@ -60,6 +75,7 @@ function playPause(btn, id) {
         }
         btn.className = btn.className.replace("play", "pause");
         myVideo.play();
+        console.log("id = " + id + " - width = " + myVideo.videoWidth + " - height = " + myVideo.videoHeight);
     } else {
         myVideo.pause();
         btn.className = btn.className.replace("pause", "play");
