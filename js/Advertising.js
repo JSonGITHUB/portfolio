@@ -31,7 +31,7 @@ function showAdvertising() {
 
             document.getElementById("resume").innerHTML = document.getElementById("resume").innerHTML +
 
-            "<video id='vid"+x+"' class='ad' loop>" +
+            "<video id='vid"+x+"' class='ad' loop preload='none'>" +
                 "<source src='assets/banners/" + vids[x] + "' type='video/mp4'>" +
                 "Your browser does not support HTML5 video." +
             "</video>" +
