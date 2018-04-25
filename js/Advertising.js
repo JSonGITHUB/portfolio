@@ -74,6 +74,9 @@ function playPause(btn, id) {
             playButton.className = playButton.className.replace("pause", "play");
         }
         btn.className = btn.className.replace("play", "pause");
+        if (document.getElementById("resume").offsetWidth < 700) {
+            myVideo.style.height = "auto";
+        }
         myVideo.play();
     } else {
         myVideo.pause();
