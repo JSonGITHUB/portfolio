@@ -5,13 +5,13 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 	"Web Application and Website Developer able to produce a seamless interactive experience for the end user by applying visual sense and technical skills. Creative thinker with a track record of integrating new web technologies. Effective at building relationships at all levels within an organization. Successful collaborating with a team of designers and developers and owning projects.<br><br><br>" +
 
 	"<span class='title'>TECHNOLOGIES</span><br>" +
-	"HTML5, JavaScript, CSS, AJAX, XML, jQuery, REST, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Sensors, Accelerometer, GitHub, Grunt, Teamwork, Slack, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" +
+	"HTML5, JavaScript, ES2015, CSS3, LESS, AJAX, XML, JSON, jQuery, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Accelerometer, Git, Grunt, Teamwork, Slack, Linux, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" +
 
 	"<span class='title'>CONCEPTS</span><br>" +
-	"Single Page Application Development, Progressive Web Apps, VanillaJS, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded, MVC, MVP, Source Control and Testing<br><br><br>" +
+	"Single Page Architecture, Progressive Web Apps, VanillaJS, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional Development, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded and MVC.<br><br><br>" +
 
 	"<span class='title'>PROCESS</span><br>" +
-	"Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum<br><br><br>" +
+	"Source Control, Testing, Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" +
 
 	"<span class='title'>PROFESSIONAL EXPERIENCE<br><br>" +
 	"CareFusion</span>, San Diego, CA<br>" +
