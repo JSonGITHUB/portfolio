@@ -8,7 +8,7 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 	"HTML5, JavaScript, ES2015, CSS3, LESS, AJAX, XML, JSON, jQuery, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Accelerometer, Git, Grunt, Teamwork, Slack, Linux, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" +
 
 	"<span class='title'>CONCEPTS</span><br>" +
-	"Single Page Architecture, Progressive Web Apps, VanillaJS, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional Development, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded and MVC.<br><br><br>" +
+	"Single Page Architecture, Progressive Web Apps, VanillaJS, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional programming, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded and MVC.<br><br><br>" +
 
 	"<span class='title'>PROCESS</span><br>" +
 	"Source Control, Testing, Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" +
