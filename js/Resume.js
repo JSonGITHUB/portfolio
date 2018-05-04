@@ -23,7 +23,6 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 		"<li>Accelerated project development and facilitated discussions by rapidly developing functional prototypes.</li>" +
 		"<li>Collaborated with artists, designers and programmers to develop a cohesive and manageable UI.</li>" +
 		"<li>Designed, developed, implemented, optimized, debugged, updated and tested reusable code libraries, UI systems and functionality using object oriented programming practices, common design patterns, HTML5, CSS and Javascript.</li>" +
-		"<li>object oriented programming practices, common design patterns, HTML5, CSS and Javascript.</li>" +
 		"<li>Developed web applications, game user interfaces and mini-games in a multi-developer environment.</li>" +
 		"<li>Mentored and coached others on the team.</li>" +
 	"</ul>" +
