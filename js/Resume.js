@@ -22,14 +22,14 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 		"<li>Contributed to an efficient workflow by utilizing interpersonal, organizational and communication skills to accept direction, provide feedback, document and analyze stakeholder requests and feature specs, architect logic and data, provide test scripts and the content update process as well as present and explain technical information.</li>" +
 		"<li>Accelerated project development and facilitated discussions by rapidly developing functional prototypes.</li>" +
 		"<li>Collaborated with artists, designers and programmers to develop a cohesive and manageable UI.</li>" +
-		"<li>Designed, developed, implemented, optimized, debugged, updated and tested reusable code libraries, UI systems and functionality using </li>" +
+		"<li>Designed, developed, implemented, optimized, debugged, updated and tested reusable code libraries, UI systems and functionality using object oriented programming practices, common design patterns, HTML5, CSS and Javascript.</li>" +
 		"<li>object oriented programming practices, common design patterns, HTML5, CSS and Javascript.</li>" +
 		"<li>Developed web applications, game user interfaces and mini-games in a multi-developer environment.</li>" +
 		"<li>Mentored and coached others on the team.</li>" +
 	"</ul>" +
 	"<br><br>" +
 	"<span class='title'>Callaway Golf</span>, Carlsbad, CA<br>" +
-	"<span class='title'>Flash Actionscript Programmer</span><br>" +
+	"<span class='title'>Application Developer</span><br>" +
 	"<i>2010 - 2012</i><br><br>" +
 	"Developed and maintained a mobile golf application for the uPro mx+ with touch interface and gps.<br>" +
 	"<ul>" +
@@ -40,7 +40,7 @@ var resume = "<div class='center'>(760) 402-5646<br>" +
 	"</ul>" +
 	"<br><br>" +
 	"<span class='title'>DC Shoes</span>, Vista, CA<br>" +
-	"<span class='title'>Flash Web Developer</span><br>" +
+	"<span class='title'>Web Developer</span><br>" +
 	"<i>2001 - 2009</i><br><br>" +
 	"Developed and maintained DCSHOES.COM to support global marketing campaigns across all brand categories including athlete profiles and team updates.<br>" +
 	"<ul>" +
