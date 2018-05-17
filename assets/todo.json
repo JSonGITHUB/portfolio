@@ -1,0 +1,6 @@
+[
+    {"_id":"5ae28c1ef531ce147cf4b21d","username":"MongoTodo","todo":"Buy milk","isDone":false,"hasAttachment":false,"__v":0},
+    {"_id":"5ae28c1ef531ce147cf4b21e","username":"MongoTodo","todo":"Feed dog","isDone":false,"hasAttachment":false,"__v":0},
+    {"_id":"5ae28c1ef531ce147cf4b21f","username":"MongoTodo","todo":"Learn Node","isDone":false,"hasAttachment":false,"__v":0},
+    {"_id":"5ae77f3d4deb8726a4e630f2","username":"MongoTodo","todo":"Go shopping","isDone":false,"hasAttachment":false,"__v":0}
+]
