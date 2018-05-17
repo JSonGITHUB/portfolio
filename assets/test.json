@@ -1,6 +1,6 @@
 [
-    { "name": "John" },
-    { "name": "Bill" },
-    { "name": "Bob" },
-    { "name": "Joe" }
+    { "name": "John", "age": "17" },
+    { "name": "Bill", "age": "21" },
+    { "name": "Bob", "age": "32" },
+    { "name": "Joe", "age": "12" }
 ]
