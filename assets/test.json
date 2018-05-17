@@ -1,6 +1,6 @@
 {
-    { "name": "John" },
-    { "name": "Bill" },
-    { "name": "Bob" },
-    { "name": "Joe" }
+    "name": "John" ,
+    "name": "Bill",
+    "name": "Bob",
+    "name": "Joe"
 }
