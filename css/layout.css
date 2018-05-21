@@ -43,6 +43,7 @@ object {
 	margin-left:0px;
 	width:100%;
 	max-width: 290px;
+	background: url(../assets/loading.gif) 50% no-repeat;
 }
 .ad {
 	max-height: 350px;
