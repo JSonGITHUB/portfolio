@@ -23,13 +23,18 @@ function showHTML5() {
     ga('set', 'page', '/applications');
     ga('send', 'pageview');
     document.getElementById("resume").style.opacity = 0;
-    document.getElementById("resume").innerHTML = "<image class='mobileImage' src='portfolio/CarefusionVideoStrategy.png'>" +
-        "<image class='mobileImage' src='portfolio/DecisionSupport_Flex.png'>" +
-        "<image class='mobileImage' src='portfolio/ES_Flex.png'>" +
-        "<image class='mobileImage' src='portfolio/IRN_Flex.png'>" +
-        "<image class='mobileImage' src='portfolio/OR_Implementation.png'>" +
-        "<image class='mobileImage' src='portfolio/OR_Specialized.png'>" +
-        "<image class='mobileImage' src='portfolio/OR_Workflow.png'>";
+    document.getElementById("resume").innerHTML = "";
+
+    const html5 = ["CarefusionVideoStrategy.png", "DecisionSupport_Flex.png", "ES_Flex.png", "IRN_Flex.png", "OR_Implementation.png", "OR_Specialized.png", "OR_Workflow.png"];
+
+    html5.forEach(async (img, i) => await getImage("portfolio/", img));
+//    document.getElementById("resume").innerHTML = "<image class='mobileImage' src='portfolio/CarefusionVideoStrategy.png'>" +
+//        "<image class='mobileImage' src='portfolio/DecisionSupport_Flex.png'>" +
+//        "<image class='mobileImage' src='portfolio/ES_Flex.png'>" +
+//        "<image class='mobileImage' src='portfolio/IRN_Flex.png'>" +
+//        "<image class='mobileImage' src='portfolio/OR_Implementation.png'>" +
+//        "<image class='mobileImage' src='portfolio/OR_Specialized.png'>" +
+//        "<image class='mobileImage' src='portfolio/OR_Workflow.png'>";
 
     document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
