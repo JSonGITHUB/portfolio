@@ -1,26 +1,33 @@
 //interactive.forEach((img, i) => getImage(img))
 
-async function getImage(path, img) {
-    let image = await loadImage(path, img);
-    let load = await addImg(image.src);
+async function getImage(css, path, imgArray, index) {
+    let image = await loadImage(css, path, imgArray, index);
+    let load = await addImg(css, image.src);
 }
 
-function loadImage(path, url) {
+function loadImage(css, path, imgArray, index) {
+
+    let url = path + imgArray[index];
 
     return new Promise((resolve,reject) => {
         let image = new Image();
-        image.onload = () => { resolve(image) };
-        image.onerror = () => { reject(new Error('Could not load image at "assets/290/"' + path + url)) };
-        image.src = path + url;
+        image.onload = () => { 
+            resolve(image)
+            if (index<(imgArray.length-1)) {
+                getImage(css, path, imgArray, (index+1));
+            }
+        };
+        image.onerror = () => { reject(new Error('Could not load image at ' + url)) };
+        image.src = url;
     });
 
 }
 
-let addImg = (src) => {
+let addImg = (css, src) => {
 
     return new Promise((resolve,reject) => {
         let imgElement = document.createElement("img");
-        imgElement.setAttribute("class", "interactive");
+        imgElement.setAttribute("class", css);
         imgElement.src = src;
         document.getElementById("resume").appendChild(imgElement);
     });

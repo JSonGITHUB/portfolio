@@ -16,7 +16,9 @@ const showInteractive = () => {
         .catch((error) => console.log('Could not load image at ' + error.message))
 */
     
-    interactive.forEach(async (img, i) => await getImage("assets/290/", img));
+    //interactive.forEach(async (img, i) => await getImage("assets/290/", img));
+    
+    getImage("interactive", "assets/290/", interactive, 0);
 
     document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
