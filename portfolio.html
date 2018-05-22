@@ -39,77 +39,20 @@
 <container class='container-fluid'>
     <div id="resume" class="resume animate"></div>
     <header><b>John Santucci</b></header>
-    <nav id="nav"></nav>
+    <nav id="nav" onclick='toggleNav()'></nav>
     <div class='headshot'></div>
     <div id="menuClose"></div>
-    <div id="menu" onclick="toggleNav(this)"></div>
+    <div id="menu" onclick="toggleNav()"></div>
 </container>
 </body>
+<script src="js/ContentLoader.js"></script>
+<script src="js/Navigation.js"></script>
 <script src="js/LoadImages.js"></script>
 <script src="js/Interactive.js"></script>
 <script src="js/Mobile.js"></script>
 <script src="js/Intro.js"></script>
 <script src="js/Resume.js"></script>
-<script src="js/Columns.js"></script>
-<script src="js/Cams.js"></script>
 <script src="js/HTML5.js"></script>
-<script src="js/Resize.js"></script>
 <script src="js/Advertising.js"></script>
-
-<script type="text/javascript">
-    //document.getElementById("header").style.height = "100%";
-    document.getElementById('menuClose').className = "hide";
-    showResume();
-    goToTop();
-
-    function goToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-        document.getElementsByName('container').scrollTop = 0;
-    }
-
-    function toggleNav(obj) {
-
-        const selections = ["Resume", "Mobile", "Web", "Advertising", "Applications"];
-
-        if (document.getElementsByTagName('nav')[0].className == 'animate display') {
-            document.getElementsByTagName('nav')[0].className = 'animate';
-            document.getElementsByTagName('nav')[0].innerHTML = "";
-            document.getElementById('menuClose').className = "animate hide";
-            document.getElementById('menu').className = "animate show";
-            document.body.className = document.body.className.replace("noscroll", "");
-        } else {
-            document.getElementsByTagName('nav')[0].className = 'animate display';
-            //<!--button onclick="showIntro()">Intro</button-->
-           // <!--div onclick="showColumns()">Columns</div>
-           // <div class="button" onclick="showCams()">Cams</div-->
-            for (var i=0; i<selections.length; i++) {
-                document.getElementsByTagName('nav')[0].innerHTML = document.getElementsByTagName('nav')[0].innerHTML +
-//                                            "<div class='button' onclick='toggleNav(this)'>"+selections[i]+"</div>";
-                                            "<button type='button' class='btn btn-default btn-lg' onclick='toggleNav(this)'>"+
-                                                selections[i]+
-                                            "</button><br>";
-            }
-            document.body.className += "noscroll";
-            document.getElementById('menu').className = "animate hide";
-            document.getElementById('menuClose').className = "animate show";
-        }
-        if (obj.innerHTML == "Applications") {
-            showHTML5();
-            goToTop()
-        } else if (obj.innerHTML == "Advertising") {
-            showAdvertising();
-            goToTop()
-        } else if (obj.innerHTML == "Web") {
-            showInteractive();
-            goToTop()
-        } else if (obj.innerHTML == "Mobile") {
-            showMobile();
-            goToTop()
-        } else if (obj.innerHTML == "Resume") {
-            showResume();
-            goToTop();
-        }
-    }
-</script>
+<script src="js/Main.js"></script>
 </html>
