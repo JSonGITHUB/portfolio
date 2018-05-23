@@ -11,7 +11,7 @@ function showAdvertising() {
     } catch(exception) {
         hasFlash = ('undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash']);
     }
-    hasFlash = false;
+    hasFlash = true;
     if (hasFlash) {
 
         (async () => await getAppData()
