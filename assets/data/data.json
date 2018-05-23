@@ -290,14 +290,14 @@
             { "file": "DC_corey160X600.swf", "width": 108, "height": 720 }
         ],
         "videos": [
-            { "file": "DC720Blabac.mov", "width": 700, "height": 226 },
-            { "file": "DC_Dompirre720Link.mov", "width": 700, "height": 158 },
-            { "file": "trice720.mov", "width": 420, "height": 198 },
-            { "file": "720.mov", "width": 700, "height": 80 },
-            { "file": "720_2.mov", "width": 700, "height": 80 },
-            { "file": "DC_Jayke720.mov", "width": 704, "height": 78 },
-            { "file": "720_pj.mov", "width": 700, "height": 78},
-            { "file": "DC_corey720.mov", "width": 94, "height": 347 }
+            { "file": "DC720Blabac.mov", "poster": "DC720Blabac.png", "width": 700, "height": 226 },
+            { "file": "DC_Dompirre720Link.mov", "poster": "DCSkate_Dompierre720.png", "width": 700, "height": 158 },
+            { "file": "trice720.mov", "poster": "trice480.png", "width": 420, "height": 198 },
+            { "file": "720.mov", "poster": "720KOV.png", "width": 700, "height": 80 },
+            { "file": "720_2.mov", "poster": "720.png", "width": 700, "height": 80 },
+            { "file": "DC_Jayke720.mov", "poster": "DC_Jayke720.png", "width": 704, "height": 78 },
+            { "file": "720_pj.mov", "poster": "720_pj.png", "width": 700, "height": 78},
+            { "file": "DC_corey720.mov", "poster": "DC_corey720.png", "width": 94, "height": 347 }
         ]
     }
 }
