@@ -11,7 +11,7 @@ function showAdvertising() {
     } catch(exception) {
         hasFlash = ('undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash']);
     }
-
+    hasFlash = false;
     if (hasFlash) {
 
         (async () => await getAppData()
@@ -30,7 +30,7 @@ function showAdvertising() {
 
     document.getElementById("resume").className += " mobile";
     document.getElementById("resume").style.opacity = 1;
-    
+
 }
 
 function playPause(btn, id) {
