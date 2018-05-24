@@ -1,4 +1,4 @@
-let getImages = (css, path, imgArray, index) => {
+const getImages = (css, path, imgArray, index) => {
     clearContent();
     getImage(css, path, imgArray, index);
     async function getImage(css, path, imgArray, index) {

@@ -1,4 +1,4 @@
-async function getAppData() {
+const getAppData = async ()  => {
     let response = await (fetch('assets/data/data.json')
         .then(response => response.json())
         .catch(error => console.log('error: ', error.message))

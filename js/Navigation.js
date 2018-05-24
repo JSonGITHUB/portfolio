@@ -1,13 +1,4 @@
 const toggleNav = () => {
-
-    const selections = [
-        { page: "Resume", function: "showResume()" },
-        { page: "Mobile", function: "showMobile()" },
-        { page: "Web", function: "showInteractive()" },
-        { page: "Advertising", function: "showAdvertising()" },
-        { page: "Applications", function: "showHTML5()" }
-    ]
-        
     if (document.getElementsByTagName('nav')[0].className == 'animate display') {
         document.getElementsByTagName('nav')[0].className = 'animate';
         document.getElementsByTagName('nav')[0].innerHTML = "";
@@ -16,16 +7,16 @@ const toggleNav = () => {
         document.body.className = document.body.className.replace("noscroll", "");
     } else {
         document.getElementsByTagName('nav')[0].className = 'animate display';
-        selections.forEach((menuItem, i) => {
-            document.getElementsByTagName('nav')[0].innerHTML += 
-                "<button type='button' class='btn btn-default btn-lg' onclick='"+menuItem.function+"'>"+
-                    menuItem.page +
-                "</button><br>";
-        })
-
+        (async () => await getAppData()
+            .then(data => data.navigation.selections.forEach((eachPage, i) => 
+                document.getElementsByTagName('nav')[0].innerHTML += 
+                    "<button type='button' class='btn btn-default btn-lg' onclick='" + eachPage.function + "'>"+
+                        eachPage.page +
+                    "</button><br>"))
+            .catch(error => console.log('error: ', error.message))
+        )()
         document.body.className += "noscroll";
         document.getElementById('menu').className = "animate hide";
         document.getElementById('menuClose').className = "animate show";
     }
-    
 }
