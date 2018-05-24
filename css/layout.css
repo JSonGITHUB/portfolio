@@ -89,6 +89,8 @@ object {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
 }
 .resume {
 	line-height: 25px;
