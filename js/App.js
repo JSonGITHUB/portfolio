@@ -25,7 +25,9 @@ const app = (() => {
         },
         mobile: () => {
             app.analytics('/mobile');
-            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+//            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+            app.getSomething("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+            app.getLazy(".mobileImage");
         },
         interactive: () => {
             app.analytics('/web');
@@ -110,7 +112,9 @@ const app = (() => {
         },
         html5: () => {
             app.analytics('/applications');
-            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+//            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+            app.getSomething("mobileImage", "portfolio/", privateData.html5.images, 0);
+            app.getLazy(".mobileImage");
         },
         clearContent: () => {
             content.innerHTML = "";
@@ -163,7 +167,7 @@ const app = (() => {
                     //image.src = url;
                     let imgElement = document.createElement("img");
                     imgElement.setAttribute("class", "js-lazy-image, " + css);
-                    imgElement.setAttribute("alt", "Lazy");
+                    imgElement.setAttribute("alt", "Image Loading...");
                     imgElement.setAttribute("data-src", url); 
                     //<img alt="Lazy" class="js-lazy-image" data-src="/location/of/my/image.jpg" />
                     //imgElement.src = url;
@@ -228,7 +232,6 @@ const app = (() => {
              * @param {string} url 
              */
             function fetchImage(url) {
-                console.log("fetchImage("+url+")");
                 return new Promise((resolve, reject) => {
                     const image = new Image();
                     image.src = url;
@@ -253,7 +256,6 @@ const app = (() => {
              * @param {NodeListOf<Element>} images 
              */
             function loadImagesImmediately(images) {
-                console.log("loadImagesImmediately("+images.length+")");
                 // foreach() is not supported in IE
                 for (let i = 0; i < images.length; i++) { 
                 let image = images[i];
