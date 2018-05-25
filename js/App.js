@@ -48,6 +48,17 @@ const app = (() => {
         videos: () => {
             let videoElement;
             privateData.advertising.videos.forEach((video, i) => {
+                content.innerHTML += "<video id='vid" + i +
+                "' class='ad' loop preload='none' width='" + video.width +
+                "' height='" + video.height + "' poster='assets/banners/"+video.poster+"'>"+
+                    "<source src='assets/banners/" + video.file + "' type='video/mp4'>" +
+                    "Your browser does not support the video tag." +
+               "</video>" +
+                "<button id='button" + i + 
+                "' type='button' class='btn btn-default btn-lg videoButton play' onclick='app.playPause(this, " +
+                i +")'>" +
+                "</button>";
+/*
                 videoElement = document.createElement("video");
                 videoElement.id="vid" + i;
                 videoElement.loop = true;
@@ -68,6 +79,7 @@ const app = (() => {
                 element.type="button";
                 element.className="btn btn-default btn-lg videoButton play";
                 content.appendChild(element);
+*/
             })
         },
         playPause: (btn, id) => {
@@ -76,7 +88,7 @@ const app = (() => {
             let playButton;
             let myVideo = document.getElementById("vid" + id);
             if (myVideo.paused) {
-                app.analytics('/advertising/'+id);
+//                app.analytics('/advertising/'+id);
                 Array.prototype.forEach.call(all, function (video) { 
                     video.pause();
                 })
@@ -90,6 +102,7 @@ const app = (() => {
                 myVideo.pause();
                 btn.className = btn.className.replace("pause", "play");
             }
+             
             btn.blur(); 
         },
         html5: () => {
@@ -108,8 +121,6 @@ const app = (() => {
             const navigation = document.getElementsByTagName('nav')[0];
             const menuClose = document.getElementById('menuClose');
             const menu = document.getElementById('menu');
-            //const addCallback = (item, i) => 
-               // document.getElementById("button"+i).onclick = function () { app.navigateTo(item.functionCall) };
             if (navigation.className == 'animate display') {
                 navigation.className = 'animate';
                 navigation.innerHTML = "";
