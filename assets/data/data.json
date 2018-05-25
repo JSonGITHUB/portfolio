@@ -1,11 +1,11 @@
 {
     "navigation": {
         "selections": [
-            { "page": "Resume", "function": "showResume()" },
-            { "page": "Mobile", "function": "showMobile()" },
-            { "page": "Web", "function": "showInteractive()" },
-            { "page": "Advertising", "function": "showAdvertising()" },
-            { "page": "Applications", "function": "showHTML5()" }
+            { "page": "Resume", "function": "app.resume()" },
+            { "page": "Mobile", "function": "app.mobile()" },
+            { "page": "Web", "function": "app.interactive()" },
+            { "page": "Advertising", "function": "app.advertising()" },
+            { "page": "Applications", "function": "app.html5()" }
         ]
     },
     "html5": {
