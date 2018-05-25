@@ -166,6 +166,7 @@ const app = (() => {
                     //image.onerror = () => { reject(new Error('Could not load image at ' + url)) };
                     //image.src = url;
                     let imgElement = document.createElement("img");
+                    imgElement.style.opacity = 0;
                     imgElement.setAttribute("class", "js-lazy-image, " + css);
                     imgElement.setAttribute("alt", "Image Loading...");
                     imgElement.setAttribute("data-src", url); 
@@ -304,7 +305,8 @@ const app = (() => {
                 // Prevent this from being lazy loaded a second time.
                 img.classList.add('js-lazy-image--handled');
                 img.src = src;
-                img.classList.add('fade-in');
+//                img.classList.add('fade-in');
+                img.style.opacity = 1;
             }
         },
         analytics: (tag) => {
