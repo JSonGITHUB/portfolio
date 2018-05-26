@@ -25,14 +25,12 @@ const app = (() => {
         },
         mobile: () => {
             app.analytics('/mobile');
-//            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
-            app.getSomething("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
             app.getLazy(".mobileImage");
         },
         interactive: () => {
             app.analytics('/web');
-            //app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
-            app.getSomething("interactive", "assets/290/", privateData.interactive.images, 0);
+            app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
             app.getLazy(".interactive");
         },
         advertising: () => {
@@ -63,28 +61,6 @@ const app = (() => {
                 "' type='button' class='btn btn-default btn-lg videoButton play' onclick='app.playPause(this, " +
                 i +")'>" +
                 "</button>";
-/*
-                videoElement = document.createElement("video");
-                videoElement.id="vid" + i;
-                videoElement.loop = true;
-                videoElement.className = "ad";
-                videoElement.preload = "none";
-                videoElement.style.width = video.width;
-                videoElement.style.height = video.height;
-                videoElement.poster = "assets/banners/" + video.poster;
-                content.appendChild(videoElement);
-                element = document.createElement("source");
-                element.src = "assets/banners/" + video.file;
-                element.type = "video/mp4";
-                videoElement.appendChild(element);
-                videoElement.innerHTML += "Your browser does not support HTML5 video." ;
-                element = document.createElement("button");
-                element.id = "button"+i;
-                element.onclick = function() { app.playPause(this, i) };
-                element.type="button";
-                element.className="btn btn-default btn-lg videoButton play";
-                content.appendChild(element);
-*/
             })
         },
         playPause: (btn, id) => {
@@ -112,8 +88,7 @@ const app = (() => {
         },
         html5: () => {
             app.analytics('/applications');
-//            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
-            app.getSomething("mobileImage", "portfolio/", privateData.html5.images, 0);
+            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
             app.getLazy(".mobileImage");
         },
         clearContent: () => {
@@ -142,97 +117,39 @@ const app = (() => {
                         eachPage.function + "'>"+
                         eachPage.page +
                     "</button><br>";
-/*
-                    element = document.createElement("button");
-                    element.id = "button"+i;
-                    element.type="button";
-                    element.onclick = function() { eachPage.function };
-                    element.className="btn btn-default btn-lg";
-                    element.innerHTML = eachPage.page;
-                    navigation.appendChild(element);
-*/
                 })
                 document.body.className += "noscroll";
                 menu.className = "animate hide";
                 menuClose.className = "animate show";
             }
-        },///////////////////
-        getSomething: (css, path, imgArray, index) => {
+        },
+        getImages: (css, path, imgArray, index) => {
             imgArray.forEach((eachItem, i) => {
                 let url = path + eachItem.image;
-                //return new Promise((resolve,reject) => {
-                    //let image = new Image();
-                    //image.onload = () => resolve(image);
-                    //image.onerror = () => { reject(new Error('Could not load image at ' + url)) };
-                    //image.src = url;
                     let imgElement = document.createElement("img");
                     imgElement.style.opacity = 0;
                     imgElement.setAttribute("class", "js-lazy-image, " + css);
-                    imgElement.setAttribute("alt", "Image Loading...");
                     imgElement.setAttribute("data-src", url); 
-                    //<img alt="Lazy" class="js-lazy-image" data-src="/location/of/my/image.jpg" />
-                    //imgElement.src = url;
                     content.appendChild(imgElement);
-                //});
             })
-        },/////////////////
-        getImages: (css, path, imgArray, index) => {
-            getImage(css, path, imgArray, index);
-            async function getImage(css, path, imgArray, index) {
-                let image = await loadImage(css, path, imgArray, index);
-                if (index<(imgArray.length-1)){
-                    getImage(css, path, imgArray, (index+1))
-                }
-            }
-            function loadImage(css, path, imgArray, index) {
-                let url = path + imgArray[index].image;
-                //return new Promise((resolve,reject) => {
-                    //let image = new Image();
-                    //image.onload = () => resolve(image);
-                    //image.onerror = () => { reject(new Error('Could not load image at ' + url)) };
-                    //image.src = url;
-                    let imgElement = document.createElement("img");
-                    imgElement.setAttribute("class", "js-lazy-image");
-                    imgElement.setAttribute("alt", "Lazy");
-                    imgElement.setAttribute("data-src", url); 
-                    //<img alt="Lazy" class="js-lazy-image" data-src="/location/of/my/image.jpg" />
-                    //imgElement.src = url;
-                    content.appendChild(imgElement);
-                //});
-            }
         },
         getLazy: (css) => {
-            ////////////////
             const images = document.querySelectorAll(css);
-            const config = {
-                // If the image gets within 50px in the Y axis, start the download.
-                rootMargin: '50px 0px',
-                threshold: 0.01
-            };
+            // If the image gets within 50px in the Y axis, start the download.
+            const config = { rootMargin: '50px 0px', threshold: 0.01 };
             let imageCount = images.length;
             let observer;
-            // If we don't have support for intersection observer, loads the images immediately
             if (!('IntersectionObserver' in window)) {
                 loadImagesImmediately(images);
             } else {
-                // It is supported, load the images
                 observer = new IntersectionObserver(onIntersection, config);
-            
-                // foreach() is not supported in IE
-                for (let i = 0; i < images.length; i++) { 
-                    let image = images[i];
-                    if (image.classList.contains('js-lazy-image--handled')) {
-                        continue;
+                images.forEach((eachImage, i) => {
+                    if (!eachImage.classList.contains('js-lazy-image--handled')) {
+                        observer.observe(eachImage);
                     }
-                
-                    observer.observe(image);
-                }
+                })
             }
-            /**
-             * Fetchs the image for the given URL
-             * @param {string} url 
-             */
-            function fetchImage(url) {
+            let fetchImage = (url) => {
                 return new Promise((resolve, reject) => {
                     const image = new Image();
                     image.src = url;
@@ -240,72 +157,39 @@ const app = (() => {
                     image.onerror = reject;
                 });
             }
-            /**
-             * Preloads the image
-             * @param {object} image 
-             */
-            function preloadImage(image) {
+            //Preloads the image @param {object} image 
+            let preloadImage = (image) => {
                 const src = image.dataset.src;
-                if (!src) {
-                return;
-                }
-            
-                return fetchImage(src).then(() => { applyImage(image, src); });
+                if (!src) { return }
+                return fetchImage(src).then(() => { applyImage(image, src) });
             }
-            /**
-             * Load all of the images immediately
-             * @param {NodeListOf<Element>} images 
-             */
-            function loadImagesImmediately(images) {
-                // foreach() is not supported in IE
-                for (let i = 0; i < images.length; i++) { 
-                let image = images[i];
-                preloadImage(image);
-                }
+            //Load all of the images immediately @param {NodeListOf<Element>} images 
+            let loadImagesImmediately  = (images) => {
+                images.forEach((eachImage, i) => { preloadImage(eachImage) })
             }
-            /**
-             * Disconnect the observer
-             */
-            function disconnect() {
-                if (!observer) {
-                return;
-                }
-            
+            //Disconnect the observer
+            let disconnect = () => {
+                if (!observer) { return }
                 observer.disconnect();
             }
-            /**
-             * On intersection
-             * @param {array} entries 
-             */
+            //On intersection @param {array} entries
             function onIntersection(entries) {
                 // Disconnect if we've already loaded all of the images
-                if (imageCount === 0) {
-                observer.disconnect();
-                }
-            
-                // Loop through the entries
-                for (let i = 0; i < entries.length; i++) { 
-                let entry = entries[i];
-                // Are we in viewport?
-                if (entry.intersectionRatio > 0) {
-                    imageCount--;
-            
-                    // Stop watching and load the image
-                    observer.unobserve(entry.target);
-                    preloadImage(entry.target);
-                }
-                }
+                if (imageCount === 0) { observer.disconnect() }
+                entries.forEach((eachEntry, i) => {
+                    // Are we in viewport?
+                    if (eachEntry.intersectionRatio > 0) {
+                        imageCount--;
+                        // Stop watching and load the image
+                        observer.unobserve(eachEntry.target);
+                        preloadImage(eachEntry.target);
+                    }
+                })
             }
-            /**
-             * Apply the image
-             * @param {object} img 
-             * @param {string} src 
-             */
-            function applyImage(img, src) {
-                // Prevent this from being lazy loaded a second time.
+            //Apply the image @param {object} img @param {string} src 
+            let applyImage = (img, src) => {
                 img.classList.add('js-lazy-image--handled');
                 img.src = src;
-//                img.classList.add('fade-in');
                 img.style.opacity = 1;
             }
         },
