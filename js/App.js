@@ -165,6 +165,7 @@ const app = (() => {
             })
         },
         getImagesSafari: (css, path, imgArray, index) => {
+/*
             imgArray.forEach((eachItem, i) => {
                 let url = path + eachItem.image;
                     let imgElement = document.createElement("img");
@@ -172,6 +173,25 @@ const app = (() => {
                     imgElement.src = url; 
                     content.appendChild(imgElement);
             })
+*/
+            getImage(css, path, imgArray, index);
+            async function getImage(css, path, imgArray, index) {
+                let image = await loadImage(css, path, imgArray, index);
+                if (index<(imgArray.length-1)){getImage(css, path, imgArray, (index+1))}
+            }
+            function loadImage(css, path, imgArray, index) {
+                let url = path + imgArray[index].image;
+                return new Promise((resolve,reject) => {
+                    let image = new Image();
+                    image.onload = () => resolve(image);
+                    image.onerror = () => { reject(new Error('Could not load image at ' + url)) };
+                    image.src = url;
+                    let imgElement = document.createElement("img");
+                    imgElement.setAttribute("class", css);
+                    imgElement.src = url;
+                    content.appendChild(imgElement);
+                });
+            }
         },
         getLazy: (css) => {
             const images = document.querySelectorAll(css);
