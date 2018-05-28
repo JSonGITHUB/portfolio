@@ -2,7 +2,6 @@ const app = (() => {
     let privateData;
     let hasFlash = false;
     const content = document.getElementById("content");
-
     let element;
     try {
         hasFlash = Boolean(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
@@ -24,14 +23,34 @@ const app = (() => {
             privateData.resume.content.forEach((eachLine, i) => content.innerHTML += eachLine.line);
         },
         mobile: () => {
+            let ua = navigator.userAgent.toLowerCase();
             app.analytics('/mobile');
-            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
-            app.getLazy(".mobileImage");
+            if (ua.indexOf('safari') != -1) { 
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                    app.getLazy(".mobileImage");
+                } else {
+                    app.getImagesSafari("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                }
+            } else {
+                app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                app.getLazy(".mobileImage");
+            }
         },
         interactive: () => {
+            let ua = navigator.userAgent.toLowerCase();
             app.analytics('/web');
-            app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
-            app.getLazy(".interactive");
+            if (ua.indexOf('safari') != -1) { 
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
+                    app.getLazy(".interactive");
+                } else {
+                    app.getImagesSafari("interactive", "assets/290/", privateData.interactive.images, 0);
+                }
+            } else {
+                app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
+                app.getLazy(".interactive");
+            }
         },
         advertising: () => {
             app.analytics('/advertising');
@@ -88,8 +107,20 @@ const app = (() => {
         },
         html5: () => {
             app.analytics('/applications');
-            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
-            app.getLazy(".mobileImage");
+
+            let ua = navigator.userAgent.toLowerCase();
+            app.analytics('/applications');
+            if (ua.indexOf('safari') != -1) { 
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+                    app.getLazy(".mobileImage");
+                } else {            
+                    app.getImagesSafari("mobileImage", "portfolio/", privateData.html5.images, 0);
+                }
+            } else {
+                app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+                app.getLazy(".mobileImage");
+            }
         },
         clearContent: () => {
             content.innerHTML = "";
@@ -133,6 +164,15 @@ const app = (() => {
                     content.appendChild(imgElement);
             })
         },
+        getImagesSafari: (css, path, imgArray, index) => {
+            imgArray.forEach((eachItem, i) => {
+                let url = path + eachItem.image;
+                    let imgElement = document.createElement("img");
+                    imgElement.setAttribute("class", css);
+                    imgElement.src = url; 
+                    content.appendChild(imgElement);
+            })
+        },
         getLazy: (css) => {
             const images = document.querySelectorAll(css);
             // If the image gets within 50px in the Y axis, start the download.
@@ -140,7 +180,7 @@ const app = (() => {
             let imageCount = images.length;
             let observer;
             if (!('IntersectionObserver' in window)) {
-                loadImagesImmediately(images);
+//                loadImagesImmediately(images);
             } else {
                 observer = new IntersectionObserver(onIntersection, config);
                 images.forEach((eachImage, i) => {
