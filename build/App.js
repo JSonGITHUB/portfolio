@@ -10,6 +10,7 @@ var app = function () {
     } catch (exception) {
         hasFlash = 'undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash'];
     };
+    /*
     var getAppData = async function () {
         var response = await fetch('assets/data/data.json').then(function (response) {
             return response.json();
@@ -21,6 +22,7 @@ var app = function () {
             return console.log('error: ', error.message);
         });
     }();
+    */
     return {
         navigation: function navigation() {
             return privateData.navigation.selections;
