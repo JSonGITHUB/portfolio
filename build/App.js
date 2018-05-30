@@ -9,7 +9,7 @@ var app = function () {
         hasFlash = Boolean(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
     } catch (exception) {
         hasFlash = 'undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash'];
-    }
+    };
     var getAppData = async function () {
         var response = await fetch('assets/data/data.json').then(function (response) {
             return response.json();
