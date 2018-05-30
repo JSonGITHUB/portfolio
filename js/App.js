@@ -1,5 +1,5 @@
 const app = (() => {
-    let privateData;
+//    let privateData;
     let hasFlash = false;
     const content = document.getElementById("content");
     let element;
@@ -8,6 +8,7 @@ const app = (() => {
     } catch(exception) {
         hasFlash = ('undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash']);
     }
+    /*
     const getAppData = (async ()  => {
         let response = await (fetch('assets/data/data.json')
             .then(response => response.json())
@@ -16,6 +17,7 @@ const app = (() => {
             .catch(error => console.log('error: ', error.message))
         )
     })();
+    */
     return {
         navigation: () => privateData.navigation.selections,
         resume: () => {
