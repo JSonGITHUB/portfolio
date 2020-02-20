@@ -44,8 +44,8 @@ const privateData = {
             { "line": "<span class='title'>PROCESS</span><br>" },
             { "line": "Source Control, Testing, Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" },
 
-            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE<br><br>" },
-            { "line": "CareFusion</span>, San Diego, CA<br>" },
+            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE</span><br><br>" },
+            { "line": "<span class='title'>CareFusion</span>, San Diego, CA<br>" },
             { "line": "<span class='title'>Application Developer</span><br>" },
             { "line": "<i>2012 – 2017</i><br><br>" },
             { "line": "Developed web applications and games for product support and simulation, decision support and learning.<br>" },
