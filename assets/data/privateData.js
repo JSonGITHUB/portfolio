@@ -55,7 +55,7 @@ const privateData = {
             { "line": "<span class='title'>National Pen Company</span>, San Diego, CA<br>" },
             { "line": "<span class='title'>Javascript Developer</span><br>" },
             { "line": "<i>2018 – 2020</i><br><br>" },
-            { "line": "Contributed to e-commerce front end development using Javascript, jQuery, HTML5, Regex, JSON, JSP, jQuery, Git, Bitbucket, Jenkins, Pingdom and Jira.<br>" },
+            { "line": "Contributed to e-commerce frontend development using Javascript, jQuery, HTML5, Regex, JSON, JSP, jQuery, Git, Bitbucket, Jenkins, Pingdom and Jira.<br>" },
             { "line": "<ul>" },
             { "line": "<li>Developed Google Analytics data layer using Javascript</li>" },
             { "line": "<li>Utilized Data attributes, JSON and RESTful APIs to cull external data from partners</li>" },
