@@ -136,9 +136,14 @@ var app = function () {
 
             btn.blur();
         },
+        eCommerce: function eCommerce() {
+            app.analytics('/ecommerce');
+            app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
+            app.getLazy(".interactive");
+        },
         html5: function html5() {
             app.analytics('/applications');
-            app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+            app.getImages("mobileImage", "portfolio/", privateData.eCommerce.images, 0);
             app.getLazy(".mobileImage");
         },
         clearContent: function clearContent() {
