@@ -43,14 +43,14 @@ const privateData = {
             { "line": "Web Application and Website Developer able to produce a seamless interactive experience for the end user by applying visual sense and technical skills. Creative thinker with a track record of integrating new web technologies. Effective at building relationships at all levels within an organization. Successful collaborating with a team of designers and developers and owning projects.<br><br><br>" },
 
             { "line": "<span class='title'>TECHNOLOGIES</span><br>" },
-            { "line": "HTML5, JavaScript, ES6, CSS3, LESS, AJAX, XML, Regex, JSON, jQuery, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Accelerometer, Bitbucket, Git, Grunt, Jenkins, Pingdom, Teamwork, Slack, Linux, Visual Studio, Microsoft Office, SharePoint, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" },
+            { "line": "HTML5, JavaScript, ES6, CSS3, LESS, AJAX, XML, JSON, jQuery, Regex, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Google Analytics, Google Data Layer, Pingdom, JSP, eCommerce, GPS, Accelerometer, Git, Grunt, Teamwork, Slack, Linux, Visual Studio, Microsoft Office, SharePoint, Photoshop, Premiere, Excel, Perforce, Bitbucket, Jenkins and Jira<br><br><br>" },
             
             { "line": "<span class='title'>CONCEPTS</span><br>" },
             { "line": "Single Page Architecture, Progressive Web Apps, VanillaJS, Modules, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional programming, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning and Embedded.<br><br><br>" },
 
             { "line": "<span class='title'>PROCESS</span><br>" },
-            { "line": "Source Control, Testing, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" },
-
+            { "line": "Source Control, sprint grooming, technical discussions, developing, testing, code reviews, builds, deploys, Feedback Analysis, Optimization and Agile/Scrum<br><br><br>" },
+            
             { "line": "<span class='title'>PROFESSIONAL EXPERIENCE</span><br><br>" },
             { "line": "<span class='title'>National Pen Company</span>, San Diego, CA<br>" },
             { "line": "<span class='title'>Frontend Developer</span><br>" },
