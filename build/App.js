@@ -10,7 +10,6 @@ var app = function () {
     } catch (exception) {
         hasFlash = 'undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash'];
     };
-    /*
     var getAppData = async function () {
         var response = await fetch('assets/data/data.json').then(function (response) {
             return response.json();
@@ -22,7 +21,6 @@ var app = function () {
             return console.log('error: ', error.message);
         });
     }();
-    */
     return {
         navigation: function navigation() {
             return privateData.navigation.selections;
@@ -34,8 +32,8 @@ var app = function () {
             });
         },
         mobile: function mobile() {
-            var ua = navigator.userAgent.toLowerCase();
             app.analytics('/mobile');
+            var ua = navigator.userAgent.toLowerCase();
             if (ua.indexOf('safari') != -1) {
                 if (ua.indexOf('chrome') > -1) {
                     app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
@@ -49,8 +47,8 @@ var app = function () {
             }
         },
         interactive: function interactive() {
-            var ua = navigator.userAgent.toLowerCase();
             app.analytics('/web');
+            var ua = navigator.userAgent.toLowerCase();
             if (ua.indexOf('safari') != -1) {
                 if (ua.indexOf('chrome') > -1) {
                     app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
@@ -115,11 +113,24 @@ var app = function () {
 
             btn.blur();
         },
+        eCommerce: function eCommerce() {
+            app.analytics('/eCommerce');
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                    app.getLazy(".interactive");
+                } else {
+                    app.getImagesSafari("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                }
+            } else {
+                app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                app.getLazy(".interactive");
+            }
+        },
         html5: function html5() {
             app.analytics('/applications');
-
             var ua = navigator.userAgent.toLowerCase();
-            app.analytics('/applications');
             if (ua.indexOf('safari') != -1) {
                 if (ua.indexOf('chrome') > -1) {
                     app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
