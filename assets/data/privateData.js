@@ -2,10 +2,17 @@ const privateData = {
     "navigation": {
         "selections": [
             { "page": "Resume", "function": "app.resume()" },
-            { "page": "Mobile", "function": "app.mobile()" },
-            { "page": "Web", "function": "app.interactive()" },
-            { "page": "Advertising", "function": "app.advertising()" },
-            { "page": "Applications", "function": "app.html5()" }
+            { "page": "eCommerce", "function": "app.eCommerce()" },
+            { "page": "eLearning", "function": "app.html5()" },
+            { "page": "Embedded Mobile", "function": "app.mobile()" },
+            { "page": "Marketing", "function": "app.interactive()" },
+            { "page": "Advertising", "function": "app.advertising()" }
+        ]
+    },
+    "eCommerce": {
+        "images": [
+            { "image": "NP.png" },
+            { "image": "NPplp.png" }
         ]
     },
     "html5": {
@@ -36,25 +43,37 @@ const privateData = {
             { "line": "Web Application and Website Developer able to produce a seamless interactive experience for the end user by applying visual sense and technical skills. Creative thinker with a track record of integrating new web technologies. Effective at building relationships at all levels within an organization. Successful collaborating with a team of designers and developers and owning projects.<br><br><br>" },
 
             { "line": "<span class='title'>TECHNOLOGIES</span><br>" },
-            { "line": "HTML5, JavaScript, ES2015, CSS3, LESS, AJAX, XML, JSON, jQuery, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Accelerometer, Git, Grunt, Teamwork, Slack, Linux, Visual Studio, Microsoft Office, SharePoint, Dreamweaver, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" },
-
+            { "line": "HTML5, JavaScript, ES6, CSS3, LESS, AJAX, XML, Regex, JSON, jQuery, REST and RESTful web services, REACT, VueJS, NPM, Node, Express, Bootstrap, RequireJS, Web Applications, Local Storage, Web Analytics, eCommerce, GPS, Accelerometer, Bitbucket, Git, Grunt, Jenkins, Pingdom, Teamwork, Slack, Linux, Visual Studio, Microsoft Office, SharePoint, Photoshop, Premiere, Excel, Perforce and Jira<br><br><br>" },
+            
             { "line": "<span class='title'>CONCEPTS</span><br>" },
-            { "line": "Single Page Architecture, Progressive Web Apps, VanillaJS, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional programming, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning, Embedded and MVC.<br><br><br>" },
+            { "line": "Single Page Architecture, Progressive Web Apps, VanillaJS, Modules, Error handling, Callbacks, Prototype, Closures, Promises, Streams, Arrow functions, Observables, OOP, Functional programming, Asynchronous programming, Libraries, Components, Services, Decision Support, Simulation, Product Support, UI, UX, Social Media, Sharing, Playlists, Shopping Cart Development, Mobile, Responsive, Prototyping, Code Architecture, Feature Specs, eLearning and Embedded.<br><br><br>" },
 
             { "line": "<span class='title'>PROCESS</span><br>" },
-            { "line": "Source Control, Testing, Test Driven Development, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" },
+            { "line": "Source Control, Testing, Test Scripting, Feedback Analysis, Optimization and Agile/Scrum.<br><br><br>" },
 
-            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE</span><br><br>" },
-            { "line": "<span class='title'>CareFusion</span>, San Diego, CA<br>" },
+            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE<br><br>" },
+            { "line": "<span class='title'>National Pen Company</span>, San Diego, CA<br>" },
+            { "line": "<span class='title'>Javascript Developer</span><br>" },
+            { "line": "<i>2018 – 2020</i><br><br>" },
+            { "line": "Contributed to e-commerce front end development using Javascript, jQuery, HTML5, Regex, JSON, JSP, jQuery, Git, Bitbucket, Jenkins, Pingdom and Jira.<br>" },
+            { "line": "<ul>" },
+            { "line": "<li>Developed Google Analytics data layer using Javascript</li>" },
+            { "line": "<li>Utilized Data attributes, JSON and RESTful APIs to cull external data from partners</li>" },
+            { "line": "<li>Assisted with sprint grooming, technical discussions, developing, testing, code reviews, builds, deploys and production issues</li>" },
+            { "line": "<li>Automated testing and monitoring by configuring Pingdom scripts</li>" },
+            { "line": "<li>Developed prototype components to facilitate technical discussions using NPM, Node and Express</li>" },
+            { "line": "</ul>" },
+            { "line": "<br><br>" },
+            { "line": "CareFusion</span>, San Diego, CA<br>" },
             { "line": "<span class='title'>Application Developer</span><br>" },
             { "line": "<i>2012 – 2017</i><br><br>" },
-            { "line": "Developed web applications and games for product support and simulation, decision support and learning.<br>" },
+            { "line": "Developed web applications and interactive components for product support and simulation, decision support and learning.<br>" },
             { "line": "<ul>" },
             { "line": "<li>Contributed to an efficient workflow by utilizing interpersonal, organizational and communication skills to accept direction, provide feedback, document and analyze stakeholder requests and feature specs, architect logic and data, provide test scripts and the content update process as well as present and explain technical information.</li>" },
             { "line": "<li>Accelerated project development and facilitated discussions by rapidly developing functional prototypes.</li>" },
-            { "line": "<li>Collaborated with artists, designers and programmers to develop a cohesive and manageable UI.</li>" },
+            { "line": "<li>Collaborated with designers and programmers to develop a cohesive and manageable UI.</li>" },
             { "line": "<li>Designed, developed, implemented, optimized, debugged, updated and tested reusable code libraries, UI systems and functionality using object oriented programming practices, common design patterns, HTML5, CSS and Javascript.</li>" },
-            { "line": "<li>Developed web applications, game user interfaces and mini-games in a multi-developer environment.</li>" },
+            { "line": "<li>Developed web applications, interactive user interfaces and mini-games in a multi-developer environment.</li>" },
             { "line": "<li>Mentored and coached others on the team.</li>" },
             { "line": "</ul>" },
             { "line": "<br><br>" },
