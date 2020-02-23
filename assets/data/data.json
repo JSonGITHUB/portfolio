@@ -7,13 +7,6 @@
             { "page": "Embedded Mobile", "function": "app.mobile()" },
             { "page": "Marketing", "function": "app.interactive()" },
             { "page": "Advertising", "function": "app.advertising()" }
-            /*
-            { "page": "Resume", "function": "app.resume()" },
-            { "page": "Mobile", "function": "app.mobile()" },
-            { "page": "Web", "function": "app.interactive()" },
-            { "page": "Advertising", "function": "app.advertising()" },
-            { "page": "Applications", "function": "app.html5()" }
-            */
         ]
     },
     "eCommerce": {
