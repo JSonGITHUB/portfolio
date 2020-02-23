@@ -1,36 +1,11 @@
 'use strict';
 
-function _asyncToGenerator(fn) {
-    return function () {
-        var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {
-            function step(key, arg) {
-                try {
-                    var info = gen[key](arg);var value = info.value;
-                } catch (error) {
-                    reject(error);return;
-                }if (info.done) {
-                    resolve(value);
-                } else {
-                    return Promise.resolve(value).then(function (value) {
-                        step("next", value);
-                    }, function (err) {
-                        step("throw", err);
-                    });
-                }
-            }return step("next");
-        });
-    };
-}
-
-module: {
-    rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }];
-}
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var app = function () {
     var privateData = void 0;
     var hasFlash = false;
     var content = document.getElementById("content");
-
     var element = void 0;
     try {
         hasFlash = Boolean(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
@@ -75,14 +50,34 @@ var app = function () {
             });
         },
         mobile: function mobile() {
+            var ua = navigator.userAgent.toLowerCase();
             app.analytics('/mobile');
-            app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
-            app.getLazy(".mobileImage");
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                    app.getLazy(".mobileImage");
+                } else {
+                    app.getImagesSafari("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                }
+            } else {
+                app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
+                app.getLazy(".mobileImage");
+            }
         },
         interactive: function interactive() {
+            var ua = navigator.userAgent.toLowerCase();
             app.analytics('/web');
-            app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
-            app.getLazy(".interactive");
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
+                    app.getLazy(".interactive");
+                } else {
+                    app.getImagesSafari("interactive", "assets/290/", privateData.interactive.images, 0);
+                }
+            } else {
+                app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
+                app.getLazy(".interactive");
+            }
         },
         advertising: function advertising() {
             app.analytics('/advertising');
@@ -137,14 +132,34 @@ var app = function () {
             btn.blur();
         },
         eCommerce: function eCommerce() {
-            app.analytics('/ecommerce');
-            app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
-            app.getLazy(".interactive");
+            app.analytics('/eCommerce');
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                    app.getLazy(".interactive");
+                } else {
+                    app.getImagesSafari("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                }
+            } else {
+                app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
+                app.getLazy(".interactive");
+            }
         },
         html5: function html5() {
             app.analytics('/applications');
-            app.getImages("mobileImage", "portfolio/", privateData.eCommerce.images, 0);
-            app.getLazy(".mobileImage");
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('safari') != -1) {
+                if (ua.indexOf('chrome') > -1) {
+                    app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+                    app.getLazy(".mobileImage");
+                } else {
+                    app.getImagesSafari("mobileImage", "portfolio/", privateData.html5.images, 0);
+                }
+            } else {
+                app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
+                app.getLazy(".mobileImage");
+            }
         },
         clearContent: function clearContent() {
             content.innerHTML = "";
@@ -184,6 +199,66 @@ var app = function () {
                 content.appendChild(imgElement);
             });
         },
+        getImagesSafari: function getImagesSafari(css, path, imgArray, index) {
+            var getImage = function () {
+                var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(css, path, imgArray, index) {
+                    var image;
+                    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                        while (1) {
+                            switch (_context2.prev = _context2.next) {
+                                case 0:
+                                    _context2.next = 2;
+                                    return loadImage(css, path, imgArray, index);
+
+                                case 2:
+                                    image = _context2.sent;
+
+                                    if (index < imgArray.length - 1) {
+                                        getImage(css, path, imgArray, index + 1);
+                                    }
+
+                                case 4:
+                                case 'end':
+                                    return _context2.stop();
+                            }
+                        }
+                    }, _callee2, this);
+                }));
+
+                return function getImage(_x, _x2, _x3, _x4) {
+                    return _ref2.apply(this, arguments);
+                };
+            }();
+
+            /*
+                        imgArray.forEach((eachItem, i) => {
+                            let url = path + eachItem.image;
+                                let imgElement = document.createElement("img");
+                                imgElement.setAttribute("class", css);
+                                imgElement.src = url; 
+                                content.appendChild(imgElement);
+                        })
+            */
+            getImage(css, path, imgArray, index);
+
+            function loadImage(css, path, imgArray, index) {
+                var url = path + imgArray[index].image;
+                return new Promise(function (resolve, reject) {
+                    var image = new Image();
+                    image.onload = function () {
+                        return resolve(image);
+                    };
+                    image.onerror = function () {
+                        reject(new Error('Could not load image at ' + url));
+                    };
+                    image.src = url;
+                    var imgElement = document.createElement("img");
+                    imgElement.setAttribute("class", css);
+                    imgElement.src = url;
+                    content.appendChild(imgElement);
+                });
+            }
+        },
         getLazy: function getLazy(css) {
             var images = document.querySelectorAll(css);
             // If the image gets within 50px in the Y axis, start the download.
@@ -191,7 +266,7 @@ var app = function () {
             var imageCount = images.length;
             var observer = void 0;
             if (!('IntersectionObserver' in window)) {
-                loadImagesImmediately(images);
+                //                loadImagesImmediately(images);
             } else {
                 observer = new IntersectionObserver(onIntersection, config);
                 images.forEach(function (eachImage, i) {
