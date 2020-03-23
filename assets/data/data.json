@@ -36,6 +36,7 @@
     },
     "resume": {
         "content": [
+            { "line": "<br>" },
             { "line": "<div class='center'>(760) 402-5646</div>" },
             { "line": "<div class='center'><a href='https://www.linkedin.com/in/johnsantucci'>www.linkedin.com/in/johnsantucci</a></div>" },
             { "line": "<div class='center'>jhnsntcc@gmail.com</div><br><br>" },
