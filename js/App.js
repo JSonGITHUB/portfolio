@@ -72,7 +72,6 @@ const app = (() => {
             })
         },
         videos: () => {
-            app.insertNav();
             let videoElement;
             privateData.advertising.videos.forEach((video, i) => {
                 content.innerHTML += "<video id='vid" + i +
