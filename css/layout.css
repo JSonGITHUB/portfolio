@@ -1,6 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
-
+:root {
+	--videoButtonBackground:rgb(255,255,255);
+	--videoButtonColor: rgb(0,0,0);
+	--play: url(assets/icons/play.png);
+	--playHover: url(assets/icons/playActive.png);
+	--pause: url(assets/icons/pause.png);
+	--pauseHover: url(assets/icons/pauseActive.png);
+}
 .noscroll { 
 	overflow: hidden;
 }
@@ -229,22 +236,27 @@ button {
 	background-color: #000000;
 }
 .play {
-	background-image:url(../assets/icons/play.png);
+	/*background-image:url(../assets/icons/play.png);*/
+	background-image: var(--play);
 }
 .play:hover {
-	background-image:url(../assets/icons/playActive.png);
+	/*background-image:url(../assets/icons/playActive.png);*/
+	background-image: var(--playHover);
 }
 .pause {
-	background-image:url(../assets/icons/pause.png);
+	/*background-image:url(../assets/icons/pause.png);*/
+	background-image: var(--pause);
 }
 .pause:hover {
-	background-image:url(../assets/icons/pauseActive.png);
+	/*background-image:url(../assets/icons/pauseActive.png);*/
+	background-image: var(--pauseHover);
 }
 .videoButton {
 	width: 100%;
 	height: 60px;
 	margin-top: -21px;
-	background-color: #FFFFFF;
+/*	background-color: #FFFFFF;*/
+	background-color: var(--videoButtonBackground);
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: center;
@@ -254,12 +266,20 @@ button {
 	background-color: #00FF00;
 }
 .videoButton:hover {
+	/*
 	color:  #000000;
 	background-color: #FFFFFF;
+	*/
+	color: var(--videoButtonColor);
+	background-color: var(--videoButtonBackground);
 }
 .videoButton:active {
+	/*
 	color:  #000000;
 	background-color: #FFFFFF;
+	*/
+	color: var(--videoButtonColor);
+	background-color: var(--videoButtonBackground);
 }
 header {
 	top:0px;
