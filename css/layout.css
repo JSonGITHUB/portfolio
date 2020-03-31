@@ -4,9 +4,7 @@
 	--videoButtonBackground:rgb(255,255,255);
 	--videoButtonColor: rgb(0,0,0);
 	--play: url(assets/icons/play.png);
-	--playHover: url(assets/icons/playActive.png);
 	--pause: url(assets/icons/pause.png);
-	--pauseHover: url(assets/icons/pauseActive.png);
 }
 .noscroll { 
 	overflow: hidden;
@@ -240,16 +238,14 @@ button {
 	background-image: var(--play);
 }
 .play:hover {
-	/*background-image:url(../assets/icons/playActive.png);*/
-	background-image: var(--playHover);
+	background-image:url(../assets/icons/playActive.png);
 }
 .pause {
 	/*background-image:url(../assets/icons/pause.png);*/
 	background-image: var(--pause);
 }
 .pause:hover {
-	/*background-image:url(../assets/icons/pauseActive.png);*/
-	background-image: var(--pauseHover);
+	background-image:url(../assets/icons/pauseActive.png);
 }
 .videoButton {
 	width: 100%;
