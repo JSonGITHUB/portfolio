@@ -20,11 +20,13 @@ const app = (() => {
         navigation: () => privateData.navigation.selections,
         resume: () => {
             app.analytics('/resume');
+            app.insertNav();
             privateData.resume.content.forEach((eachLine, i) => content.innerHTML += eachLine.line);
         },
         mobile: () => {
             let ua = navigator.userAgent.toLowerCase();
             app.analytics('/mobile');
+            app.insertNav();
             if (ua.indexOf('safari') != -1) { 
                 if (ua.indexOf('chrome') > -1) {
                     app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
@@ -40,6 +42,7 @@ const app = (() => {
         interactive: () => {
             let ua = navigator.userAgent.toLowerCase();
             app.analytics('/web');
+            app.insertNav();
             if (ua.indexOf('safari') != -1) { 
                 if (ua.indexOf('chrome') > -1) {
                     app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
@@ -54,6 +57,7 @@ const app = (() => {
         },
         advertising: () => {
             app.analytics('/advertising');
+            app.insertNav();
             if (hasFlash) { app.banners() } else { app.videos() }
         },
         banners: () => {
@@ -68,6 +72,7 @@ const app = (() => {
             })
         },
         videos: () => {
+            app.insertNav();
             let videoElement;
             privateData.advertising.videos.forEach((video, i) => {
                 content.innerHTML += "<video id='vid" + i +
@@ -81,6 +86,37 @@ const app = (() => {
                 i +")'>" +
                 "</button>";
             })
+        },
+        insertNav: () => content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div><div id='backgroundToggler' onclick='app.toggleBackground()'>*</div><div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div><div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div></div>",
+        fontSize: 12,
+        line_height: 25,
+        addFontSize: () => app.fontSize = app.fontSize+2,
+        minusFontSize: () => app.fontSize = app.fontSize-2,
+        addLineHeight: () => app.line_height = app.line_height+2,
+        minusLineHeight: () => app.line_height = app.line_height-2,
+        increaseFontSize: () => {
+            app.addFontSize();
+            app.addLineHeight();
+            app.updateFontSize();
+        },
+        decreaseFontSize: () => { 
+            app.minusFontSize();
+            app.minusLineHeight();
+            app.updateFontSize();
+        },
+        toggleBackground: () => {
+            const content = document.body;
+            let color = content.style.color;
+            color = (color == "rgb(255, 255, 255)") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)";
+            let background = content.style.backgroundColor;
+            background = (background == "rgb(0, 0, 0)") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
+            content.style.color = color;
+            content.style.backgroundColor = background;
+        },
+        updateFontSize: () => {
+            document.getElementById("content").style.fontSize = app.fontSize + 'px';
+            document.getElementById("content").style.lineHeight = app.line_height + 'px';
+        
         },
         playPause: (btn, id) => {
             let all = document.getElementsByTagName("video");
@@ -107,6 +143,7 @@ const app = (() => {
         },
         eCommerce: () => {
             app.analytics('/ecommerce');
+            app.insertNav();
             let ua = navigator.userAgent.toLowerCase();
             if (ua.indexOf('safari') != -1) { 
                 if (ua.indexOf('chrome') > -1) {
@@ -122,6 +159,7 @@ const app = (() => {
         },
         html5: () => {
             app.analytics('/applications');
+            app.insertNav();
             let ua = navigator.userAgent.toLowerCase();
             if (ua.indexOf('safari') != -1) { 
                 if (ua.indexOf('chrome') > -1) {
