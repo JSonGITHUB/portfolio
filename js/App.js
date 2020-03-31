@@ -111,6 +111,7 @@ const app = (() => {
             app.updateFontSize();
         },
         toggleBackground: () => {
+            const root = document.documentElement;
             const content = document.body;
             let color = content.style.color;
             color = (color == "rgb(255, 255, 255)") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)";
@@ -118,6 +119,10 @@ const app = (() => {
             background = (background == "rgb(0, 0, 0)") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
             content.style.color = color;
             content.style.backgroundColor = background;
+            root.style.setProperty('--videoButtonBackground', background);
+            root.style.setProperty('--videoButtonColor', color);
+            root.style.setProperty('--play', (background == "rgb(0, 0, 0)") ? 'url(assets/icons/playInvert.png)' : 'url(assets/icons/play.png)');
+            root.style.setProperty('--pause', (background == "rgb(0, 0, 0)") ? 'url(assets/icons/pauseInvert.png)' : 'url(assets/icons/pause.png)');
         },
         updateFontSize: () => {
             document.getElementById("content").style.fontSize = app.fontSize + 'px';
