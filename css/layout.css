@@ -27,8 +27,7 @@
 }
 .title {
 	font-weight: bold;
-	font-size:16px;
-	color:#000000;
+	/*color:#000000*/;
 	width:100%;
 }
 .subheader {
@@ -101,7 +100,7 @@ object {
 }
 .columns {
 	margin-top: 170px;
-	line-height: 25px;
+/*	line-height: 25px;*/
 	width: 100%;
 	font-size:14px;
 }
@@ -110,11 +109,42 @@ object {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	font-size: 12px;
+	/*font-size: 12px;*/
 	font-weight: bold;
 }
+.nav {
+	display: flex;
+	width:100%;
+}
+#navSpacer{
+	flex: 9;
+}
+#backgroundToggler {
+	flex: 1;
+	text-align: center;
+	font-size: 25px;
+}
+#backgroundToggler:hover {
+	background-color: lightgray;
+}
+#fontDecreaser {
+	flex: 1;
+	text-align: center;
+	font-size: 16px;
+}
+#fontDecreaser:hover {
+	background-color: lightgray;
+}
+#fontIncreaser {
+	flex: 1;
+	text-align: center;
+	font-size: 16px;
+}
+#fontIncreaser:hover {
+	background-color: lightgray;
+}
 .resume {
-	line-height: 25px;
+	/*line-height: 25px;*/
 	max-width: 700px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -189,6 +219,9 @@ object {
 	padding-bottom: 30px;
 	cursor:pointer;
 }
+container {
+	overflow: hidden;
+}
 button {
 	width: 75%;
 	margin-top: 5px;
@@ -258,7 +291,7 @@ nav {
 }
 i {
 	color: #555555;
-	font-size:14px;
+	/*font-size:14px;*/
 }
 .animate {
 	-webkit-transition-property: all;
