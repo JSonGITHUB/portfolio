@@ -86,7 +86,14 @@ const app = (() => {
                 "</button>";
             })
         },
-        insertNav: () => content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div><div id='backgroundToggler' onclick='app.toggleBackground()'>*</div><div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div><div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div></div>",
+        insertNav: () => {
+            if (!document.getElementById("navSpacer")) {
+                content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div>"+
+                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
+                    "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>"+
+                    "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div></div>";
+            }
+        },
         fontSize: 12,
         line_height: 25,
         addFontSize: () => app.fontSize = app.fontSize+2,
