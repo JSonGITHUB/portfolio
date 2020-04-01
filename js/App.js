@@ -121,8 +121,8 @@ const app = (() => {
             content.style.backgroundColor = background;
             root.style.setProperty('--videoButtonBackground', background);
             root.style.setProperty('--videoButtonColor', color);
-            root.style.setProperty('--play', (background == "rgb(0, 0, 0)") ? 'url(/assets/icons/playInvert.png)' : 'url(/assets/icons/play.png)');
-            root.style.setProperty('--pause', (background == "rgb(0, 0, 0)") ? 'url(/assets/icons/pauseInvert.png)' : 'url(/assets/icons/pause.png)');
+            root.style.setProperty('--play', (background == "rgb(0, 0, 0)") ? 'url(../assets/icons/playInvert.png)' : 'url(../assets/icons/play.png)');
+            root.style.setProperty('--pause', (background == "rgb(0, 0, 0)") ? 'url(../assets/icons/pauseInvert.png)' : 'url(../assets/icons/pause.png)');
         },
         updateFontSize: () => {
             document.getElementById("content").style.fontSize = app.fontSize + 'px';
