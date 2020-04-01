@@ -114,9 +114,9 @@ const app = (() => {
             const root = document.documentElement;
             const content = document.body;
             let color = content.style.color;
-            color = (color == "rgb(255, 255, 255)") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)";
+            color = (color == "rgb(221, 221, 221)") ? "rgb(0, 0, 0)" : "rgb(221, 221, 221)";
             let background = content.style.backgroundColor;
-            background = (background == "rgb(0, 0, 0)") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
+            background = (background == "rgb(0, 0, 0)") ? "rgb(221, 221, 221)" : "rgb(0, 0, 0)";
             content.style.color = color;
             content.style.backgroundColor = background;
             root.style.setProperty('--videoButtonBackground', background);
