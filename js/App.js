@@ -89,9 +89,18 @@ const app = (() => {
         insertNav: () => {
             if (!document.getElementById("navSpacer")) {
                 content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div>"+
-                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
+//                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
                     "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>"+
-                    "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div></div>";
+                    "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div>"+
+                    //"<img id='moon' class='lightIcon' onclick='app.toggleBackground()' src='./assets/moonBlack.png' alt='light' height='15' width='15' />"+
+                    "<div class='ml-20'>"+
+                        "<label class='switch'>"+
+                            "<input type='checkbox' checked onclick='app.toggleBackground()'>"+
+                            "<span class='slider round'></span>"+
+                        "</label>"+
+                    "</div>"+
+                    //"<img id='sun' class='lightIcon' src='./assets/sunBlack.png' onclick='app.toggleBackground()' alt='light' height='15' width='15' />"+
+                "</div>";
             }
         },
         fontSize: 12,
@@ -112,11 +121,17 @@ const app = (() => {
         },
         toggleBackground: () => {
             const root = document.documentElement;
+            //const sun = document.getElementById("sun");
+            //const moon = document.getElementById("moon");
             const content = document.body;
             let color = content.style.color;
-            color = (color == "rgb(221, 221, 221)") ? "rgb(0, 0, 0)" : "rgb(221, 221, 221)";
+            const light = "rgb(250, 250, 250)";
+            const dark = "rgb(0, 0, 0)";
+            color = (color === light) ? dark : light;
             let background = content.style.backgroundColor;
-            background = (background == "rgb(0, 0, 0)") ? "rgb(221, 221, 221)" : "rgb(0, 0, 0)";
+            background = (background === dark) ? light : dark;
+            //moon.src = (background === dark) ? './assets/moonWhite.png' : './assets/moonBlack.png';
+            //sun.src = (background === dark) ? './assets/sunWhite.png' : './assets/sunBlack.png';
             content.style.color = color;
             content.style.backgroundColor = background;
             root.style.setProperty('--videoButtonBackground', background);
