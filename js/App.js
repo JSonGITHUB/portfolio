@@ -17,14 +17,17 @@ const app = (() => {
         )
     })();
     return {
+        currentPage: "Resume",
         darkMode: false,
         navigation: () => privateData.navigation.selections,
         resume: () => {
+            app.currentPage = "Resume";
             app.analytics('/resume');
             app.insertNav();
             privateData.resume.content.forEach((eachLine, i) => content.innerHTML += eachLine.line);
         },
         mobile: () => {
+            app.currentPage = "Mobile";
             let ua = navigator.userAgent.toLowerCase();
             app.analytics('/mobile');
             app.insertNav();
@@ -41,6 +44,7 @@ const app = (() => {
             }
         },
         interactive: () => {
+            app.currentPage = "Marketing";
             let ua = navigator.userAgent.toLowerCase();
             app.analytics('/web');
             app.insertNav();
@@ -57,11 +61,13 @@ const app = (() => {
             }
         },
         advertising: () => {
+            app.currentPage = "Advertising";
             app.analytics('/advertising');
             app.insertNav();
             if (hasFlash) { app.banners() } else { app.videos() }
         },
         banners: () => {
+            app.currentPage = "Banners";
             privateData.advertising.banners.forEach((banner, i) => {
                 element = document.createElement("object");
                 element.id="banner"+i; 
@@ -73,6 +79,7 @@ const app = (() => {
             })
         },
         videos: () => {
+            app.currentPage = "Videos";
             let videoElement;
             privateData.advertising.videos.forEach((video, i) => {
                 content.innerHTML += "<video id='vid" + i +
@@ -89,12 +96,17 @@ const app = (() => {
         },
         insertNav: () => {
             let slider = "<input type='checkbox' checked onclick='app.toggleBackground()'>";
+            const fontIncreaser = "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>";
+            const fontDecreaser = "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div>";
+            let fontSizeInterface = fontIncreaser + fontDecreaser;
             if (app.darkMode) { slider = "<input type='checkbox' onclick='app.toggleBackground()'>" }
+            if (app.currentPage !== "Resume") {
+                fontSizeInterface = "";
+            }
             if (!document.getElementById("navSpacer")) {
                 content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div>"+
         //                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
-                    "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>"+
-                    "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div>"+
+                    fontSizeInterface +
                     //"<img id='moon' class='lightIcon' onclick='app.toggleBackground()' src='./assets/moonBlack.png' alt='light' height='15' width='15' />"+
                     "<div id='darkModeToggle' class='ml-20'>"+
                         "<label class='switch'>"+
@@ -181,6 +193,7 @@ const app = (() => {
             btn.blur(); 
         },
         eCommerce: () => {
+            app.currentPage = "eCommerce";
             app.analytics('/ecommerce');
             app.insertNav();
             let ua = navigator.userAgent.toLowerCase();
@@ -197,6 +210,7 @@ const app = (() => {
             }
         },
         html5: () => {
+            app.currentPage = "HTML5";
             app.analytics('/applications');
             app.insertNav();
             let ua = navigator.userAgent.toLowerCase();
