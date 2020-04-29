@@ -22,7 +22,7 @@ const app = (() => {
             app.analytics('/resume');
             app.insertNav();
             privateData.resume.content.forEach((eachLine, i) => content.innerHTML += eachLine.line);
-            content.innerHTML += `<br><br>${window.innerWidth}`;
+            content.innerHTML += `<br><br>Width: ${window.innerWidth}`;
         },
         mobile: () => {
             let ua = navigator.userAgent.toLowerCase();
