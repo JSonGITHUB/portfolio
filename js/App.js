@@ -114,7 +114,7 @@ const app = (() => {
         addPadding: () => app.padding = app.padding+1,
         minusPadding: () => app.padding = app.padding-1,
         increaseFontSize: () => {
-            if (app.fontSize < 42) {
+            if ((window.innerWidth >= 400 && app.fontSize < 42) || (window.innerWidth < 400 && app.fontSize < 20)) {
                 app.addFontSize();
                 app.addPadding();
                 app.addLineHeight();
