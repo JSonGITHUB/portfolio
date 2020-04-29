@@ -17,6 +17,7 @@ const app = (() => {
         )
     })();
     return {
+        darkMode: false,
         navigation: () => privateData.navigation.selections,
         resume: () => {
             app.analytics('/resume');
@@ -87,15 +88,17 @@ const app = (() => {
             })
         },
         insertNav: () => {
+            let slider = "<input type='checkbox' checked onclick='app.toggleBackground()'>";
+            if (app.darkMode) { slider = "<input type='checkbox' onclick='app.toggleBackground()'>" }
             if (!document.getElementById("navSpacer")) {
                 content.innerHTML += "<div class='nav mb-3'><div id='navSpacer'></div>"+
-//                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
+        //                    "<div id='backgroundToggler' onclick='app.toggleBackground()'>*</div>"+
                     "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>"+
                     "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div>"+
                     //"<img id='moon' class='lightIcon' onclick='app.toggleBackground()' src='./assets/moonBlack.png' alt='light' height='15' width='15' />"+
                     "<div id='darkModeToggle' class='ml-20'>"+
                         "<label class='switch'>"+
-                            "<input type='checkbox' checked onclick='app.toggleBackground()'>"+
+                            slider+
                             "<span class='slider round'></span>"+
                         "</label>"+
                     "</div>"+
@@ -139,6 +142,7 @@ const app = (() => {
             color = (color === light) ? dark : light;
             let background = content.style.backgroundColor;
             background = (background === dark) ? light : dark;
+            app.darkMode = (background === dark) ? true : false;
             //moon.src = (background === dark) ? './assets/moonWhite.png' : './assets/moonBlack.png';
             //sun.src = (background === dark) ? './assets/sunWhite.png' : './assets/sunBlack.png';
             content.style.color = color;
