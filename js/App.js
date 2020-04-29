@@ -93,7 +93,7 @@ const app = (() => {
                     "<div id='fontIncreaser' onclick='app.increaseFontSize()'>+</div>"+
                     "<div id='fontDecreaser' onclick='app.decreaseFontSize()'>-</div>"+
                     //"<img id='moon' class='lightIcon' onclick='app.toggleBackground()' src='./assets/moonBlack.png' alt='light' height='15' width='15' />"+
-                    "<div class='ml-20'>"+
+                    "<div id='darkModeToggle' class='ml-20'>"+
                         "<label class='switch'>"+
                             "<input type='checkbox' checked onclick='app.toggleBackground()'>"+
                             "<span class='slider round'></span>"+
@@ -103,21 +103,30 @@ const app = (() => {
                 "</div>";
             }
         },
+        padding: 0,
         fontSize: 12,
         line_height: 25,
         addFontSize: () => app.fontSize = app.fontSize+2,
         minusFontSize: () => app.fontSize = app.fontSize-2,
         addLineHeight: () => app.line_height = app.line_height+2,
         minusLineHeight: () => app.line_height = app.line_height-2,
+        addPadding: () => app.padding = app.padding+1,
+        minusPadding: () => app.padding = app.padding-1,
         increaseFontSize: () => {
-            app.addFontSize();
-            app.addLineHeight();
-            app.updateFontSize();
+            if (app.fontSize < 42) {
+                app.addFontSize();
+                app.addPadding();
+                app.addLineHeight();
+                app.updateFontSize();
+            }
         },
         decreaseFontSize: () => { 
-            app.minusFontSize();
-            app.minusLineHeight();
-            app.updateFontSize();
+            if (app.fontSize > 10) {
+                app.minusFontSize();
+                app.minusPadding();
+                app.minusLineHeight();
+                app.updateFontSize();
+            }
         },
         toggleBackground: () => {
             const root = document.documentElement;
@@ -142,7 +151,7 @@ const app = (() => {
         updateFontSize: () => {
             document.getElementById("content").style.fontSize = app.fontSize + 'px';
             document.getElementById("content").style.lineHeight = app.line_height + 'px';
-        
+            document.getElementById("darkModeToggle").style.paddingTop = app.padding + 'px';
         },
         playPause: (btn, id) => {
             let all = document.getElementsByTagName("video");
