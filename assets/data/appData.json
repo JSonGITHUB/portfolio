@@ -142,6 +142,21 @@
                 "18ft"
             ]
         }
+        {
+            "type": "selector",
+            "description": "Shape", 
+            "selections": [
+                "",
+                "Speedy runners"
+                "Peaky",
+                "Bowly",
+                "Close-outs",
+                "Barreling",
+                "Mush burgers",
+                "Slopey",
+                "Slabbing"
+            ]
+        }
     ]
 },
 {
