@@ -107,12 +107,13 @@
             "description": "Height", 
             "selections": [
                 "",
-                "knee high",
-                "waist high",
-                "chest high",
-                "shoulder high",
-                "head high",
-                "over head",
+                "knee high", 
+                "waist high", 
+                "shoulder high", 
+                "head high", 
+                "over head", 
+                "foot over head", 
+                "couple of feet over head", 
                 "double over head",
                 "triple over head"
             ]
