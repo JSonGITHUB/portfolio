@@ -148,14 +148,14 @@
             "description": "Shape", 
             "selections": [
                 "",
-                "Speedy runners",
-                "Peaky",
-                "Bowly",
-                "Close-outs",
-                "Barreling",
-                "Mush burgers",
-                "Slopey",
-                "Slabbing"
+                "speedy runners",
+                "peaky",
+                "bowly",
+                "close-outs",
+                "barreling",
+                "mush burgers",
+                "slopey",
+                "slabbing"
             ]
         }
     ]
@@ -530,10 +530,10 @@
             "description": "Orientation", 
             "selections": [
                 "",
-                "Offshore",
-                "Onshore",
-                "Sideshore => rights",
-                "Sideshore => lefts"
+                "offshore",
+                "onshore",
+                "sideshore => rights",
+                "sideshore => lefts"
             ]
         },
         {
@@ -563,11 +563,11 @@
             "description": "Surface", 
             "selections": [
                 "",
-                "Oily Glass",
-                "Glassy",
-                "Texture",
-                "Choppy",
-                "Victory at sea"
+                "oily glass",
+                "glassy",
+                "texture",
+                "choppy",
+                "victory at sea"
             ]
         }
     ]
