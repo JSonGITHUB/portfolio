@@ -215,7 +215,6 @@
             "type": "selector",
             "description": "Angle", 
             "selections": [
-                "",
                 "0",
                 "5",
                 "10",
@@ -370,7 +369,6 @@
             "type": "selector",
             "description": "Angle", 
             "selections": [
-                "",
                 "0",
                 "5",
                 "10",
@@ -525,7 +523,6 @@
             "type": "selector",
             "description": "Angle", 
             "selections": [
-                "",
                 "0",
                 "5",
                 "10",
