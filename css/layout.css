@@ -7,7 +7,8 @@
 	--pause: url(/portfolio/assets/icons/pause.png);
 }
 ul {
-	margin-left: 50px;
+	padding-left: 50px;
+	
 }
 .noscroll { 
 	overflow: hidden;
