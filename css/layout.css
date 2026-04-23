@@ -6,6 +6,9 @@
 	--play: url(/portfolio/assets/icons/play.png);
 	--pause: url(/portfolio/assets/icons/pause.png);
 }
+ul {
+	margin-left: 50px;
+}
 .noscroll { 
 	overflow: hidden;
 }
