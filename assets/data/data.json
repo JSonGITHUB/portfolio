@@ -58,7 +58,7 @@
             { "line": "</ul>" },
             { "line": "<br><br><br>" },
 
-            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE</span><br><br>" },
+            { "line": "<span class='title'>PROFESSIONAL EXPERIENCE</span><br><br><br>" },
 
             { "line": "<span class='title'>Britech Consulting / Unisyn Voting Solutions</span>, Remote<br>" },
             { "line": "<span class='title'>Software Engineer – Frontend</span><br>" },
