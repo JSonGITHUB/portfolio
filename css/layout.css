@@ -6,6 +6,9 @@
 	--play: url(/portfolio/assets/icons/play.png);
 	--pause: url(/portfolio/assets/icons/pause.png);
 }
+.mb--10 {
+	margin-bottom: -10px;
+}
 ul {
 	padding-left: 50px;
 	
