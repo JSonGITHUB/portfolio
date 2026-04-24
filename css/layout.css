@@ -169,6 +169,7 @@ object {
 	flex: 100%;
 }
 li {
+	margin-top: -10px;
 	margin-left: 20px;
 	padding-left: 6px;
 }
