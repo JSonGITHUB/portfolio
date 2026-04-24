@@ -165,6 +165,10 @@ object {
 	-ms-flex: 100%;
 	flex: 100%;
 }
+li {
+	margin-left: 20px;
+	padding-left: 6px;
+}
 .headshot {
 	height: 40px;
 	width: 40px;
