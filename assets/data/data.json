@@ -48,7 +48,7 @@
             { "line": "<b>AI-Assisted Development:</b> GitHub Copilot, ChatGPT, Claude <br>" },
             { "line": "<b>Other:</b> Google Analytics/Data Layer, Pingdom, Linux, NPM<br><br><br>" },
             
-            { "line": "<b>CORE STRENGTHS</b>" },
+            { "line": "<b class='mb--10'>CORE STRENGTHS</b>" },
             { "line": "<ul>" },
             { "line": "<li>Component-based architecture & reusable UI systems</li>" },
             { "line": "<li>Performance optimization and debugging complex UI issues</li>" },
