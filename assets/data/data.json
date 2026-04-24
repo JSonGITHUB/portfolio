@@ -128,7 +128,7 @@
             { "line": "<li>Implemented analytics tracking and performance monitoring</li>" },
             { "line": "</ul>" },
             { "line": "<br><br>" },
-            { "line": "<span class='title'>EDUCATION</span><br><br>" },
+            { "line": "<span class='title'>EDUCATION</span><br>" },
             { "line": "Bachelor of Science, Computer Information Systems<br>" },
             { "line": "Dowling College<br>" }
         ]
