@@ -43,6 +43,12 @@ const app = (() => {
                 app.getLazy(".mobileImage");
             }
         },
+        applications: () => {
+            app.currentPage = "Applications";
+            app.analytics('/applications');
+            app.insertNav();
+            app.createIframe();
+        },
         interactive: () => {
             app.currentPage = "Marketing";
             let ua = navigator.userAgent.toLowerCase();
@@ -212,7 +218,7 @@ const app = (() => {
         },
         html5: () => {
             app.currentPage = "HTML5";
-            app.analytics('/applications');
+            app.analytics('/html5');
             app.insertNav();
             let ua = navigator.userAgent.toLowerCase();
             if (ua.indexOf('safari') != -1) { 
