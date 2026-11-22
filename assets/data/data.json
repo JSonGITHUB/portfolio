@@ -6,7 +6,7 @@
             { "page": "eLearning", "function": "app.html5()" },
             { "page": "Embedded Mobile", "function": "app.mobile()" },
             { "page": "Marketing", "function": "app.interactive()" },
-            { "page": "Advertising", "function": "app.advertising()" }
+            { "page": "Advertising", "function": "app.advertising()" },
             { "page": "Applications", "function": "app.applications()" }
         ]
     },
