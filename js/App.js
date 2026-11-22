@@ -217,6 +217,7 @@ const app = (() => {
             app.createIframe();
         },
         html5: () => {
+            alert('test');
             app.currentPage = "HTML5";
             app.analytics('/applications');
             app.insertNav();
