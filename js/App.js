@@ -25,6 +25,7 @@ const app = (() => {
             app.analytics('/resume');
             app.insertNav();
             privateData.resume.content.forEach((eachLine, i) => content.innerHTML += eachLine.line);
+            app.createIframe();
         },
         mobile: () => {
             app.currentPage = "Mobile";
@@ -42,6 +43,7 @@ const app = (() => {
                 app.getImages("mobileImage", "assets/mobile/", privateData.mobile.images, 0);
                 app.getLazy(".mobileImage");
             }
+            app.createIframe();
         },
         interactive: () => {
             app.currentPage = "Marketing";
@@ -66,6 +68,7 @@ const app = (() => {
             app.analytics('/advertising');
             app.insertNav();
             if (hasFlash) { app.banners() } else { app.videos() }
+            app.createIframe();
         },
         banners: () => {
             app.currentPage = "Banners";
@@ -78,6 +81,7 @@ const app = (() => {
                if (banner.height < banner.width) { element.className = "ad" }
                content.appendChild(element);
             })
+            app.createIframe();
         },
         videos: () => {
             app.currentPage = "Videos";
@@ -94,6 +98,7 @@ const app = (() => {
                 i +")'>" +
                 "</button>";
             })
+            app.createIframe();
         },
         insertNav: () => {
             let slider = "<input type='checkbox' checked onclick='app.toggleBackground()'>";
@@ -209,6 +214,7 @@ const app = (() => {
                 app.getImages("interactive", "portfolio/", privateData.eCommerce.images, 0);
                 app.getLazy(".interactive");
             }
+            app.createIframe();
         },
         html5: () => {
             app.currentPage = "HTML5";
@@ -226,6 +232,7 @@ const app = (() => {
                 app.getImages("mobileImage", "portfolio/", privateData.html5.images, 0);
                 app.getLazy(".mobileImage");
             }
+            app.createIframe();
         },
         clearContent: () => {
             content.innerHTML = "";
