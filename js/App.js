@@ -43,16 +43,6 @@ const app = (() => {
                 app.getLazy(".mobileImage");
             }
         },
-        createIframe: () => {
-            const element = document.createElement("iframe");
-            element.id = "iframe1";
-            element.src = "https://jsongithub.github.io/roicalculator/ROICalculator";
-            element.style.width = "100%";
-            element.style.height = "1950px";
-            element.style.border = "none";
-            element.scrolling = "no";
-            return element;
-        },
         interactive: () => {
             app.currentPage = "Marketing";
             let ua = navigator.userAgent.toLowerCase();
@@ -307,6 +297,16 @@ const app = (() => {
                     content.appendChild(imgElement);
                 });
             }
+        },
+        createIframe: () => {
+            const element = document.createElement("iframe");
+            element.id = "iframe1";
+            element.src = "https://jsongithub.github.io/roicalculator/ROICalculator";
+            element.style.width = "100%";
+            element.style.height = "1950px";
+            element.style.border = "none";
+            element.scrolling = "no";
+            return element;
         },
         getLazy: (css) => {
             const images = document.querySelectorAll(css);
