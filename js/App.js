@@ -59,13 +59,13 @@ const app = (() => {
                 app.getImages("interactive", "assets/290/", privateData.interactive.images, 0);
                 app.getLazy(".interactive");
             }
-            app.createIframe();
         },
         advertising: () => {
             app.currentPage = "Advertising";
             app.analytics('/advertising');
             app.insertNav();
             if (hasFlash) { app.banners() } else { app.videos() }
+            app.createIframe();
         },
         banners: () => {
             app.currentPage = "Banners";
@@ -211,7 +211,6 @@ const app = (() => {
             }
         },
         html5: () => {
-            alert('test');
             app.currentPage = "HTML5";
             app.analytics('/applications');
             app.insertNav();
