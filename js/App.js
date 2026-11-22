@@ -71,7 +71,6 @@ const app = (() => {
             app.analytics('/advertising');
             app.insertNav();
             if (hasFlash) { app.banners() } else { app.videos() }
-            app.createIframe();
         },
         banners: () => {
             app.currentPage = "Banners";
