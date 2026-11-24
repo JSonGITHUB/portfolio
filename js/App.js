@@ -303,7 +303,19 @@ const app = (() => {
                 });
             }
         },
-        createIframe: (src = "https://jsongithub.github.io/roicalculator/ROICalculator", height = "2168px", id = "iframe1") => {
+        applicationsDescription: () => {
+            content.innerHTML += `<div class='applications-description'>
+                Ocusci, Remote
+                Frontend Developer
+                May 2025
+                <ul>
+                    <li>Developed an interactive ROI calculator using React, enabling real-time user input and dynamic data updates</li>
+                    <li>Built reusable components and optimized rendering performance for responsiveness across devices</li>
+                    <li>Leveraged GitHub Copilot to accelerate development while maintaining control over logic and architecture</li>
+                </ul>
+            </div>`;
+        },
+        createIframe: (src = "https://jsongithub.github.io/roicalculator/ROICalculator", height = "2168px", id = "iframe1", border = "none", scrolling = "no") => {
             // Don't add a second one if it's already on the page
             if (document.getElementById(id)) return document.getElementById(id);
         
@@ -318,6 +330,13 @@ const app = (() => {
             element.scrolling = "no";
             content.appendChild(element);
             return element;
+        },
+        applications: () => {
+            app.currentPage = "Applications";
+            app.analytics('/applications');
+            app.insertNav();
+            app.applicationsDescription();
+            content.appendChild(app.createIframe());
         },
         getLazy: (css) => {
             const images = document.querySelectorAll(css);
