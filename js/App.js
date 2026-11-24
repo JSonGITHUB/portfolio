@@ -304,7 +304,7 @@ const app = (() => {
             }
         },
         applicationsDescription: () => {
-            content.innerHTML += `<div class='applications-description'>
+            content.innerHTML += `<div class='applications-description' style='text-align: left'>
                 Ocusci, Remote
                 Frontend Developer
                 May 2025
