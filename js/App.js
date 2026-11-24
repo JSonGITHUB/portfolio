@@ -308,7 +308,7 @@ const app = (() => {
                 Ocusci, Remote
                 Frontend Developer
                 May 2025
-                <ul>
+               <ul style="margin-left: -50px; margin-top: 5px;">
                     <li>Developed an interactive ROI calculator using React, enabling real-time user input and dynamic data updates</li>
                     <li>Built reusable components and optimized rendering performance for responsiveness across devices</li>
                     <li>Leveraged GitHub Copilot to accelerate development while maintaining control over logic and architecture</li>
