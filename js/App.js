@@ -303,7 +303,7 @@ const app = (() => {
                 });
             }
         },
-        createIframe: (src = "https://jsongithub.github.io/roicalculator/ROICalculator", height = "2000px", id = "iframe1") => {
+        createIframe: (src = "https://jsongithub.github.io/roicalculator/ROICalculator", height = "3000px", id = "iframe1") => {
             // Don't add a second one if it's already on the page
             if (document.getElementById(id)) return document.getElementById(id);
         
